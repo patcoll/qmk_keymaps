@@ -1,0 +1,27 @@
+#!/bin/bash
+dir=$PWD
+keymaps=$(find keyboards -depth -type d -links 2)
+
+if [[ ! -d "$dir/qmk_firmware" ]]; then
+  echo "$dir/qmk_firmware" does not exist
+  exit 1
+fi
+
+for keymap in $keymaps
+do
+  if [[ ! -d "$dir/$keymap" ]]; then
+    echo "$dir/$keymap" does not exist
+    exit 1
+  fi
+
+  echo -n creating link "$dir/$keymap" '->' "$dir/qmk_firmware/$keymap"... ''
+
+  ln -nfs "$dir/$keymap" "$dir/qmk_firmware/$keymap"
+
+  if [[ $? = 0 ]]; then
+    echo done.
+  else
+    echo error.
+    exit 1
+  fi
+done
