@@ -1,4 +1,4 @@
-#define TAPPING_TERM 180
+#define TAPPING_TERM 160
 
 // Mouse key speed and acceleration.
 #undef MOUSEKEY_DELAY

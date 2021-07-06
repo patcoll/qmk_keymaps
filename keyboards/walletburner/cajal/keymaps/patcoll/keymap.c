@@ -43,12 +43,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         RESET,   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         _______, _______, _______, S(C(KC_C)), S(C(KC_V)), _______, _______, _______, RGB_SAD, RGB_SAI, _______, RGB_VAI,
-        _______, _______, _______, _______, _______, _______, _______, RGB_HUD, RGB_VAD, RGB_HUI
+        _______, _______, _______, _______, _______, RGB_TOG, _______, RGB_HUD, RGB_VAD, RGB_HUI
     ),
 
     [4] = LAYOUT_stagger(
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, _______,
+        _______, _______, _______, _______, _______, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, KC_QUOT,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_VOLU,
         _______, _______, _______, _______, _______, _______, _______, KC_MNXT, KC_VOLD, KC_MPLY
     ),
@@ -57,20 +57,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, _______, _______,
         _______, _______, _______, _______, _______, _______, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, _______, KC_MS_U,
-        _______, _______, _______, KC_BTN1, KC_BTN1, KC_BTN3, KC_BTN2, KC_MS_L, KC_MS_D, KC_MS_R
+        _______, _______, KC_BTN1, KC_BTN1, KC_BTN1, KC_BTN3, KC_BTN2, KC_MS_L, KC_MS_D, KC_MS_R
     )
 };
 
 void matrix_init_user(void) {
     // set  LED 1 to output and low
     setPinOutput(B5);
-    writePinHigh(B5);
+    writePinLow(B5);
     // set LED 2 to output and low
     setPinOutput(B6);
-    writePinHigh(B6);
+    writePinLow(B6);
     // set LED 3 to output and low
     setPinOutput(B7);
-    writePinHigh(B7);
+    writePinLow(B7);
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
@@ -100,7 +100,7 @@ bool led_update_user(led_t led_state) {
     return false;
 }
 
-void encoder_update_user(uint8_t index, bool clockwise) {
+bool encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {
         if (clockwise) {
             tap_code(KC_VOLD);
@@ -108,5 +108,7 @@ void encoder_update_user(uint8_t index, bool clockwise) {
             tap_code(KC_VOLU);
         }
     }
+
+    return true;
 }
 
