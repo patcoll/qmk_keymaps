@@ -1,7 +1,14 @@
 #define TAPPING_TERM 175
+#define TAPPING_TERM_PER_KEY
 
-#define COMBO_COUNT 12
-#define COMBO_TERM 165
+// #define PERMISSIVE_HOLD
+#undef  PERMISSIVE_HOLD
+#define PERMISSIVE_HOLD_PER_KEY
+
+#define IGNORE_MOD_TAP_INTERRUPT
+
+#define COMBO_COUNT 39
+#define COMBO_TERM 30
 
 // Mouse key speed and acceleration.
 #undef MOUSEKEY_DELAY
