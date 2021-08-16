@@ -16,6 +16,15 @@
 
 #include QMK_KEYBOARD_H
 
+/* uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) { */
+/*   switch (keycode) { */
+/*     case LT(2, KC_SPC): */
+/*       return TAPPING_TERM + 15; */
+/*     default: */
+/*       return TAPPING_TERM; */
+/*   } */
+/* } */
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [0] = LAYOUT_stagger(
