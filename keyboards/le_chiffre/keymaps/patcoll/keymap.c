@@ -10,28 +10,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[HOME] = LAYOUT(
 		LCTL_T(KC_Q), LT(1, KC_W), KC_E, KC_R, KC_T, KC_MPLY, KC_Y, KC_U, KC_I, KC_O, KC_P,
 		KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, TO(1),
-		LT(1, KC_Z), LT(2, KC_X), KC_C, LCTL_T(KC_V), KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH,
-    KC_LCTL, MT(MOD_LSFT, KC_SPC), MT(MOD_LCTL, KC_ENT), KC_LALT
+		LT(1, KC_Z), LT(2, KC_X), KC_C, LCTL_T(KC_V), KC_B, KC_N, KC_M, KC_COMM, KC_DOT, LALT_T(KC_SLSH),
+    KC_LCTL, MT(MOD_LSFT, KC_SPC), MT(MOD_LSFT, KC_ENT), KC_LCTL
   ),
 
 	[MODS] = LAYOUT(
 		LCTL_T(KC_1), KC_2, KC_3, KC_4, KC_5, KC_TRNS, KC_6, KC_7, KC_8, KC_9, KC_0,
 		LSFT_T(KC_BSPC), KC_ESC, KC_TAB, KC_SCLN, KC_QUOT, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, TO(2),
-		KC_LCTL, KC_LGUI, KC_LALT, TO(0), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-    KC_LCTL, MT(MOD_LSFT, KC_SPC), MT(MOD_LCTL, KC_ENT), KC_LALT
+		KC_LCTL, KC_LGUI, KC_LALT, TO(0), KC_TRNS, KC_TRNS, KC_LBRC, KC_RBRC, KC_TRNS, KC_LALT,
+    KC_LCTL, MT(MOD_LSFT, KC_SPC), MT(MOD_LSFT, KC_ENT), KC_LCTL
   ),
 
 	[MODS2] = LAYOUT(
 		LCTL_T(KC_F1), KC_F2, KC_F3, KC_F4, KC_F5, KC_TRNS, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10,
 		KC_LSFT, KC_F11, KC_F12, KC_MINS, KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS, KC_GRV, TO(3),
-		RGB_VAI, RGB_VAD, RGB_HUI, TO(0), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-    KC_LCTL, MT(MOD_LSFT, KC_SPC), MT(MOD_LCTL, KC_ENT), KC_LALT
+		RGB_VAI, RGB_VAD, RGB_HUI, TO(0), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_LALT,
+    KC_LCTL, MT(MOD_LSFT, KC_SPC), MT(MOD_LSFT, KC_ENT), KC_LCTL
   ),
 
 	[OTHER] = LAYOUT(
 		KC_LCTL, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, KC_NO,
 		KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, KC_NO,
-		RESET, KC_NO, KC_NO, TO(0), KC_MPLY, KC_VOLD, KC_VOLU, KC_TRNS, KC_TRNS, KC_TRNS,
+		RESET, KC_NO, KC_NO, TO(0), KC_MPLY, KC_VOLD, KC_VOLU, KC_TRNS, KC_TRNS, KC_LALT,
     KC_NO, KC_BTN1, KC_BTN1, KC_NO
   ),
 };
@@ -54,7 +54,7 @@ enum combos {
 
   OP_COMBO,
 
-  /* QW_COMBO */
+  QW_COMBO,
   AS_COMBO,
 
   /* YU_COMBO */
@@ -92,6 +92,7 @@ enum combos {
   MPU_COMBO,
 
   MK_COMBO,
+  UL_COMBO,
 
   /* JKL_COMBO, */
   KL_COMBO,
@@ -114,7 +115,7 @@ enum combos {
 
 const uint16_t PROGMEM op_combo[] = {KC_O, KC_P, COMBO_END};
 
-/* const uint16_t PROGMEM qw_combo[] = {KC_Q, KC_W, COMBO_END}; */
+const uint16_t PROGMEM qw_combo[] = {KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM as_combo[] = {KC_A, KC_S, COMBO_END};
 
 /* const uint16_t PROGMEM yu_combo[] = {KC_Y, KC_U, COMBO_END}; */
@@ -152,6 +153,7 @@ const uint16_t PROGMEM cb_combo[] = {KC_COMM, KC_BSLS, COMBO_END};
 const uint16_t PROGMEM mpu_combo[] = {KC_MPLY, KC_MS_U, COMBO_END};
 
 const uint16_t PROGMEM mk_combo[] = {KC_M, KC_K, COMBO_END};
+const uint16_t PROGMEM ul_combo[] = {KC_UP, KC_LBRC, COMBO_END};
 
 /* const uint16_t PROGMEM jkl_combo[] = {KC_J, KC_K, KC_L, COMBO_END}; */
 const uint16_t PROGMEM kl_combo[] = {KC_K, KC_L, COMBO_END};
@@ -171,7 +173,8 @@ const uint16_t PROGMEM cs_combo[] = {KC_COMM, KC_SLSH, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
   [OP_COMBO] = COMBO(op_combo, KC_BSPC),
 
-  /* [QW_COMBO] = COMBO(qw_combo, KC_TAB), */
+  [QW_COMBO] = COMBO(qw_combo, KC_TAB),
+
   [AS_COMBO] = COMBO(as_combo, KC_TAB),
 
   /* [YU_COMBO] = COMBO(yu_combo, KC_ESC), */
@@ -209,6 +212,7 @@ combo_t key_combos[COMBO_COUNT] = {
   [MPU_COMBO] = COMBO(mpu_combo, KC_ENT),
 
   [MK_COMBO] = COMBO(mk_combo, KC_ENT),
+  [UL_COMBO] = COMBO(ul_combo, KC_ENT),
 
   /* [JKL_COMBO] = COMBO(jkl_combo, KC_SCLN), */
   [KL_COMBO] = COMBO(kl_combo, KC_QUOT),
@@ -229,22 +233,26 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     // Shift
     case MT(MOD_LSFT, KC_SPC):
-      return TAPPING_TERM - 15;
+    case MT(MOD_LSFT, KC_ENT):
+    case MT(MOD_LSFT, KC_Z):
+    case MT(MOD_LSFT, KC_SLSH):
+      return TAPPING_TERM - 25;
     default:
       return TAPPING_TERM;
   }
 }
 
 // copied from alpha keymap.
-bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-    // Shift
-    case MT(MOD_LSFT, KC_SPC):
-      return true;
-    default:
-      return false;
-  }
-}
+/* bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) { */
+/*   switch (keycode) { */
+/*     // Shift */
+/*     case MT(MOD_LSFT, KC_SPC): */
+/*     case MT(MOD_LSFT, KC_ENT): */
+/*       return true; */
+/*     default: */
+/*       return false; */
+/*   } */
+/* } */
 
 #ifdef OLED_DRIVER_ENABLE  //Special thanks to Sickbabies for this great OLED widget!
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {

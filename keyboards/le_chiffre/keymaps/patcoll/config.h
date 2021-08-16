@@ -18,12 +18,12 @@
 #define TAPPING_TERM 175
 #define TAPPING_TERM_PER_KEY
 
-#undef  PERMISSIVE_HOLD
-#define PERMISSIVE_HOLD_PER_KEY
+#define  PERMISSIVE_HOLD
+// #define PERMISSIVE_HOLD_PER_KEY
 
 #define IGNORE_MOD_TAP_INTERRUPT //helps with homerow mods
 
-#define COMBO_COUNT 30
+#define COMBO_COUNT 35
 #define COMBO_TERM 30
 
 // Mouse key speed and acceleration.
