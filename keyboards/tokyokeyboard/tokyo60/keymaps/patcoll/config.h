@@ -1,6 +1,10 @@
 #pragma once
 
 // place overrides here
+#define TAPPING_TERM 175
+
+#define COMBO_COUNT 39
+#define COMBO_TERM 30
 
 // Mouse key speed and acceleration.
 #undef MOUSEKEY_DELAY
