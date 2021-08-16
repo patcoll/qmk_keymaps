@@ -16,6 +16,7 @@ Run:
 
 - `init-qmk` to set up the default qmk repo, then
 - `init-keymaps` to symlink the keymaps
+- `init-userspace` to symlink the userspaces
 
 Then you may run `qmk compile` and `qmk flash` commands like normal. For example:
 
