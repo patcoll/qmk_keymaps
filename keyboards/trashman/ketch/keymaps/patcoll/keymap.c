@@ -1,27 +1,19 @@
 #include QMK_KEYBOARD_H
-
-#define CTL_ESC LCTL_T(KC_ESC)
-#define CTL_ENT LCTL_T(KC_ENT)
-#define SFT_ESC MT(MOD_LSFT, KC_ESC)
-#define SFT_SLSH MT(MOD_LSFT, KC_SLSH)
-#define LT1_ENT LT(1, KC_ENT)
-#define LT2_SPC LT(2, KC_SPC)
-#define LT3_TAB LT(3, KC_TAB)
-#define LT4_Q   LT(4, KC_Q)
+#include "patcoll.h"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 LAYOUT_all(
-  LT3_TAB, LT4_Q,   KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
+  SFT_TAB, CTL_Q,   LT1_W,   KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
   CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-  SFT_ESC, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_UP,   SFT_SLSH,
+  SFT_ESC, LT1_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_UP,   SFT_SLSH,
   KC_LCTL, KC_LGUI, KC_LALT, KC_SPC, KC_SPC,       KC_SPC, KC_LCTL, KC_LEFT, KC_DOWN, KC_RGHT
 ),
 
 LAYOUT_all( /* Right */
-  KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
-  _______, _______, _______, _______, _______, _______, _______, KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS,
-  _______, _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
+  KC_GRV,  CTL_1,   KC_2,    LT2_3,   LT2_4,   KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
+  _______, _______, _______, _______, _______, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, KC_BSLS,
+  _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______, _______,
   RESET,   _______, _______, _______,     _______,      _______, _______, _______, _______, _______
 ),
 
