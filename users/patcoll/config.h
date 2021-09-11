@@ -1,12 +1,14 @@
 #pragma once
 
 #undef TAPPING_TERM
-#define TAPPING_TERM 170
+#define TAPPING_TERM 175
+#define TAPPING_TOGGLE 2
 #define TAPPING_TERM_PER_KEY
 #define IGNORE_MOD_TAP_INTERRUPT
 #define TAPPING_FORCE_HOLD
 // #undef  PERMISSIVE_HOLD
-// #define PERMISSIVE_HOLD_PER_KEY
+// #define PERMISSIVE_HOLD
+#define PERMISSIVE_HOLD_PER_KEY
 
 // Mouse key speed and acceleration.
 #define MOUSEKEY_DELAY          0
@@ -17,35 +19,44 @@
 
 // Combos
 #ifdef COMBO_ENABLE
-#define COMBO_TERM 30
+#define COMBO_TERM 35
 #endif // COMBO_ENABLE
 
+// Define combos for alpha keyboard.
+#undef PATCOLL_ALPHA_COMBOS
+// #define PATCOLL_ALPHA_COMBOS
+
 // Ricing
-#define USB_POLLING_INTERVAL_MS 2
-#define QMK_KEYS_PER_SCAN 10
-#define FORCE_NKRO
+// #define USB_POLLING_INTERVAL_MS 2
+// #define QMK_KEYS_PER_SCAN 10
+// #define FORCE_NKRO
 
 // RGBLight
 #undef RGBLIGHT_HUE_STEP
-#define RGBLIGHT_HUE_STEP 5
+#define RGBLIGHT_HUE_STEP 1
 #undef RGBLIGHT_SAT_STEP
-#define RGBLIGHT_SAT_STEP 10
+#define RGBLIGHT_SAT_STEP 1
 #undef RGBLIGHT_VAL_STEP
-#define RGBLIGHT_VAL_STEP 10
+#define RGBLIGHT_VAL_STEP 1
 
 // RGB Matrix
 // RGB_Matrix settings
 #ifdef RGB_MATRIX_ENABLE
   #define RGB_MATRIX_FRAMEBUFFER_EFFECTS
   // #define RGB_MATRIX_KEYPRESSES // reacts to keypresses
+  #undef RGB_DISABLE_WHEN_USB_SUSPENDED
   #define RGB_DISABLE_WHEN_USB_SUSPENDED true // turn off effects when suspended
   #define RGB_MATRIX_LED_FLUSH_LIMIT 16 // limits in milliseconds how frequently an animation will update the LEDs. 16 (16ms) is equivalent to limiting to 60fps (increases keyboard responsiveness)
   #define RGB_MATRIX_MAXIMUM_BRIGHTNESS 150 // limits maximum brightness of LEDs to 150 out of 255. Higher may cause the controller to crash.
-  #define RGB_MATRIX_HUE_STEP 8
-  #define RGB_MATRIX_SAT_STEP 8
-  #define RGB_MATRIX_VAL_STEP 8
+  #undef RGB_MATRIX_HUE_STEP
+  #define RGB_MATRIX_HUE_STEP 1
+  #undef RGB_MATRIX_SAT_STEP
+  #define RGB_MATRIX_SAT_STEP 1
+  #undef RGB_MATRIX_VAL_STEP
+  #define RGB_MATRIX_VAL_STEP 1
+  #undef RGB_MATRIX_SPD_STEP
   #define RGB_MATRIX_SPD_STEP 10
-  #define RGB_MATRIX_STARTUP_MODE RGB_MATRIX_CYCLE_LEFT_RIGHT
+  // #define RGB_MATRIX_STARTUP_MODE RGB_MATRIX_CYCLE_LEFT_RIGHT
   /* Disable the animations you don't want/need.  You will need to disable a good number of these
     because they take up a lot of space.  Disable until you can successfully compile your firmware. */
   #define DISABLE_RGB_MATRIX_ALPHAS_MODS

@@ -1,14 +1,39 @@
 #include "patcoll.h"
 
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    // Shift
+    case SFT_SPC:
+    case SFT_ENT:
+      return TAPPING_TERM - 15;
+    default:
+      return TAPPING_TERM;
+  }
+}
+
+bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    // Shift
+    case SFT_SPC:
+    case SFT_ENT:
+      return true;
+    default:
+      return false;
+  }
+}
+
 #ifdef COMBO_ENABLE
 enum combos {
   /* FJ_ZER, */
   /* SCDN_ZER, */
 
   OP_COMBO = 0,
+  NT_COMBO,
+  LPRP_COMBO,
 
   QW_COMBO,
   AS_COMBO,
+  SD_COMBO,
 
   /* YU_COMBO */
   /* SS_COMBO */
@@ -62,6 +87,10 @@ enum combos {
   BM_COMBO,
   CS_COMBO,
 
+  MC_COMBO,
+  /* CD_COMBO, */
+  MD_COMBO,
+
   COMBO_LENGTH,
 };
 
@@ -71,9 +100,13 @@ uint16_t COMBO_LEN = COMBO_LENGTH; // remove the COMBO_COUNT define and use this
 /* const uint16_t PROGMEM scdn_zero[] = {KC_SCLN, KC_DOWN, COMBO_END}; */
 
 const uint16_t PROGMEM op_combo[] = {KC_O, KC_P, COMBO_END};
+const uint16_t PROGMEM nt_combo[] = {KC_9, KC_0, COMBO_END};
+const uint16_t PROGMEM lprp_combo[] = {KC_LPRN, KC_RPRN, COMBO_END};
 
 const uint16_t PROGMEM qw_combo[] = {KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM as_combo[] = {KC_A, KC_S, COMBO_END};
+
+const uint16_t PROGMEM sd_combo[] = {KC_S, KC_D, COMBO_END};
 
 /* const uint16_t PROGMEM yu_combo[] = {KC_Y, KC_U, COMBO_END}; */
 /* const uint16_t PROGMEM ss_combo[] = {KC_6, KC_7, COMBO_END}; */
@@ -127,12 +160,19 @@ const uint16_t PROGMEM ds_combo[] = {KC_DOT, KC_SLSH, COMBO_END};
 const uint16_t PROGMEM bm_combo[] = {KC_B, KC_M, COMBO_END};
 const uint16_t PROGMEM cs_combo[] = {KC_COMM, KC_SLSH, COMBO_END};
 
+const uint16_t PROGMEM mc_combo[] = {KC_M, KC_COMM, COMBO_END};
+const uint16_t PROGMEM md_combo[] = {KC_M, KC_DOT, COMBO_END};
+
 combo_t key_combos[] = {
   [OP_COMBO] = COMBO(op_combo, KC_BSPC),
+  [NT_COMBO] = COMBO(nt_combo, KC_BSPC),
+  [LPRP_COMBO] = COMBO(lprp_combo, KC_BSPC),
 
   [QW_COMBO] = COMBO(qw_combo, KC_TAB),
 
   [AS_COMBO] = COMBO(as_combo, KC_TAB),
+
+  [SD_COMBO] = COMBO(sd_combo, KC_TAB),
 
   /* [YU_COMBO] = COMBO(yu_combo, KC_ESC), */
   /* [SS_COMBO] = COMBO(ss_combo, KC_ESC), */
@@ -153,10 +193,10 @@ combo_t key_combos[] = {
   [RBBS_COMBO] = COMBO(rbbs_combo, KC_ESC),
   [MUMD_COMBO] = COMBO(mumd_combo, KC_ESC),
 
-  [HJ_COMBO] = COMBO(hj_combo, KC_ENT),
-  [LD_COMBO] = COMBO(ld_combo, KC_ENT),
-  [BR_COMBO] = COMBO(br_combo, KC_ENT),
-  [MLD_COMBO] = COMBO(mld_combo, KC_ENT),
+  /* [HJ_COMBO] = COMBO(hj_combo, KC_ENT), */
+  /* [LD_COMBO] = COMBO(ld_combo, KC_ENT), */
+  /* [BR_COMBO] = COMBO(br_combo, KC_ENT), */
+  /* [MLD_COMBO] = COMBO(mld_combo, KC_ENT), */
 
   [JI_COMBO] = COMBO(ji_combo, KC_ENT),
   [DE_COMBO] = COMBO(de_combo, KC_ENT),
@@ -174,6 +214,7 @@ combo_t key_combos[] = {
   /* [JKL_COMBO] = COMBO(jkl_combo, KC_SCLN), */
   [KL_COMBO] = COMBO(kl_combo, KC_QUOT),
 
+#ifdef PATCOLL_ALPHA_COMBOS
   [BN_COMBO] = COMBO(bn_combo, KC_COMM),
   [CD_COMBO] = COMBO(cd_combo, KC_COMM),
 
@@ -181,6 +222,12 @@ combo_t key_combos[] = {
   [DS_COMBO] = COMBO(ds_combo, KC_DOT),
 
   [BM_COMBO] = COMBO(bm_combo, KC_SLSH),
-  [CS_COMBO] = COMBO(cs_combo, KC_SLSH)
+  [CS_COMBO] = COMBO(cs_combo, KC_SLSH),
+#else
+  // standard layout
+  [MC_COMBO] = COMBO(mc_combo, KC_COMM),
+  [CD_COMBO] = COMBO(cd_combo, KC_DOT),
+  [MD_COMBO] = COMBO(md_combo, KC_SLSH),
+#endif
 };
 #endif // COMBO_ENABLE
