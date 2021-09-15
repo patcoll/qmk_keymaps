@@ -1,11 +1,165 @@
 #include "patcoll.h"
 
+bool is_win_switch_active = false;
+bool is_alt_tab_active = false;
+bool is_tab_switch_active = false;
+#ifdef QUICK_SWITCH
+bool is_quick_tab_active = false;
+uint16_t quick_tab_timer = 0;
+#endif
+#ifdef ENCODER_ENABLE
+bool is_alt_tab_enc_active = false;
+uint16_t alt_tab_enc_timer = 0;
+#endif
+
+void matrix_scan_user(void) {
+  // End fancy nav switching if the NAV layer has been deactivated.
+  if (is_win_switch_active && !IS_LAYER_ON(_NAV)) {
+    unregister_code(KC_LGUI);
+    is_win_switch_active = false;
+  }
+  if (is_alt_tab_active && !IS_LAYER_ON(_NAV)) {
+    unregister_code(KC_LALT);
+    is_alt_tab_active = false;
+  }
+  if (is_tab_switch_active && !IS_LAYER_ON(_NAV)) {
+    unregister_code(KC_LCTL);
+    is_tab_switch_active = false;
+  }
+# ifdef QUICK_SWITCH
+  if (is_quick_tab_active && timer_elapsed(quick_tab_timer) > 1000) {
+    unregister_code(KC_LALT);
+    is_quick_tab_active = false;
+  }
+# endif
+# ifdef ENCODER_ENABLE
+  if (is_alt_tab_enc_active) {
+    if (timer_elapsed(alt_tab_enc_timer) > 750) {
+      unregister_code(KC_LALT);
+      is_alt_tab_enc_active = false;
+    }
+  }
+# endif
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (record->event.pressed) {
+    // Window switching macro, only available when NAV layer is active.
+    /* if (keycode >= WNDW_1 && keycode <= WNDW_0) { */
+    /*   if (is_alt_tab_active) { */
+    /*     is_alt_tab_active = false; */
+    /*     unregister_code(KC_LALT); */
+    /*   } */
+    /*   if (is_tab_switch_active) { */
+    /*       is_tab_switch_active = false; */
+    /*       unregister_code(KC_LCTL); */
+    /*   } */
+    /*   if (!is_win_switch_active) { */
+    /*     is_win_switch_active = true; */
+    /*     register_code(KC_LGUI); */
+    /*   } */
+    /*   switch (keycode) { */
+    /*     case WNDW_0: */
+    /*       tap_code16(KC_0); */
+    /*       break; */
+    /*     case WNDW_1: */
+    /*       tap_code16(KC_1); */
+    /*       break; */
+    /*     case WNDW_2: */
+    /*       tap_code16(KC_2); */
+    /*       break; */
+    /*     case WNDW_3: */
+    /*       tap_code16(KC_3); */
+    /*       break; */
+    /*     case WNDW_4: */
+    /*       tap_code16(KC_4); */
+    /*       break; */
+    /*     case WNDW_5: */
+    /*       tap_code16(KC_5); */
+    /*       break; */
+    /*     case WNDW_6: */
+    /*       tap_code16(KC_6); */
+    /*       break; */
+    /*     case WNDW_7: */
+    /*       tap_code16(KC_7); */
+    /*       break; */
+    /*     case WNDW_8: */
+    /*       tap_code16(KC_8); */
+    /*       break; */
+    /*     case WNDW_9: */
+    /*       tap_code16(KC_9); */
+    /*       break; */
+    /*   } */
+    /*   return false; */
+    /* } */
+    switch (keycode) {
+      // Super Alt-Tab
+      case ALT_TAB:
+      case SALTTAB:
+        if (is_win_switch_active) {
+          is_win_switch_active = false;
+          unregister_code(KC_LGUI);
+        }
+        if (is_tab_switch_active) {
+          is_tab_switch_active = false;
+          unregister_code(KC_LCTL);
+        }
+        if (!is_alt_tab_active) {
+          is_alt_tab_active = true;
+          register_code(KC_LALT);
+        }
+        keycode == ALT_TAB ? tap_code16(KC_TAB) : tap_code16(S(KC_TAB));
+        return false;
+      // Super tab switching
+      case NXT_TAB:
+      case PRV_TAB:
+        if (is_win_switch_active) {
+          is_win_switch_active = false;
+          unregister_code(KC_LGUI);
+        }
+        if (is_alt_tab_active) {
+          is_alt_tab_active = false;
+          unregister_code(KC_LALT);
+        }
+        if (!is_tab_switch_active) {
+          is_tab_switch_active = true;
+          register_code(KC_LCTL);
+        }
+        keycode == NXT_TAB ? tap_code16(KC_TAB) : tap_code16(S(KC_TAB));
+        return false;
+#     ifdef QUICK_SWITCH
+      // Quickly toggle between windows with three fancy keys
+      case QCK_TAB:
+      case QCKSTAB:
+        if (!is_quick_tab_active) {
+          is_quick_tab_active = true;
+          register_code(KC_LALT);
+        }
+        keycode == QCK_TAB ? tap_code16(KC_TAB) : tap_code16(S(KC_TAB));
+        quick_tab_timer = timer_read();
+        return false;
+      case QCK_SEL:
+        if (is_quick_tab_active) {
+          is_quick_tab_active = false;
+          unregister_code(KC_LALT);
+        }
+        return false;
+#     endif
+    }
+  }
+
+  return true;
+}
+
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     // Shift
     case SFT_SPC:
     case SFT_ENT:
-      return TAPPING_TERM - 15;
+    case SFT_SCLN:
+    case SFT_QUOT:
+    case SFT_SLSH:
+      return TAPPING_TERM - 12;
     default:
       return TAPPING_TERM;
   }
@@ -16,6 +170,9 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     // Shift
     case SFT_SPC:
     case SFT_ENT:
+    case SFT_SCLN:
+    case SFT_QUOT:
+    case SFT_SLSH:
       return true;
     default:
       return false;
@@ -33,6 +190,7 @@ enum combos {
 
   QW_COMBO,
   AS_COMBO,
+  /* F1F2_COMBO, */
   SD_COMBO,
 
   /* YU_COMBO */
@@ -54,15 +212,15 @@ enum combos {
   RBBS_COMBO,
   MUMD_COMBO,
 
-  HJ_COMBO,
-  LD_COMBO,
-  BR_COMBO,
-  MLD_COMBO,
+  /* HJ_COMBO, */
+  /* LD_COMBO, */
+  /* BR_COMBO, */
+  /* MLD_COMBO, */
 
-  JI_COMBO,
-  DE_COMBO,
-  RBF8_COMBO,
-  MDWU_COMBO,
+  /* JI_COMBO, */
+  /* DE_COMBO, */
+  /* RBF8_COMBO, */
+  /* MDWU_COMBO, */
 
   BK_COMBO,
   CU_COMBO,
@@ -104,7 +262,9 @@ const uint16_t PROGMEM nt_combo[] = {KC_9, KC_0, COMBO_END};
 const uint16_t PROGMEM lprp_combo[] = {KC_LPRN, KC_RPRN, COMBO_END};
 
 const uint16_t PROGMEM qw_combo[] = {KC_Q, KC_W, COMBO_END};
+
 const uint16_t PROGMEM as_combo[] = {KC_A, KC_S, COMBO_END};
+/* const uint16_t PROGMEM f1f2_combo[] = {KC_F1, KC_F2, COMBO_END}; */
 
 const uint16_t PROGMEM sd_combo[] = {KC_S, KC_D, COMBO_END};
 
@@ -127,15 +287,15 @@ const uint16_t PROGMEM du_combo[] = {KC_DOWN, KC_UP, COMBO_END};
 const uint16_t PROGMEM rbbs_combo[] = {KC_RBRC, KC_BSLS, COMBO_END};
 const uint16_t PROGMEM mumd_combo[] = {KC_MS_U, KC_MS_D, COMBO_END};
 
-const uint16_t PROGMEM hj_combo[] = {KC_H, KC_J, COMBO_END};
-const uint16_t PROGMEM ld_combo[] = {KC_LEFT, KC_DOWN, COMBO_END};
-const uint16_t PROGMEM br_combo[] = {KC_LBRC, KC_RBRC, COMBO_END};
-const uint16_t PROGMEM mld_combo[] = {KC_MS_L, KC_MS_D, COMBO_END};
+/* const uint16_t PROGMEM hj_combo[] = {KC_H, KC_J, COMBO_END}; */
+/* const uint16_t PROGMEM ld_combo[] = {KC_LEFT, KC_DOWN, COMBO_END}; */
+/* const uint16_t PROGMEM br_combo[] = {KC_LBRC, KC_RBRC, COMBO_END}; */
+/* const uint16_t PROGMEM mld_combo[] = {KC_MS_L, KC_MS_D, COMBO_END}; */
 
-const uint16_t PROGMEM ji_combo[] = {KC_J, KC_I, COMBO_END};
-const uint16_t PROGMEM de_combo[] = {KC_DOWN, KC_8, COMBO_END};
-const uint16_t PROGMEM rbf8_combo[] = {KC_RBRC, KC_F8, COMBO_END};
-const uint16_t PROGMEM mdwu_combo[] = {KC_MS_D, KC_WH_U, COMBO_END};
+/* const uint16_t PROGMEM ji_combo[] = {KC_J, KC_I, COMBO_END}; */
+/* const uint16_t PROGMEM de_combo[] = {KC_DOWN, KC_8, COMBO_END}; */
+/* const uint16_t PROGMEM rbf8_combo[] = {KC_RBRC, KC_F8, COMBO_END}; */
+/* const uint16_t PROGMEM mdwu_combo[] = {KC_MS_D, KC_WH_U, COMBO_END}; */
 
 const uint16_t PROGMEM bk_combo[] = {KC_B, KC_K, COMBO_END};
 const uint16_t PROGMEM cu_combo[] = {KC_COMM, KC_UP, COMBO_END};
@@ -171,6 +331,7 @@ combo_t key_combos[] = {
   [QW_COMBO] = COMBO(qw_combo, KC_TAB),
 
   [AS_COMBO] = COMBO(as_combo, KC_TAB),
+  /* [F1F2_COMBO] = COMBO(f1f2_combo, A(KC_TAB)), */
 
   [SD_COMBO] = COMBO(sd_combo, KC_TAB),
 
@@ -198,15 +359,17 @@ combo_t key_combos[] = {
   /* [BR_COMBO] = COMBO(br_combo, KC_ENT), */
   /* [MLD_COMBO] = COMBO(mld_combo, KC_ENT), */
 
-  [JI_COMBO] = COMBO(ji_combo, KC_ENT),
-  [DE_COMBO] = COMBO(de_combo, KC_ENT),
-  [RBF8_COMBO] = COMBO(rbf8_combo, KC_ENT),
-  [MDWU_COMBO] = COMBO(mdwu_combo, KC_ENT),
+  /* [JI_COMBO] = COMBO(ji_combo, KC_ENT), */
+  /* [DE_COMBO] = COMBO(de_combo, KC_ENT), */
+  /* [RBF8_COMBO] = COMBO(rbf8_combo, KC_ENT), */
+  /* [MDWU_COMBO] = COMBO(mdwu_combo, KC_ENT), */
 
+#ifdef PATCOLL_ALPHA_COMBOS
   [BK_COMBO] = COMBO(bk_combo, KC_ENT),
   [CU_COMBO] = COMBO(cu_combo, KC_ENT),
   [CB_COMBO] = COMBO(cb_combo, KC_ENT),
   [MPU_COMBO] = COMBO(mpu_combo, KC_ENT),
+#endif
 
   [MK_COMBO] = COMBO(mk_combo, KC_ENT),
   [UL_COMBO] = COMBO(ul_combo, KC_ENT),
