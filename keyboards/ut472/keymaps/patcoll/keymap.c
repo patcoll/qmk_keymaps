@@ -1,48 +1,48 @@
 #include QMK_KEYBOARD_H
+#include "patcoll.h"
 
-#define CTL_ESC LCTL_T(KC_ESC)
-#define CTL_ENT LCTL_T(KC_ENT)
-#define SFT_ESC MT(MOD_LSFT, KC_ESC)
-#define SFT_SLSH MT(MOD_LSFT, KC_SLSH)
-#define LT1_ENT LT(1, KC_ENT)
-#define LT2_SPC LT(2, KC_SPC)
-#define LT3_TAB LT(3, KC_TAB)
-#define LT4_Q   LT(4, KC_Q)
+#define LAYOUT_wrapper(...) LAYOUT(__VA_ARGS__)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-
-LAYOUT(
-  LT3_TAB, LT4_Q,   KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
-  CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-  SFT_ESC, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_UP,   SFT_SLSH,
-  KC_LCTL, KC_LGUI, KC_LGUI, KC_LALT, LT2_SPC,     KC_SPC,       LT1_ENT, KC_LCTL, KC_LEFT, KC_DOWN, KC_RGHT
+[_QWERTY] = LAYOUT_wrapper(
+  SFT_TAB, _________________QWERTY_L1_________________, _________________QWERTY_R1_________________, KC_BSPC,
+  CTL_ESC, _________________QWERTY_L2_________________, _________________QWERTY_R2_________________, SFT_QUOT,
+  KC_LSFT, _________________QWERTY_L3_________________, _________________QWERTY_R3_ARROWS__________, SFT_SLSH,
+  KC_LCTL, KC_HYPR, KC_LGUI, KC_LALT, SFT_SPC, SFT_SPC,            RSE_ENT, KC_LCTL, __QWERTY_R3_ARROW_KEYS__
 ),
 
-LAYOUT( /* Right */
-  KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
-  _______, _______, _______, _______, _______, _______, _______, KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS,
-  _______, _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
-  RESET,   _______, _______, _______, _______,     _______,      _______, _______, _______, _______, _______
+[_NAV] = LAYOUT_wrapper(
+  KC_LSFT, __________________NAV_L1___________________, __________________NAV_R1___________________, CS_BSPC,
+  KC_LCTL, __________________NAV_L2___________________, __________________NAV_R2___________________, KC_BSLS,
+  KC_LSFT, __________________NAV_L3___________________, __________________NAV_R3_ARROWS____________, _______,
+  _______, _______, _______, _______, _______, _______,            _______,  _______, __NAV_R4_ARROW_KEYS___
 ),
 
-LAYOUT( /* Left */
-  KC_TILDE,  KC_EXCLAIM,  KC_AT,  KC_HASH,  KC_DOLLAR, KC_PERCENT, KC_CIRCUMFLEX, KC_AMPERSAND, KC_ASTERISK, KC_LEFT_PAREN, KC_RIGHT_PAREN, KC_BSPC,
-  _______, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_UNDERSCORE, KC_PLUS, KC_LEFT_CURLY_BRACE, KC_RIGHT_CURLY_BRACE, KC_PIPE,
-  _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,   KC_F11,   KC_F12,   _______,   _______,   _______,   KC_PGUP,  _______,
-  RESET,   _______, _______, _______, _______,     _______,      _______, _______, KC_HOME, KC_PGDN, KC_END
+[_LOWER] = LAYOUT_wrapper(
+  KC_TILDE,_________________LOWER_L1__________________, _________________LOWER_R1__________________, _______,
+  _______, _________________LOWER_L2__________________, _________________LOWER_R2__________________, KC_PIPE,
+  _______, _________________LOWER_L3__________________, _________________LOWER_R3_ARROWS___________, _______,
+  _______, _______, _______, _______, _______, _______,           _______,  _______, __LOWER_R4_ARROW_KEYS__
 ),
 
-LAYOUT( /* Tab */
-  _______,  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_PSCR,
-  _______, _______, _______, _______, _______, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, _______,
-  _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_VOLU, _______,
-  _______, _______, _______, _______, _______,     _______,      _______, _______, KC_MNXT, KC_VOLD, KC_MPLY
+[_RAISE] = LAYOUT_wrapper(
+  KC_GRV,  _________________RAISE_L1__________________, _________________RAISE_R1__________________, _______,
+  _______, _________________RAISE_L2__________________, _________________RAISE_R2__________________, KC_BSLS,
+  _______, _________________RAISE_L3__________________, _________________RAISE_R3_ARROWS___________, _______,
+  _______, _______, _______, _______, _______, _______,           _______,  _______, __RAISE_R3_ARROW_KEYS__
 ),
 
-LAYOUT( /* Q */
-  _______,  _______, _______, _______, _______, _______, RGB_TOG, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, KC_PSCR,
-  _______, _______, _______, _______, _______, _______, KC_MS_L, KC_MS_D, KC_MS_U,  KC_MS_R, _______, _______,
-  _______, _______, _______, _______, _______, _______, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, KC_MS_U, _______,
-  _______, _______, _______, KC_BTN1, KC_BTN1,     KC_BTN1,      KC_BTN1, KC_BTN2, KC_MS_L, KC_MS_D, KC_MS_R
+[_MEDIA] = LAYOUT_wrapper(
+  _______, _________________MEDIA_L1__________________, _________________MEDIA_R1__________________, _______,
+  _______, _________________MEDIA_L2__________________, _________________MEDIA_R2__________________, _______,
+  _______, _________________MEDIA_L3__________________, _________________MEDIA_R3_ARROWS___________, _______,
+  _______, _______, _______, _______, _______, _______,           _______,  _______, __MEDIA_R3_ARROW_KEYS__
+),
+
+[_MOUSE] = LAYOUT_wrapper(
+  _______, _________________MOUSE_L1__________________, _________________MOUSE_R1__________________, KC_PSCR,
+  _______, _________________MOUSE_L2__________________, _________________MOUSE_R2__________________, _______,
+  _______, _________________MOUSE_L3__________________, _________________MOUSE_R3_ARROWS___________, _______,
+  _______, _______, KC_BTN1, KC_BTN1, KC_BTN1, KC_BTN1,           KC_BTN1, KC_BTN2, __MOUSE_R3_ARROW_KEYS__
 ),
 };

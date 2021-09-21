@@ -17,36 +17,35 @@
  */
 
 #include QMK_KEYBOARD_H
+#include "patcoll.h"
 
+/* enum layers { */
+/*   _QWERTY, */
+/*   _LOWER, */
+/*   _RAISE, */
+/*   _NAV, */
+/*   _MOUSE */
+/* }; */
 
-
-enum layers {
-  _QWERTY,
-  _LOWER,
-  _RAISE,
-  _NAV,
-  _MOUSE
-};
-
-#define CTL_ESC    LCTL_T(KC_ESC)
-#define CTL_ENT    LCTL_T(KC_ENT)
-#define NAV_Z      LT(_NAV, KC_Z)
-#define MOUSE_X    LT(_MOUSE, KC_X)
-#define SFT_ESC    MT(MOD_LSFT, KC_ESC)
-#define SFT_SLS    MT(MOD_LSFT, KC_SLSH)
-#define RSE_ENT    LT(_RAISE, KC_ENT)
-#define RSE_BSPC   LT(_RAISE, KC_BSPC)
-#define LWR_SPC    LT(_LOWER, KC_SPC)
-#define NAV_TAB    LT(_NAV, KC_TAB)
-#define MOUSE_Q    LT(_MOUSE, KC_Q)
+/* #define CTL_ESC    LCTL_T(KC_ESC) */
+/* #define CTL_ENT    LCTL_T(KC_ENT) */
+/* #define NAV_Z      LT(_NAV, KC_Z) */
+/* #define MOUSE_X    LT(_MOUSE, KC_X) */
+/* #define SFT_ESC    MT(MOD_LSFT, KC_ESC) */
+/* #define SFT_SLS    MT(MOD_LSFT, KC_SLSH) */
+/* #define RSE_ENT    LT(_RAISE, KC_ENT) */
+/* #define RSE_BSPC   LT(_RAISE, KC_BSPC) */
+/* #define LWR_SPC    LT(_LOWER, KC_SPC) */
+/* #define NAV_TAB    LT(_NAV, KC_TAB) */
+/* #define MOUSE_Q    LT(_MOUSE, KC_Q) */
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_QWERTY] = LAYOUT_split_space(
      /* _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, */
-        NAV_TAB, MOUSE_Q, KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC, KC_BSPC, RGB_TOG,
+        SFT_TAB, CTL_Q,   LT1_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC, KC_BSPC, RGB_TOG,
         CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, _______,
-        KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  SFT_SLS, KC_UP,   _______,
+        KC_LSFT, LT1_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  SFT_SLS, KC_UP,   _______,
         KC_LCTL, KC_LGUI, KC_LALT, LWR_SPC, RSE_ENT, CTL_ENT, MO(3),                              KC_LEFT, KC_DOWN, KC_RGHT
     ),
 

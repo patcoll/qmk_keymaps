@@ -15,58 +15,52 @@
  */
 
 #include QMK_KEYBOARD_H
+#include "patcoll.h"
 
-/* uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) { */
-/*   switch (keycode) { */
-/*     case LT(2, KC_SPC): */
-/*       return TAPPING_TERM + 15; */
-/*     default: */
-/*       return TAPPING_TERM; */
-/*   } */
-/* } */
+#define LAYOUT_wrapper(...) LAYOUT_stagger(__VA_ARGS__)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-    [0] = LAYOUT_stagger(
-        LT(4, KC_TAB), LT(5, KC_Q), KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC, KC_BSPC, RGB_TOG,
-        LCTL_T(KC_ESC), KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT,
-        KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, MT(MOD_LSFT, KC_SLSH), KC_UP,
-        KC_LCTL, KC_LGUI, KC_LALT, LT(2, KC_SPC), LT(1, KC_ENT), LCTL_T(KC_ENT), MO(3), KC_LEFT, KC_DOWN, KC_RGHT
+    [_QWERTY] = LAYOUT_wrapper(
+        SFT_TAB, _________________QWERTY_L1_________________, _________________QWERTY_R1_________________, KC_BSPC, CS_BSPC, KC_MPLY,
+        CTL_ESC, _________________QWERTY_L2_________________, _________________QWERTY_R2_________________, SFT_QUOT,
+        KC_LSFT, _________________QWERTY_L3_________________, _________________QWERTY_R3_________________, KC_UP,
+        KC_LCTL, KC_LGUI, KC_LALT, LWR_SPC, RSE_ENT, CTL_ENT, KC_HYPR,                            KC_LEFT, KC_DOWN, KC_RGHT
     ),
 
-    [1] = LAYOUT_stagger(
-        KC_GRV, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSPC, KC_BSPC, _______,
-        KC_LCTL, _______, _______, _______, _______, _______, _______, KC_MINS, KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS,
-        KC_LSFT, _______, _______, _______, _______, _______, _______, _______, _______, _______,  KC_LSFT, KC_PGUP,
-        RESET,   _______, _______, _______, _______,  _______, _______, KC_HOME, KC_PGDN, KC_END
+    [_NAV] = LAYOUT_wrapper(
+        KC_LSFT, __________________NAV_L1___________________, __________________NAV_R1___________________, CS_BSPC, _______, _______,
+        KC_LCTL, __________________NAV_L2___________________, __________________NAV_R2___________________, KC_BSLS,
+        KC_LSFT, __________________NAV_L3___________________, __________________NAV_R3___________________, KC_PGUP,
+        _______, _______, _______, _______, _______, KC_LCTL, _______,                            KC_HOME, KC_PGDN, KC_END
     ),
 
-    [2] = LAYOUT_stagger(
-        KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC, KC_BSPC, _______,
-        _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,
-        _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______, RGB_SAD, RGB_SAI, _______, KC_PGUP,
-        _______, _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGDN, KC_END
+    [_LOWER] = LAYOUT_wrapper(
+        KC_TILD, _________________LOWER_L1__________________, _________________LOWER_R1__________________, _______, _______, _______,
+        KC_LCTL, _________________LOWER_L2__________________, _________________LOWER_R2__________________, KC_PIPE,
+        KC_LSFT, _________________LOWER_L3__________________, _________________LOWER_R3__________________, _______,
+        _______, _______, _______, _______, _______, KC_LCTL, _______,                            _______, _______, _______
     ),
 
-    [3] = LAYOUT_stagger(
-        RESET,   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, S(C(KC_C)), S(C(KC_V)), _______, _______, _______, RGB_SAD, RGB_SAI, _______, RGB_VAI,
-        _______, _______, _______, _______, _______, RGB_TOG, _______, RGB_HUD, RGB_VAD, RGB_HUI
+    [_RAISE] = LAYOUT_wrapper(
+        KC_GRV,  _________________RAISE_L1__________________, _________________RAISE_R1__________________, _______, _______, _______,
+        KC_LCTL, _________________RAISE_L2__________________, _________________RAISE_R2__________________, KC_BSLS,
+        KC_LSFT, _________________RAISE_L3__________________, _________________RAISE_R3__________________, _______,
+        _______, _______, _______, _______, _______, KC_LCTL, _______,                            _______, _______, _______
     ),
 
-    [4] = LAYOUT_stagger(
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, KC_QUOT,
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_VOLU,
-        _______, _______, _______, _______, _______, _______, _______, KC_MNXT, KC_VOLD, KC_MPLY
+    [_MEDIA] = LAYOUT_wrapper(
+        _______, _________________MEDIA_L1__________________, _________________MEDIA_R1__________________, _______, _______, _______,
+        _______, _________________MEDIA_L2__________________, _________________MEDIA_R2__________________, _______,
+        _______, _________________MEDIA_L3__________________, _________________MEDIA_R3__________________, _______,
+        _______, _______, _______, _______, _______, KC_LCTL, _______,                            _______, _______, _______
     ),
 
-    [5] = LAYOUT_stagger(
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, _______, _______,
-        _______, _______, _______, _______, _______, _______, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, _______, KC_MS_U,
-        _______, _______, KC_BTN1, KC_BTN1, KC_BTN1, KC_BTN3, KC_BTN2, KC_MS_L, KC_MS_D, KC_MS_R
+    [_MOUSE] = LAYOUT_wrapper(
+        KC_LSFT, _________________MOUSE_L1__________________, _________________MOUSE_R1__________________, KC_PSCR, _______, _______,
+        KC_LCTL, _________________MOUSE_L2__________________, _________________MOUSE_R2__________________, _______,
+        KC_LSFT, _________________MOUSE_L3__________________, _________________MOUSE_R3__________________, _______,
+        _______, _______, KC_BTN1, KC_BTN1, KC_BTN1, KC_BTN2, KC_BTN2,                            _______, _______, _______
     )
 };
 
