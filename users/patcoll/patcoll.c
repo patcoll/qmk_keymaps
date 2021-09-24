@@ -44,6 +44,18 @@ void matrix_scan_user(void) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed) {
+    if (keycode >= EX_PIPE && keycode <= EX_SEAR) {
+      switch (keycode) {
+        case EX_PIPE:
+          SEND_STRING("|>");
+          break;
+        case EX_SEAR:
+          SEND_STRING("elixir phoenix ");
+          break;
+      }
+      return false;
+    }
+
     // Window switching macro, only available when NAV layer is active.
     /* if (keycode >= WNDW_1 && keycode <= WNDW_0) { */
     /*   if (is_alt_tab_active) { */
@@ -200,6 +212,9 @@ enum combos {
 
   FG_COMBO,
 
+  DFDOT_COMBO,
+  DFP_COMBO,
+
   GH_COMBO,
 
   UI_COMBO,
@@ -278,6 +293,10 @@ const uint16_t PROGMEM df_combo[] = {KC_D, KC_F, COMBO_END};
 
 const uint16_t PROGMEM fg_combo[] = {KC_F, KC_G, COMBO_END};
 
+// TODO the alpha equivalent to this should be f and m
+const uint16_t PROGMEM dfdot_combo[] = {KC_D, KC_F, KC_DOT, COMBO_END};
+const uint16_t PROGMEM dfp_combo[] = {KC_D, KC_F, KC_P, COMBO_END};
+
 const uint16_t PROGMEM gh_combo[] = {KC_G, KC_H, COMBO_END};
 
 const uint16_t PROGMEM ui_combo[] = {KC_U, KC_I, COMBO_END};
@@ -347,6 +366,9 @@ combo_t key_combos[] = {
   [DF_COMBO] = COMBO(df_combo, KC_SCLN),
 
   [FG_COMBO] = COMBO(fg_combo, KC_MINS),
+
+  [DFDOT_COMBO] = COMBO(dfdot_combo, EX_PIPE),
+  [DFP_COMBO] = COMBO(dfp_combo, EX_SEAR),
 
   [GH_COMBO] = COMBO(gh_combo, KC_EQL),
 

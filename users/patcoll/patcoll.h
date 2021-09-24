@@ -25,6 +25,8 @@ enum userspace_custom_keycodes {
   SALTTAB,
   NXT_TAB,
   PRV_TAB,
+  EX_PIPE,
+  EX_SEAR,
   // WNDW_1,
   // WNDW_2,
   // WNDW_3,
