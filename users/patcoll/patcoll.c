@@ -212,6 +212,7 @@ enum combos {
   SF_COMBO,
   DF_COMBO,
 
+  DG_COMBO,
   FG_COMBO,
 
   DFDOT_COMBO,
@@ -295,6 +296,7 @@ const uint16_t PROGMEM sd_combo[] = {KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM sf_combo[] = {KC_S, KC_F, COMBO_END};
 const uint16_t PROGMEM df_combo[] = {KC_D, KC_F, COMBO_END};
 
+const uint16_t PROGMEM dg_combo[] = {KC_D, KC_G, COMBO_END};
 const uint16_t PROGMEM fg_combo[] = {KC_F, KC_G, COMBO_END};
 
 // TODO the alpha equivalent to this should be f and m
@@ -371,6 +373,7 @@ combo_t key_combos[] = {
   [SF_COMBO] = COMBO(sf_combo, KC_COLN),
   [DF_COMBO] = COMBO(df_combo, KC_SCLN),
 
+  [DG_COMBO] = COMBO(dg_combo, KC_UNDS),
   [FG_COMBO] = COMBO(fg_combo, KC_MINS),
 
   [DFDOT_COMBO] = COMBO(dfdot_combo, EX_PIPE),
