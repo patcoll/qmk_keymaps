@@ -218,7 +218,7 @@ enum combos {
 
   GH_COMBO,
 
-  UI_COMBO,
+  /* UI_COMBO, */
 
   /* SE_COMBO, */
   /* FSE_COMBO, */
@@ -231,7 +231,7 @@ enum combos {
 
   UR_COMBO,
 
-  /* HJ_COMBO, */
+  HJ_COMBO,
   /* LD_COMBO, */
   /* BR_COMBO, */
   /* MLD_COMBO, */
@@ -301,7 +301,7 @@ const uint16_t PROGMEM dfp_combo[] = {KC_D, KC_F, KC_P, COMBO_END};
 
 const uint16_t PROGMEM gh_combo[] = {KC_G, KC_H, COMBO_END};
 
-const uint16_t PROGMEM ui_combo[] = {KC_U, KC_I, COMBO_END};
+/* const uint16_t PROGMEM ui_combo[] = {KC_U, KC_I, COMBO_END}; */
 
 /* const uint16_t PROGMEM se_combo[] = {KC_7, KC_8, COMBO_END}; */
 /* const uint16_t PROGMEM fse_combo[] = {KC_F7, KC_F8, COMBO_END}; */
@@ -314,7 +314,7 @@ const uint16_t PROGMEM mumd_combo[] = {KC_MS_U, KC_MS_D, COMBO_END};
 
 const uint16_t PROGMEM ur_combo[] = {KC_UP, KC_RGHT, COMBO_END};
 
-/* const uint16_t PROGMEM hj_combo[] = {KC_H, KC_J, COMBO_END}; */
+const uint16_t PROGMEM hj_combo[] = {KC_H, KC_J, COMBO_END};
 /* const uint16_t PROGMEM ld_combo[] = {KC_LEFT, KC_DOWN, COMBO_END}; */
 /* const uint16_t PROGMEM br_combo[] = {KC_LBRC, KC_RBRC, COMBO_END}; */
 /* const uint16_t PROGMEM mld_combo[] = {KC_MS_L, KC_MS_D, COMBO_END}; */
@@ -375,7 +375,7 @@ combo_t key_combos[] = {
 
   [GH_COMBO] = COMBO(gh_combo, KC_EQL),
 
-  [UI_COMBO] = COMBO(ui_combo, TO(_RAISE)),
+  /* [UI_COMBO] = COMBO(ui_combo, TO(_RAISE)), */
 
   /* [SE_COMBO] = COMBO(se_combo, KC_ESC), */
   /* [FSE_COMBO] = COMBO(fse_combo, KC_ESC), */
@@ -388,7 +388,7 @@ combo_t key_combos[] = {
 
   [UR_COMBO] = COMBO(ur_combo, TO(_MOUSE)),
 
-  /* [HJ_COMBO] = COMBO(hj_combo, KC_ENT), */
+  [HJ_COMBO] = COMBO(hj_combo, TO(_RAISE)),
   /* [LD_COMBO] = COMBO(ld_combo, KC_ENT), */
   /* [BR_COMBO] = COMBO(br_combo, KC_ENT), */
   /* [MLD_COMBO] = COMBO(mld_combo, KC_ENT), */
