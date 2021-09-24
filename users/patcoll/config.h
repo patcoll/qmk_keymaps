@@ -20,7 +20,7 @@
 // Combos
 #ifdef COMBO_ENABLE
 // #define COMBO_COUNT 50
-#define COMBO_TERM 35
+#define COMBO_TERM 32
 #endif // COMBO_ENABLE
 
 // Define combos for alpha keyboard.
