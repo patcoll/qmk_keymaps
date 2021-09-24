@@ -197,6 +197,7 @@ enum combos {
   /* SCDN_ZER, */
 
   OP_COMBO = 0,
+  PBSP_COMBO,
   NT_COMBO,
   LPRP_COMBO,
 
@@ -276,6 +277,7 @@ uint16_t COMBO_LEN = COMBO_LENGTH; // remove the COMBO_COUNT define and use this
 /* const uint16_t PROGMEM scdn_zero[] = {KC_SCLN, KC_DOWN, COMBO_END}; */
 
 const uint16_t PROGMEM op_combo[] = {KC_O, KC_P, COMBO_END};
+const uint16_t PROGMEM pbsp_combo[] = {KC_P, KC_BSPC, COMBO_END};
 const uint16_t PROGMEM nt_combo[] = {KC_9, KC_0, COMBO_END};
 const uint16_t PROGMEM lprp_combo[] = {KC_LPRN, KC_RPRN, COMBO_END};
 
@@ -350,6 +352,7 @@ const uint16_t PROGMEM md_combo[] = {KC_M, KC_DOT, COMBO_END};
 
 combo_t key_combos[] = {
   [OP_COMBO] = COMBO(op_combo, KC_BSPC),
+  [PBSP_COMBO] = COMBO(pbsp_combo, KC_BSPC),
   [NT_COMBO] = COMBO(nt_combo, KC_BSPC),
   [LPRP_COMBO] = COMBO(lprp_combo, KC_BSPC),
 
