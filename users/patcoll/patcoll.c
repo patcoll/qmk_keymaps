@@ -231,6 +231,8 @@ enum combos {
   RBBS_COMBO,
   MUMD_COMBO,
 
+  JL_COMBO,
+
   UR_COMBO,
 
   HJ_COMBO,
@@ -316,6 +318,8 @@ const uint16_t PROGMEM du_combo[] = {KC_DOWN, KC_UP, COMBO_END};
 const uint16_t PROGMEM rbbs_combo[] = {KC_RBRC, KC_BSLS, COMBO_END};
 const uint16_t PROGMEM mumd_combo[] = {KC_MS_U, KC_MS_D, COMBO_END};
 
+const uint16_t PROGMEM jl_combo[] = {KC_J, KC_L, COMBO_END};
+
 const uint16_t PROGMEM ur_combo[] = {KC_UP, KC_RGHT, COMBO_END};
 
 const uint16_t PROGMEM hj_combo[] = {KC_H, KC_J, COMBO_END};
@@ -391,6 +395,8 @@ combo_t key_combos[] = {
   [DU_COMBO] = COMBO(du_combo, KC_ESC),
   [RBBS_COMBO] = COMBO(rbbs_combo, KC_ESC),
   [MUMD_COMBO] = COMBO(mumd_combo, KC_ESC),
+
+  [JL_COMBO] = COMBO(jl_combo, KC_DQUO),
 
   [UR_COMBO] = COMBO(ur_combo, TO(_MOUSE)),
 
