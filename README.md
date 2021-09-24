@@ -5,8 +5,8 @@ wasn't worth it, especially when maintaining my own bilateral combinations
 fork.
 
 The code here scripts the setup of a QMK firmware repo, symlinking my custom
-keymaps, and allowing me to have a QMK working area without all the extra
-maintenance.
+stuff, and allowing me to have a QMK working area without all the extra
+git maintenance.
 
 It assumes you have `direnv`, `git`, `qmk` (The QMK CLI), and probably more.
 
