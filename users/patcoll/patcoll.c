@@ -209,6 +209,7 @@ enum combos {
   /* YU_COMBO */
   /* SS_COMBO */
 
+  SF_COMBO,
   DF_COMBO,
 
   FG_COMBO,
@@ -291,6 +292,7 @@ const uint16_t PROGMEM sd_combo[] = {KC_S, KC_D, COMBO_END};
 /* const uint16_t PROGMEM yu_combo[] = {KC_Y, KC_U, COMBO_END}; */
 /* const uint16_t PROGMEM ss_combo[] = {KC_6, KC_7, COMBO_END}; */
 
+const uint16_t PROGMEM sf_combo[] = {KC_S, KC_F, COMBO_END};
 const uint16_t PROGMEM df_combo[] = {KC_D, KC_F, COMBO_END};
 
 const uint16_t PROGMEM fg_combo[] = {KC_F, KC_G, COMBO_END};
@@ -366,6 +368,7 @@ combo_t key_combos[] = {
   /* [YU_COMBO] = COMBO(yu_combo, KC_ESC), */
   /* [SS_COMBO] = COMBO(ss_combo, KC_ESC), */
 
+  [SF_COMBO] = COMBO(sf_combo, KC_COLN),
   [DF_COMBO] = COMBO(df_combo, KC_SCLN),
 
   [FG_COMBO] = COMBO(fg_combo, KC_MINS),
