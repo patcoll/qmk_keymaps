@@ -13,6 +13,12 @@ enum userspace_layers {
   _LOWER,
   _RAISE,
   _ADJUST,
+  _BLANK1,
+  _BLANK2,
+  _BLANK3,
+  _BLANK4,
+  _BLANK5,
+  _BLANK6,
 };
 
 enum userspace_custom_keycodes {
@@ -108,8 +114,9 @@ enum userspace_custom_keycodes {
 #define _________________QWERTY_R1_________________       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
 #define         _________QWERTY_R2_FOUR________           KC_H,    KC_J,    KC_K,    KC_L
 #define _________________QWERTY_R2_________________       _________QWERTY_R2_FOUR________,    CTL_SCLN
-#define _________________QWERTY_R3_________________       KC_N,    KC_M,    KC_COMM, KC_DOT,  SFT_SLSH
-#define _________________QWERTY_R3_ARROWS__________       KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_UP
+#define _________QWERTY_R3_FOUR________                   KC_N,    KC_M,    KC_COMM, KC_DOT
+#define _________________QWERTY_R3_________________       _________QWERTY_R3_FOUR________,    SFT_SLSH
+#define _________________QWERTY_R3_ARROWS__________       _________QWERTY_R3_FOUR________,    KC_UP
 #define                __QWERTY_R3_ARROW_KEYS__                                      KC_LEFT, KC_DOWN, KC_RGHT
 
 // Numbers and stuff
@@ -126,11 +133,12 @@ enum userspace_custom_keycodes {
 #define ___________NAV_L3_FOUR____________                KC_LCTL, KC_LGUI, KC_LALT, TO(_QWERTY)
 #define __________________NAV_L3___________________       ___________NAV_L3_FOUR____________, _______
 
-#define __________________NAV_R1___________________       KC_6,    KC_7,    KC_8,    KC_9,    KC_0
+#define __________________NAV_R1___________________       KC_6,    KC_7,    KC_8,    KC_9,    ALT_TAB
 #define      _____________NAV_R2_FOUR__________           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 #define __________________NAV_R2___________________       _____________NAV_R2_FOUR__________, ALT_TAB
-#define __________________NAV_R3___________________       KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______
-#define __________________NAV_R3_ARROWS____________       KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______
+#define _____________NAV_R3_FOUR__________                KC_HOME, KC_PGDN, KC_PGUP, KC_END
+#define __________________NAV_R3___________________       _____________NAV_R3_FOUR__________, _______
+#define __________________NAV_R3_ARROWS____________       _____________NAV_R3_FOUR__________, _______
 #define                 __NAV_R4_ARROW_KEYS___                                       _______, _______, _______
 
 // Lower
@@ -140,8 +148,9 @@ enum userspace_custom_keycodes {
 #define _________________LOWER_L3__________________       __________LOWER_L3_FOUR___________, _______
 
 #define _________________LOWER_R1__________________       _______________SYMBOLS_RIGHT_______________
-#define _________________LOWER_R2__________________       _______, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR
-#define __________LOWER_R3_FOUR___________                KC_TILD, _______, _______, _______
+#define __________LOWER_R2_FOUR___________                KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR
+#define _________________LOWER_R2__________________       _______, __________LOWER_R2_FOUR___________
+#define __________LOWER_R3_FOUR___________                KC_TILD, KC_PIPE, _______, _______
 #define _________________LOWER_R3__________________       __________LOWER_R3_FOUR___________, KC_PIPE
 #define _________________LOWER_R3_ARROWS___________       __________LOWER_R3_FOUR___________, KC_PIPE
 #define                __LOWER_R4_ARROW_KEYS__                                       _______, _______, _______
@@ -153,8 +162,9 @@ enum userspace_custom_keycodes {
 #define _________________RAISE_L3__________________       __________RAISE_L3_FOUR___________, _______
 
 #define _________________RAISE_R1__________________       ________________NUMBER_RIGHT_______________
-#define _________________RAISE_R2__________________       _______, KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC
-#define __________RAISE_R3_FOUR___________                KC_GRV,  _______, _______, _______
+#define __________RAISE_R2_FOUR___________                KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC
+#define _________________RAISE_R2__________________       _______, __________RAISE_R2_FOUR___________
+#define __________RAISE_R3_FOUR___________                KC_GRV,  KC_BSLS, _______, _______
 #define _________________RAISE_R3__________________       __________RAISE_R3_FOUR___________, KC_BSLS
 #define _________________RAISE_R3_ARROWS___________       __________RAISE_R3_FOUR___________, KC_BSLS
 #define                __RAISE_R3_ARROW_KEYS__                                       _______, _______, _______
@@ -175,9 +185,11 @@ enum userspace_custom_keycodes {
 #define _________________MEDIA_L3__________________       __________MEDIA_L3_FOUR___________, _______
 
 #define _________________MEDIA_R1__________________       RGB_TOG, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI
-#define _________________MEDIA_R2__________________       KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY, _______
-#define _________________MEDIA_R3__________________       _______, _______, _______, _______, _______
-#define _________________MEDIA_R3_ARROWS___________       _______, _______, _______, _______, KC_VOLU
+#define __________MEDIA_R2_FOUR___________                KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
+#define _________________MEDIA_R2__________________       __________MEDIA_R2_FOUR___________, _______
+#define __________MEDIA_R3_FOUR___________                _______, _______, _______, _______
+#define _________________MEDIA_R3__________________       __________MEDIA_R3_FOUR___________, _______
+#define _________________MEDIA_R3_ARROWS___________       __________MEDIA_R3_FOUR___________, KC_VOLU
 #define                __MEDIA_R3_ARROW_KEYS__                                       KC_MNXT, KC_VOLD, KC_MPLY
 
 // Mouse
@@ -187,8 +199,10 @@ enum userspace_custom_keycodes {
 #define _________________MOUSE_L3__________________       __________MOUSE_L3_FOUR___________, KC_NO
 
 #define _________________MOUSE_R1__________________       KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, KC_NO
-#define _________________MOUSE_R2__________________       KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, KC_NO
-#define _________________MOUSE_R3__________________       KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, KC_NO
+#define __________MOUSE_R2_FOUR___________                KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R
+#define _________________MOUSE_R2__________________       __________MOUSE_R2_FOUR___________, KC_NO
+#define __________MOUSE_R3_FOUR___________                KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R
+#define _________________MOUSE_R3__________________       __________MOUSE_R3_FOUR___________, KC_NO
 #define _________________MOUSE_R3_ARROWS___________       KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, KC_MS_U
 #define                __MOUSE_R3_ARROW_KEYS__                                       KC_MS_L, KC_MS_D, KC_MS_R
 
