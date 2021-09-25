@@ -168,11 +168,11 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     // Shift
     case SFT_SPC:
     case SFT_ENT:
-    case SFT_SCLN:
-    case SFT_QUOT:
+    /* case SFT_SCLN: */
+    /* case SFT_QUOT: */
       return TAPPING_TERM - 15;
     case SFT_SLSH:
-      return TAPPING_TERM - 18;
+      return TAPPING_TERM - 20;
     default:
       return TAPPING_TERM;
   }
