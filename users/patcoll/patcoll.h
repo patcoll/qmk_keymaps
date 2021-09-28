@@ -133,7 +133,7 @@ enum userspace_custom_keycodes {
 #define ___________NAV_L3_FOUR____________                KC_LCTL, KC_LGUI, KC_LALT, TO(_QWERTY)
 #define __________________NAV_L3___________________       ___________NAV_L3_FOUR____________, _______
 
-#define __________________NAV_R1___________________       KC_6,    KC_7,    KC_8,    KC_9,    ALT_TAB
+#define __________________NAV_R1___________________       KC_6,    KC_7,    KC_8,    KC_9,    KC_0
 #define      _____________NAV_R2_FOUR__________           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 #define __________________NAV_R2___________________       _____________NAV_R2_FOUR__________, ALT_TAB
 #define _____________NAV_R3_FOUR__________                KC_HOME, KC_PGDN, KC_PGUP, KC_END
