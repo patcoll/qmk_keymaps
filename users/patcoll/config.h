@@ -1,7 +1,7 @@
 #pragma once
 
 #undef TAPPING_TERM
-#define TAPPING_TERM 175
+#define TAPPING_TERM 174
 #define TAPPING_TOGGLE 2
 #define TAPPING_TERM_PER_KEY
 #define IGNORE_MOD_TAP_INTERRUPT
