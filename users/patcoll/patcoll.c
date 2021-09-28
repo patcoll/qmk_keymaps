@@ -173,7 +173,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     case SFT_ENT:
     /* case SFT_SCLN: */
     /* case SFT_QUOT: */
-      return TAPPING_TERM - 15;
+      return TAPPING_TERM - 12;
     case SFT_SLSH:
       return TAPPING_TERM - 20;
     default:
