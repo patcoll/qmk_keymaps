@@ -49,6 +49,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case EX_PIPE:
           SEND_STRING("|>");
           break;
+        case EX_INSP:
+          SEND_STRING("IO.inspect(");
+          break;
         case EX_SEAR:
           SEND_STRING("elixir phoenix ");
           break;
@@ -217,6 +220,7 @@ enum combos {
   FG_COMBO,
 
   DFDOT_COMBO,
+  DFI_COMBO,
   DFP_COMBO,
 
   GH_COMBO,
@@ -304,6 +308,7 @@ const uint16_t PROGMEM fg_combo[] = {KC_F, KC_G, COMBO_END};
 
 // TODO the alpha equivalent to this should be f and m
 const uint16_t PROGMEM dfdot_combo[] = {KC_D, KC_F, KC_DOT, COMBO_END};
+const uint16_t PROGMEM dfi_combo[] = {KC_D, KC_F, KC_I, COMBO_END};
 const uint16_t PROGMEM dfp_combo[] = {KC_D, KC_F, KC_P, COMBO_END};
 
 const uint16_t PROGMEM gh_combo[] = {KC_G, KC_H, COMBO_END};
@@ -382,6 +387,7 @@ combo_t key_combos[] = {
   [FG_COMBO] = COMBO(fg_combo, KC_MINS),
 
   [DFDOT_COMBO] = COMBO(dfdot_combo, EX_PIPE),
+  [DFI_COMBO] = COMBO(dfi_combo, EX_INSP),
   [DFP_COMBO] = COMBO(dfp_combo, EX_SEAR),
 
   [GH_COMBO] = COMBO(gh_combo, KC_EQL),
