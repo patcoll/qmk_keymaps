@@ -407,7 +407,8 @@ combo_t key_combos[] = {
 
   [UR_COMBO] = COMBO(ur_combo, TO(_MOUSE)),
 
-  [HJ_COMBO] = COMBO(hj_combo, TO(_RAISE)),
+  /* [HJ_COMBO] = COMBO(hj_combo, TO(_RAISE)), */
+
   /* [LD_COMBO] = COMBO(ld_combo, KC_ENT), */
   /* [BR_COMBO] = COMBO(br_combo, KC_ENT), */
   /* [MLD_COMBO] = COMBO(mld_combo, KC_ENT), */
