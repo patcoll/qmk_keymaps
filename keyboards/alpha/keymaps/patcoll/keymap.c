@@ -13,7 +13,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_NAV] = LAYOUT_wrapper(
   __________________NAV_L1___________________, __________________NAV_R1___________________,
   __________________NAV_L2___________________, __________________NAV_R2___________________,
-  ___________NAV_L3_FOUR____________, ALT_TAB, KC_PGDN, KC_PGUP, _______
+  ___________NAV_L3_FOUR____________, _______, KC_PGDN, KC_PGUP, _______
 ),
 
 [_LOWER] = LAYOUT_wrapper(
