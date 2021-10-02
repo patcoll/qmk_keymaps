@@ -223,6 +223,8 @@ enum combos {
   DFI_COMBO,
   DFP_COMBO,
 
+  DFM_COMBO,
+
   GH_COMBO,
 
   /* UI_COMBO, */
@@ -311,6 +313,8 @@ const uint16_t PROGMEM dfdot_combo[] = {KC_D, KC_F, KC_DOT, COMBO_END};
 const uint16_t PROGMEM dfi_combo[] = {KC_D, KC_F, KC_I, COMBO_END};
 const uint16_t PROGMEM dfp_combo[] = {KC_D, KC_F, KC_P, COMBO_END};
 
+const uint16_t PROGMEM dfm_combo[] = {KC_D, KC_F, KC_M, COMBO_END};
+
 const uint16_t PROGMEM gh_combo[] = {KC_G, KC_H, COMBO_END};
 
 /* const uint16_t PROGMEM ui_combo[] = {KC_U, KC_I, COMBO_END}; */
@@ -389,6 +393,10 @@ combo_t key_combos[] = {
   [DFDOT_COMBO] = COMBO(dfdot_combo, EX_PIPE),
   [DFI_COMBO] = COMBO(dfi_combo, EX_INSP),
   [DFP_COMBO] = COMBO(dfp_combo, EX_SEAR),
+
+#ifdef PATCOLL_ALPHA_COMBOS
+  [DFM_COMBO] = COMBO(dfm_combo, EX_PIPE),
+#endif
 
   [GH_COMBO] = COMBO(gh_combo, KC_EQL),
 
