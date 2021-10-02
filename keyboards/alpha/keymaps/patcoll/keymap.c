@@ -19,13 +19,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_LOWER] = LAYOUT_wrapper(
   _________________LOWER_L1__________________, _________________LOWER_R1__________________,
   _________________LOWER_L2__________________, _________________LOWER_R2__________________,
-  __________LOWER_L3_FOUR___________, _______, KC_COMM, KC_DOT,  KC_SLSH
+  __________LOWER_L3_FOUR___________, _______, KC_TILD, KC_PIPE, _______
 ),
 
 [_RAISE] = LAYOUT_wrapper(
   _________________RAISE_L1__________________, _________________RAISE_R1__________________,
   _________________RAISE_L2__________________, _________________RAISE_R2__________________,
-  __________RAISE_L3_FOUR___________, _______, KC_COMM, KC_DOT,  KC_SLSH
+  __________RAISE_L3_FOUR___________, _______, KC_GRV,  KC_BSLS, _______
 ),
 
 [_MEDIA] = LAYOUT_wrapper(
