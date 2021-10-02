@@ -130,7 +130,7 @@ enum userspace_custom_keycodes {
 
 // Nav stuff
 #define __________________NAV_L1___________________       CTL_1,   KC_2,    SFT_3,   MOUSE_4, KC_5
-#define __________________NAV_L2___________________       _______, _______, MO_MED,  MO_RSE, _______
+#define __________________NAV_L2___________________       _______, _______, MO_MED,  MO_RSE,  MO_LWR
 #define ___________NAV_L3_FOUR____________                KC_LCTL, KC_LGUI, KC_LALT, TO(_QWERTY)
 #define __________________NAV_L3___________________       ___________NAV_L3_FOUR____________, _______
 
