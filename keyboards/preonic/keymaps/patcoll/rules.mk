@@ -1,6 +1,0 @@
-SRC += muse.c
-
-RGBLIGHT_ENABLE = yes
-MOUSEKEY_ENABLE = yes
-
-COMBO_ENABLE = yes
