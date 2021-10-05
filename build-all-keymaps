@@ -13,5 +13,6 @@ qmk compile -kb model_v -km patcoll
 qmk compile -kb plop -km patcoll
 qmk compile -kb thevankeyboards/minivan -km patcoll
 qmk compile -kb trashman/ketch -km patcoll
+qmk compile -kb twoyo -km patcoll
 qmk compile -kb ut472 -km patcoll
 qmk compile -kb walletburner/cajal -km patcoll
