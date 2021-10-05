@@ -1,0 +1,17 @@
+#!/bin/bash -ex
+qmk compile -kb 40percentclub/mf68 -km patcoll
+qmk compile -kb 45_ats -km patcoll
+qmk compile -kb alpha -km patcoll
+qmk compile -kb checkerboards/candybar_ortho -km patcoll
+qmk compile -kb clueboard/66/rev4 -km patcoll
+qmk compile -kb crkbd -km patcoll
+qmk compile -kb fc660c -km patcoll
+qmk compile -kb kawaii -km patcoll
+qmk compile -kb keebio/nyquist/rev3 -km patcoll
+qmk compile -kb le_chiffre -km patcoll
+qmk compile -kb model_v -km patcoll
+qmk compile -kb plop -km patcoll
+qmk compile -kb thevankeyboards/minivan -km patcoll
+qmk compile -kb trashman/ketch -km patcoll
+qmk compile -kb ut472 -km patcoll
+qmk compile -kb walletburner/cajal -km patcoll

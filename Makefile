@@ -41,6 +41,10 @@ userspace: qmk_firmware/users/patcoll/patcoll.h
 qmk_firmware/users/patcoll/patcoll.h: qmk
 	init-userspace
 
+.PHONY: test
+test:
+	build-all-keymaps
+
 .PHONY: clean
 clean:
 	rm -rf qmk_firmware working_area
