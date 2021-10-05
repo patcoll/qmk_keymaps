@@ -1,6 +1,6 @@
 #!/bin/bash
 dir=$PWD
-keymaps=$(find keyboards -depth -type d -links 2)
+keymaps=$(find keyboards -type d -name patcoll)
 
 if [[ ! -d "$dir/qmk_firmware" ]]; then
   echo "$dir/qmk_firmware" does not exist
