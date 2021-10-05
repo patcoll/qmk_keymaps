@@ -7,6 +7,7 @@ qmk_firmware/Makefile:
 
 .PHONY: qmk-clean
 qmk-clean:
+	cd qmk_firmware && make git-submodule
 	qmk clean
 
 .PHONY: rain-vial-qmk
