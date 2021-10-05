@@ -1,18 +1,26 @@
-#!/bin/bash -ex
-qmk compile -kb 40percentclub/mf68 -km patcoll
-qmk compile -kb 45_ats -km patcoll
-qmk compile -kb alpha -km patcoll
-qmk compile -kb checkerboards/candybar_ortho -km patcoll
-qmk compile -kb clueboard/66/rev4 -km patcoll
-qmk compile -kb crkbd -km patcoll
-qmk compile -kb fc660c -km patcoll
-qmk compile -kb kawaii -km patcoll
-qmk compile -kb keebio/nyquist/rev3 -km patcoll
-qmk compile -kb le_chiffre -km patcoll
-qmk compile -kb model_v -km patcoll
-qmk compile -kb plop -km patcoll
-qmk compile -kb thevankeyboards/minivan -km patcoll
-qmk compile -kb trashman/ketch -km patcoll
-qmk compile -kb twoyo -km patcoll
-qmk compile -kb ut472 -km patcoll
-qmk compile -kb walletburner/cajal -km patcoll
+#!/bin/bash -e
+dir=$PWD
+
+if [[ ! -d "$dir/qmk_firmware" ]]; then
+  echo "$dir/qmk_firmware" does not exist
+  exit 1
+fi
+
+if [[ ! -f "$dir/keymaps" ]]; then
+  echo "$dir/keymaps" does not exist
+  exit 1
+fi
+
+while read -r line; do
+  # do not parse empty lines or comments
+  if [[ "${line:0:1}" = "" || "${line:0:1}" = "#" || "${line:0:2}" = "//" ]]; then
+    continue
+  fi
+
+  build_keyboard=$(echo "$line" | awk '{print $1}')
+
+  build_keymap=$(echo "$line" | awk '{print $2}')
+  build_keymap="${build_keymap:-patcoll}"
+
+  qmk compile -kb "$build_keyboard" -km "$build_keymap"
+done < "$dir/keymaps"

@@ -1,27 +1,52 @@
 #!/bin/bash
 dir=$PWD
-keymaps=$(find keyboards -type d -name patcoll)
 
 if [[ ! -d "$dir/qmk_firmware" ]]; then
   echo "$dir/qmk_firmware" does not exist
   exit 1
 fi
 
-for keymap in $keymaps
-do
-  if [[ ! -d "$dir/$keymap" ]]; then
-    echo "$dir/$keymap" does not exist
-    exit 1
+if [[ ! -f "$dir/keymaps" ]]; then
+  echo "$dir/keymaps" does not exist
+  exit 1
+fi
+
+while read -r line; do
+  # do not parse empty lines or comments
+  if [[ "${line:0:1}" = "" || "${line:0:1}" = "#" || "${line:0:2}" = "//" ]]; then
+    continue
   fi
+
+  build_keymap=$(echo "$line" | awk '{print $2}')
+  build_keymap="${build_keymap:-patcoll}"
+
+  build_keyboard=$(echo "$line" | awk '{print $1}')
+
+  keymap="keyboards/$build_keyboard/keymaps/$build_keymap"
+
+  num_slashes=$(echo "$build_keyboard" | grep -o '/' | wc -l)
+
+  while [[ ! -d "$dir/$keymap" ]]; do
+    if [[ $num_slashes = 0 ]]; then
+      echo "keymap $keymap not found"
+      exit 1
+    fi
+
+    # slice off last path segment by manipulating the path
+    # put that new path segment into $build_keyboard
+    build_keyboard=$(echo "$build_keyboard" | cut -d'/' -f-$((num_slashes+1)))
+    # assign $keymap again with new candidate path
+    keymap="keyboards/$build_keyboard/keymaps/$build_keymap"
+    ((num_slashes--))
+  done
+
+  echo "$build_keyboard" "$build_keymap"
 
   echo -n creating link "$dir/$keymap" '->' "$dir/qmk_firmware/$keymap"... ''
 
   ln -nfs "$dir/$keymap" "$dir/qmk_firmware/$keymap"
 
-  if [[ $? = 0 ]]; then
-    echo done.
-  else
-    echo error.
-    exit 1
-  fi
-done
+  echo done.
+
+  echo
+done < "$dir/keymaps"

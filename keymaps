@@ -1,0 +1,22 @@
+# format is two columns separated by whitespace.
+# first column is keyboard (including rev if applicable) and second is keymap.
+# keymap defaults to patcoll.
+# comments can begin with `#` or `//`.
+
+40percentclub/mf68
+45_ats
+alpha
+checkerboards/candybar_ortho
+clueboard/66/rev4
+crkbd
+fc660c
+kawaii
+keebio/nyquist/rev3
+le_chiffre
+model_v
+plop
+thevankeyboards/minivan
+trashman/ketch
+twoyo
+ut472
+walletburner/cajal

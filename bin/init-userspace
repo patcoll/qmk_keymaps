@@ -1,27 +1,9 @@
-#!/bin/bash
+#!/bin/bash -ex
 dir=$PWD
-users=$(find users -type d -name patcoll)
 
 if [[ ! -d "$dir/qmk_firmware" ]]; then
   echo "$dir/qmk_firmware" does not exist
   exit 1
 fi
 
-for user in $users
-do
-  if [[ ! -d "$dir/$user" ]]; then
-    echo "$dir/$user" does not exist
-    exit 1
-  fi
-
-  echo -n creating link "$dir/$user" '->' "$dir/qmk_firmware/$user"... ''
-
-  ln -nfs "$dir/$user" "$dir/qmk_firmware/$user"
-
-  if [[ $? = 0 ]]; then
-    echo done.
-  else
-    echo error.
-    exit 1
-  fi
-done
+ln -nfs "$dir/users/patcoll" "$dir/qmk_firmware/users/patcoll"

@@ -2,8 +2,26 @@ name: Test keymaps
 on: [push]
 jobs:
   test:
+    env:
+      QMK_HOME: ${{ github.workspace }}/qmk_firmware
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${GITHUB_ACTION_PATH}/bin" >> $GITHUB_PATH
+      - uses: actions/checkout@v2
+
+      - run: sudo apt update -y
+
+      - run: sudo apt install -y shellcheck
+      - run: shellcheck bin/*
+
+      - run: sudo apt install -y git python3-pip
+      - run: python3 -m pip install --user qmk
+
+      - run: echo "${GITHUB_WORKSPACE}/bin" >> $GITHUB_PATH
+
+      - run: make keymaps
+
+      - run: cd $QMK_HOME && sudo util/qmk_install.sh -y
+
       - run: make
+
       - run: make test
