@@ -1,0 +1,9 @@
+name: Test keymaps
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${GITHUB_ACTION_PATH}/bin" >> $GITHUB_PATH
+      - run: make
+      - run: make test
