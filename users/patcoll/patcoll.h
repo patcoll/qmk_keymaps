@@ -151,7 +151,8 @@ enum userspace_custom_keycodes {
 #define _________________LOWER_R1__________________       _______________SYMBOLS_RIGHT_______________
 #define __________LOWER_R2_FOUR___________                KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR
 #define _________________LOWER_R2__________________       _______, __________LOWER_R2_FOUR___________
-#define __________LOWER_R3_FOUR___________                KC_TILD, KC_PIPE, _______, _______
+#define __LOWER_R3_TWO__                                  KC_TILD, KC_PIPE
+#define __________LOWER_R3_FOUR___________                __LOWER_R3_TWO__, _______, _______
 #define _________________LOWER_R3__________________       __________LOWER_R3_FOUR___________, KC_PIPE
 #define _________________LOWER_R3_ARROWS___________       __________LOWER_R3_FOUR___________, KC_PIPE
 #define                __LOWER_R4_ARROW_KEYS__                                       _______, _______, _______
@@ -165,7 +166,8 @@ enum userspace_custom_keycodes {
 #define _________________RAISE_R1__________________       ________________NUMBER_RIGHT_______________
 #define __________RAISE_R2_FOUR___________                KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC
 #define _________________RAISE_R2__________________       _______, __________RAISE_R2_FOUR___________
-#define __________RAISE_R3_FOUR___________                KC_GRV,  KC_BSLS, _______, _______
+#define __RAISE_R3_TWO__                                  KC_GRV,  KC_BSLS
+#define __________RAISE_R3_FOUR___________                __RAISE_R3_TWO__, _______, _______
 #define _________________RAISE_R3__________________       __________RAISE_R3_FOUR___________, KC_BSLS
 #define _________________RAISE_R3_ARROWS___________       __________RAISE_R3_FOUR___________, KC_BSLS
 #define                __RAISE_R3_ARROW_KEYS__                                       _______, _______, _______
