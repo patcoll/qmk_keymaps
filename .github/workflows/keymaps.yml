@@ -1,5 +1,14 @@
-name: Test keymaps
-on: [push]
+name: keymaps
+
+on:
+  push:
+    branches: [main, staging, trying]
+  pull_request:
+    branches: [main]
+
+env:
+  CARGO_TERM_COLOR: always
+
 jobs:
   test:
     env:
