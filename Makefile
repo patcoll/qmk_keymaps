@@ -54,7 +54,7 @@ qmk_firmware/users/patcoll/patcoll.h: qmk
 	init-userspace
 
 .PHONY: test
-test:
+test: | default
 	build-all-keymaps
 
 .PHONY: clean
