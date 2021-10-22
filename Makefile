@@ -8,7 +8,7 @@ qmk_firmware/Makefile:
 .PHONY: qmk-clean
 qmk-clean:
 	cd qmk_firmware && make git-submodule
-	qmk clean
+	qmk clean -a
 
 .PHONY: rainkeebs-resources
 rainkeebs-resources: working_area/rainkeebs-resources/firmware
