@@ -1,2 +1,2 @@
 #!/bin/bash
-qmk clone -b develop
+qmk clone
