@@ -10,6 +10,11 @@ qmk-clean:
 	cd qmk_firmware && make git-submodule
 	qmk clean -a
 
+.PHONY: artsey-qmk
+artsey-qmk: working_area/artsey-qmk/README.md
+working_area/artsey-qmk/README.md:
+	git clone https://github.com/artseyio/artsey-qmk working_area/artsey-qmk
+
 .PHONY: rainkeebs-resources
 rainkeebs-resources: working_area/rainkeebs-resources/firmware
 working_area/rainkeebs-resources/firmware:
@@ -24,6 +29,14 @@ working_area/vial-qmk/Makefile:
 yohewi-qmk: working_area/yohewi-qmk/Makefile
 working_area/yohewi-qmk/Makefile:
 	git clone https://github.com/yohewi/qmk_firmware working_area/yohewi-qmk
+
+.PHONY: artsey-hands
+artsey-hands: qmk_firmware/keyboards/artsey/README.md
+qmk_firmware/keyboards/artsey/README.md: artsey-qmk
+	mkdir -p qmk_firmware/keyboards/artsey_left_hand
+	rsync -avz working_area/artsey-qmk/left_hand/ qmk_firmware/keyboards/artsey_left_hand/
+	mkdir -p qmk_firmware/keyboards/artsey_right_hand
+	rsync -avz working_area/artsey-qmk/right_hand/ qmk_firmware/keyboards/artsey_right_hand/
 
 .PHONY: twoyo-default
 plop-default: qmk_firmware/keyboards/twoyo/keymaps/default/keymap.c
@@ -45,7 +58,7 @@ qmk_firmware/keyboards/kawaii/keymaps/default/keymap.c: | qmk yohewi-qmk
 
 .PHONY: keymaps
 keymaps: qmk_firmware/keyboards/plop/keymaps/patcoll/keymap.c
-qmk_firmware/keyboards/plop/keymaps/patcoll/keymap.c: | qmk twoyo-default plop-default kawaii-default userspace
+qmk_firmware/keyboards/plop/keymaps/patcoll/keymap.c: | qmk artsey-hands twoyo-default plop-default kawaii-default userspace
 	init-keymaps
 
 .PHONY: userspace
