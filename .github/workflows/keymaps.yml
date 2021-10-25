@@ -29,8 +29,6 @@ jobs:
 
       - run: make qmk
 
-      - run: sudo apt install -y libhidapi-hidraw0 libhidapi-libusb0 libhidapi-dev
-      - run: sudo apt install -y binutils-avr binutils gcc-avr avr-libc avrdude
       - run: cd $QMK_HOME && sudo util/qmk_install.sh -y
 
       - run: make
