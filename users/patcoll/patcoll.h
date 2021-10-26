@@ -118,7 +118,7 @@ enum userspace_custom_keycodes {
 #define _________QWERTY_R3_FOUR________                   KC_N,    KC_M,    KC_COMM, KC_DOT
 #define _________________QWERTY_R3_________________       _________QWERTY_R3_FOUR________,    SFT_SLSH
 #define _________________QWERTY_R3_ARROWS__________       _________QWERTY_R3_FOUR________,    KC_UP
-#define                __QWERTY_R3_ARROW_KEYS__                                      KC_LEFT, KC_DOWN, KC_RGHT
+#define                __QWERTY_R4_ARROW_KEYS__                                      KC_LEFT, KC_DOWN, KC_RGHT
 
 // Numbers and stuff
 #define ________________NUMBER_LEFT________________       KC_1,    KC_2,    KC_3,    KC_4,    KC_5
