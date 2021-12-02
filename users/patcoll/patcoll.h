@@ -32,6 +32,8 @@ enum userspace_custom_keycodes {
   NXT_TAB,
   PRV_TAB,
   EX_PIPE,
+  EX_ARR,
+  EX_PAR,
   EX_INSP,
   EX_SEAR,
   // WNDW_1,
