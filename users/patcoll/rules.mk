@@ -1,5 +1,6 @@
 SRC += patcoll.c
 
+BOOTMAGIC_ENABLE      = no
 COMBO_ENABLE          = yes
 EXTRAKEY_ENABLE       = yes
 MOUSEKEY_ENABLE       = yes
