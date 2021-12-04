@@ -43,9 +43,15 @@ qmk_firmware/keyboards/kawaii/keymaps/default/keymap.c: | qmk yohewi-qmk
 	mkdir -p qmk_firmware/keyboards/kawaii
 	rsync -avz working_area/yohewi-qmk/keyboards/kawaii/ qmk_firmware/keyboards/kawaii/
 
+.PHONY: relic
+relic: qmk_firmware/keyboards/relic/keymaps/default/keymap.c
+qmk_firmware/keyboards/relic/keymaps/default/keymap.c: | qmk yohewi-qmk
+	mkdir -p qmk_firmware/keyboards/relic
+	rsync -avz relic/ qmk_firmware/keyboards/relic/
+
 .PHONY: keymaps
 keymaps: qmk_firmware/keyboards/plop/keymaps/patcoll/keymap.c
-qmk_firmware/keyboards/plop/keymaps/patcoll/keymap.c: | qmk twoyo-default plop-default kawaii-default userspace
+qmk_firmware/keyboards/plop/keymaps/patcoll/keymap.c: | qmk twoyo-default plop-default kawaii-default relic userspace
 	init-keymaps
 
 .PHONY: userspace
