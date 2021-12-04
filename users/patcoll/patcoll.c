@@ -401,7 +401,7 @@ combo_t key_combos[] = {
   [FG_COMBO] = COMBO(fg_combo, KC_MINS),
 
   [DFDOT_COMBO] = COMBO(dfdot_combo, EX_PIPE),
-  [SDFDOT_COMBO] = COMBO(dfdot_combo, EX_ARR),
+  [SDFDOT_COMBO] = COMBO(sdfdot_combo, EX_ARR),
   [DFI_COMBO] = COMBO(dfi_combo, EX_INSP),
   [DFO_COMBO] = COMBO(dfo_combo, EX_PAR),
   [DFP_COMBO] = COMBO(dfp_combo, EX_SEAR),
