@@ -49,6 +49,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case EX_PIPE:
           SEND_STRING("|>");
           break;
+        case EX_ARR:
+          SEND_STRING("->");
+          break;
+        case EX_PAR:
+          SEND_STRING("()");
+          break;
         case EX_INSP:
           SEND_STRING("IO.inspect(");
           break;
@@ -220,7 +226,9 @@ enum combos {
   FG_COMBO,
 
   DFDOT_COMBO,
+  SDFDOT_COMBO,
   DFI_COMBO,
+  DFO_COMBO,
   DFP_COMBO,
 
   DFM_COMBO,
@@ -310,7 +318,9 @@ const uint16_t PROGMEM fg_combo[] = {KC_F, KC_G, COMBO_END};
 
 // TODO the alpha equivalent to this should be f and m
 const uint16_t PROGMEM dfdot_combo[] = {KC_D, KC_F, KC_DOT, COMBO_END};
+const uint16_t PROGMEM sdfdot_combo[] = {KC_S, KC_D, KC_F, KC_DOT, COMBO_END};
 const uint16_t PROGMEM dfi_combo[] = {KC_D, KC_F, KC_I, COMBO_END};
+const uint16_t PROGMEM dfo_combo[] = {KC_D, KC_F, KC_O, COMBO_END};
 const uint16_t PROGMEM dfp_combo[] = {KC_D, KC_F, KC_P, COMBO_END};
 
 const uint16_t PROGMEM dfm_combo[] = {KC_D, KC_F, KC_M, COMBO_END};
@@ -391,7 +401,9 @@ combo_t key_combos[] = {
   [FG_COMBO] = COMBO(fg_combo, KC_MINS),
 
   [DFDOT_COMBO] = COMBO(dfdot_combo, EX_PIPE),
+  [SDFDOT_COMBO] = COMBO(sdfdot_combo, EX_ARR),
   [DFI_COMBO] = COMBO(dfi_combo, EX_INSP),
+  [DFO_COMBO] = COMBO(dfo_combo, EX_PAR),
   [DFP_COMBO] = COMBO(dfp_combo, EX_SEAR),
 
 #ifdef PATCOLL_ALPHA_COMBOS
