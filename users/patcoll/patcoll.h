@@ -22,11 +22,6 @@ enum userspace_layers {
 };
 
 enum userspace_custom_keycodes {
-  // TG_CLMK = SAFE_RANGE,
-  // TG_HNDS,
-  // TG_QWER,
-  // GAMEOVR,
-  // HR_MODS,
   ALT_TAB = SAFE_RANGE,
   SALTTAB,
   NXT_TAB,
@@ -36,16 +31,6 @@ enum userspace_custom_keycodes {
   EX_PAR,
   EX_INSP,
   EX_SEAR,
-  // WNDW_1,
-  // WNDW_2,
-  // WNDW_3,
-  // WNDW_4,
-  // WNDW_5,
-  // WNDW_6,
-  // WNDW_7,
-  // WNDW_8,
-  // WNDW_9,
-  // WNDW_0,
 # ifdef QUICK_SWITCH
   QCK_TAB,
   QCKSTAB,

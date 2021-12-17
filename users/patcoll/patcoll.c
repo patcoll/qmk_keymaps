@@ -66,54 +66,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
     }
 
-    // Window switching macro, only available when NAV layer is active.
-    /* if (keycode >= WNDW_1 && keycode <= WNDW_0) { */
-    /*   if (is_alt_tab_active) { */
-    /*     is_alt_tab_active = false; */
-    /*     unregister_code(KC_LALT); */
-    /*   } */
-    /*   if (is_tab_switch_active) { */
-    /*       is_tab_switch_active = false; */
-    /*       unregister_code(KC_LCTL); */
-    /*   } */
-    /*   if (!is_win_switch_active) { */
-    /*     is_win_switch_active = true; */
-    /*     register_code(KC_LGUI); */
-    /*   } */
-    /*   switch (keycode) { */
-    /*     case WNDW_0: */
-    /*       tap_code16(KC_0); */
-    /*       break; */
-    /*     case WNDW_1: */
-    /*       tap_code16(KC_1); */
-    /*       break; */
-    /*     case WNDW_2: */
-    /*       tap_code16(KC_2); */
-    /*       break; */
-    /*     case WNDW_3: */
-    /*       tap_code16(KC_3); */
-    /*       break; */
-    /*     case WNDW_4: */
-    /*       tap_code16(KC_4); */
-    /*       break; */
-    /*     case WNDW_5: */
-    /*       tap_code16(KC_5); */
-    /*       break; */
-    /*     case WNDW_6: */
-    /*       tap_code16(KC_6); */
-    /*       break; */
-    /*     case WNDW_7: */
-    /*       tap_code16(KC_7); */
-    /*       break; */
-    /*     case WNDW_8: */
-    /*       tap_code16(KC_8); */
-    /*       break; */
-    /*     case WNDW_9: */
-    /*       tap_code16(KC_9); */
-    /*       break; */
-    /*   } */
-    /*   return false; */
-    /* } */
     switch (keycode) {
       // Super Alt-Tab
       case ALT_TAB:
@@ -132,23 +84,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
         keycode == ALT_TAB ? tap_code16(KC_TAB) : tap_code16(S(KC_TAB));
         return false;
-      // Super tab switching
-      /* case NXT_TAB: */
-      /* case PRV_TAB: */
-      /*   if (is_win_switch_active) { */
-      /*     is_win_switch_active = false; */
-      /*     unregister_code(KC_LGUI); */
-      /*   } */
-      /*   if (is_alt_tab_active) { */
-      /*     is_alt_tab_active = false; */
-      /*     unregister_code(KC_LALT); */
-      /*   } */
-      /*   if (!is_tab_switch_active) { */
-      /*     is_tab_switch_active = true; */
-      /*     register_code(KC_LCTL); */
-      /*   } */
-      /*   keycode == NXT_TAB ? tap_code16(KC_TAB) : tap_code16(S(KC_TAB)); */
-      /*   return false; */
 /* #     ifdef QUICK_SWITCH */
 /*       // Quickly toggle between windows with three fancy keys */
 /*       case QCK_TAB: */
