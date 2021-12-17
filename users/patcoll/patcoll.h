@@ -1,8 +1,6 @@
 #pragma once
 #include QMK_KEYBOARD_H
 
-void oled_render_layer_state(void);
-
 enum userspace_layers {
   _QWERTY = 0,
   _NUMBERS,
@@ -205,3 +203,5 @@ enum userspace_custom_keycodes {
 #define                __MOUSE_R3_ARROW_KEYS__                                       KC_MS_L, KC_MS_D, KC_MS_R
 
 #define ___________________BLANK___________________       _______, _______, _______, _______, _______
+
+void oled_render_layer_state(void);
