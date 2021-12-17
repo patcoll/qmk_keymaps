@@ -8,6 +8,7 @@ NKRO_ENABLE           = no
 TAP_DANCE_ENABLE      = no
 CONSOLE_ENABLE = no
 
+# Allow loading of `combos.def`
 VPATH += keyboards/gboards/
 
 ifneq ($(PLATFORM),CHIBIOS)
