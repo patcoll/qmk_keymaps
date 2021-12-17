@@ -31,11 +31,6 @@ enum userspace_custom_keycodes {
   EX_PAR,
   EX_INSP,
   EX_SEAR,
-# ifdef QUICK_SWITCH
-  QCK_TAB,
-  QCKSTAB,
-  QCK_SEL,
-# endif
   NEW_SAFE_RANGE
 };
 

@@ -16,7 +16,3 @@ endif
 
 SPACE_CADET_ENABLE    = no
 GRAVE_ESC_ENABLE      = no
-
-ifeq ($(strip $(QUICK_SWITCH)), yes)
-    OPT_DEFS += -DQUICK_SWITCH
-endif

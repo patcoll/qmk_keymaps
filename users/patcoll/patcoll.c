@@ -4,10 +4,6 @@
 bool is_win_switch_active = false;
 bool is_alt_tab_active = false;
 bool is_tab_switch_active = false;
-/* #ifdef QUICK_SWITCH */
-/* bool is_quick_tab_active = false; */
-/* uint16_t quick_tab_timer = 0; */
-/* #endif */
 #ifdef ENCODER_ENABLE
 bool is_alt_tab_enc_active = false;
 uint16_t alt_tab_enc_timer = 0;
@@ -27,12 +23,6 @@ void matrix_scan_user(void) {
     unregister_code(KC_LCTL);
     is_tab_switch_active = false;
   }
-/* # ifdef QUICK_SWITCH */
-/*   if (is_quick_tab_active && timer_elapsed(quick_tab_timer) > 1000) { */
-/*     unregister_code(KC_LALT); */
-/*     is_quick_tab_active = false; */
-/*   } */
-/* # endif */
 # ifdef ENCODER_ENABLE
   if (is_alt_tab_enc_active) {
     if (timer_elapsed(alt_tab_enc_timer) > 750) {
@@ -84,24 +74,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
         keycode == ALT_TAB ? tap_code16(KC_TAB) : tap_code16(S(KC_TAB));
         return false;
-/* #     ifdef QUICK_SWITCH */
-/*       // Quickly toggle between windows with three fancy keys */
-/*       case QCK_TAB: */
-/*       case QCKSTAB: */
-/*         if (!is_quick_tab_active) { */
-/*           is_quick_tab_active = true; */
-/*           register_code(KC_LALT); */
-/*         } */
-/*         keycode == QCK_TAB ? tap_code16(KC_TAB) : tap_code16(S(KC_TAB)); */
-/*         quick_tab_timer = timer_read(); */
-/*         return false; */
-/*       case QCK_SEL: */
-/*         if (is_quick_tab_active) { */
-/*           is_quick_tab_active = false; */
-/*           unregister_code(KC_LALT); */
-/*         } */
-/*         return false; */
-/* #     endif */
     }
   }
 
