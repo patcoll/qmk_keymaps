@@ -9,6 +9,7 @@
 // #undef  PERMISSIVE_HOLD
 // #define PERMISSIVE_HOLD
 #define PERMISSIVE_HOLD_PER_KEY
+#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 
 // Mouse key speed and acceleration.
 #define MOUSEKEY_DELAY          0
@@ -20,7 +21,7 @@
 // Combos
 #ifdef COMBO_ENABLE
 // #define COMBO_COUNT 50
-#define COMBO_TERM 32
+#define COMBO_TERM 36
 #endif // COMBO_ENABLE
 
 // Define combos for alpha keyboard.
