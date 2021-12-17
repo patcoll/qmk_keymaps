@@ -1,5 +1,7 @@
 #include "patcoll.h"
+#ifdef COMBO_ENABLE
 #include "g/keymap_combo.h"
+#endif
 
 bool is_win_switch_active = false;
 bool is_alt_tab_active = false;
