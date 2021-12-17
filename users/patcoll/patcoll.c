@@ -58,10 +58,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     case SFT_SPC:
     case SFT_ENT:
     case SFT_A:
-    /* case SFT_E: */
     case SFT_V:
-    /* case SFT_SCLN: */
-    /* case SFT_QUOT: */
       return TAPPING_TERM - 12;
     case SFT_Z:
     case SFT_DOT:
@@ -78,7 +75,6 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     // Shift
     case SFT_Z:
     case SFT_A:
-    /* case SFT_E: */
     case SFT_V:
     case SFT_SPC:
     case SFT_ENT:
