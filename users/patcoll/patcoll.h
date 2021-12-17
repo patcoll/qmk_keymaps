@@ -54,10 +54,22 @@ enum userspace_custom_keycodes {
   NEW_SAFE_RANGE
 };
 
+enum tap_dance_keycodes {
+  XFN_ENT,
+  XGUI_X,
+  XALT_C,
+  TD_RAND
+};
+
 #define CTL_ESC    MT(MOD_LCTL, KC_ESC)
 #define CTL_ENT    MT(MOD_LCTL, KC_ENT)
 #define CTL_Q      MT(MOD_LCTL, KC_Q)
 #define CTL_1      MT(MOD_LCTL, KC_1)
+#define CTL_L      MT(MOD_LCTL, KC_L)
+#define CTL_QUOT   MT(MOD_LCTL, KC_QUOT)
+
+#define CLS_WIN    A(KC_F4)
+#define OS_MENU    A(KC_SPC)
 
 
 #define NAV_W LT(_NAV, KC_W)
@@ -88,16 +100,28 @@ enum userspace_custom_keycodes {
 #define MO_RSE     MO(_RAISE)
 #define MO_MED     MO(_MEDIA)
 
+#define TG_LWR     TG(_LOWER)
+#define TG_RSE     TG(_RAISE)
+
 #define LWR_SPC    LT(_LOWER, KC_SPC)
+#define LWR_V      LT(_LOWER, KC_V)
+
 #define RSE_ENT    LT(_RAISE, KC_ENT)
 #define RSE_BSPC   LT(_RAISE, KC_BSPC)
+#define RSE_B      LT(_RAISE, KC_B)
 
 // #define NAV_Z      LT(_NAV, KC_Z)
 // #define MOUSE_X    LT(_MOUSE, KC_X)
+#define SFT_Z      MT(MOD_LSFT, KC_Z)
+#define SFT_A      MT(MOD_LSFT, KC_A)
+#define SFT_E      MT(MOD_LSFT, KC_E)
+#define SFT_V      MT(MOD_LSFT, KC_V)
 #define SFT_ESC    MT(MOD_LSFT, KC_ESC)
 #define SFT_TAB    MT(MOD_LSFT, KC_TAB)
 #define SFT_SCLN   MT(MOD_LSFT, KC_SCLN)
 #define SFT_QUOT   MT(MOD_LSFT, KC_QUOT)
+#define SFT_M      MT(MOD_LSFT, KC_M)
+#define SFT_DOT    MT(MOD_LSFT, KC_DOT)
 #define SFT_SLSH   MT(MOD_LSFT, KC_SLSH)
 #define SFT_SPC    MT(MOD_LSFT, KC_SPC)
 #define SFT_ENT    MT(MOD_LSFT, KC_ENT)
@@ -105,22 +129,30 @@ enum userspace_custom_keycodes {
 #define CTL_SCLN   MT(MOD_LCTL, KC_SCLN)
 #define CTL_SLSH   MT(MOD_LCTL, KC_SLSH)
 
+// #define GUI_X      MT(MOD_LGUI, KC_X)
+// #define ALT_C      MT(MOD_LALT, KC_C)
+#define T_GUI_X    TD(XGUI_X)
+#define T_ALT_C    TD(XALT_C)
+
+#define GUI_ZX    LM(_NAV, MOD_LGUI)
+#define ALT_XC    LM(_NAV, MOD_LALT)
 
 // #define NAV_TAB    LT(_NAV, KC_TAB)
 // #define MOUSE_Q    LT(_MOUSE, KC_Q)
 
 #define _________________QWERTY_L1_________________       CTL_Q,   NAV_W,   KC_E,    KC_R,    KC_T
 #define _________________QWERTY_L2_________________       KC_A,    KC_S,    KC_D,    KC_F,    KC_G
-#define         _________QWERTY_L3_FOUR________           NAV_Z,   KC_X,    KC_C,  CTL_V
-#define _________________QWERTY_L3_________________       _________QWERTY_L3_FOUR________,    KC_B
+#define         _________QWERTY_L3_FOUR________           SFT_Z,   KC_X,    KC_C,    SFT_V
+#define _________________QWERTY_L3_________________       _________QWERTY_L3_FOUR________,    RSE_B
 
 #define _________________QWERTY_R1_________________       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
 #define         _________QWERTY_R2_FOUR________           KC_H,    KC_J,    KC_K,    KC_L
 #define _________________QWERTY_R2_________________       _________QWERTY_R2_FOUR________,    CTL_SCLN
-#define _________QWERTY_R3_FOUR________                   KC_N,    KC_M,    KC_COMM, KC_DOT
+#define _________QWERTY_R3_FOUR________                   KC_N,    KC_M,    KC_COMM, SFT_DOT
 #define _________________QWERTY_R3_________________       _________QWERTY_R3_FOUR________,    SFT_SLSH
 #define _________________QWERTY_R3_ARROWS__________       _________QWERTY_R3_FOUR________,    KC_UP
 #define                __QWERTY_R4_ARROW_KEYS__                                      KC_LEFT, KC_DOWN, KC_RGHT
+#define                __QWERTY_R4_NORMAL_KEYS_                                      KC_HYPR, KC_MEH,  _______
 
 // Numbers and stuff
 #define ________________NUMBER_LEFT________________       KC_1,    KC_2,    KC_3,    KC_4,    KC_5
@@ -131,7 +163,7 @@ enum userspace_custom_keycodes {
 #define _______________SYMBOLS_RIGHT_______________       KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN
 
 // Nav stuff
-#define __________________NAV_L1___________________       CTL_1,   KC_2,    SFT_3,   MOUSE_4, KC_5
+#define __________________NAV_L1___________________       CTL_1,   _______, SFT_3,   MOUSE_4, KC_5
 #define __________________NAV_L2___________________       _______, _______, MO_MED,  MO_RSE,  MO_LWR
 #define ___________NAV_L3_FOUR____________                KC_LCTL, KC_LGUI, KC_LALT, TO(_QWERTY)
 #define __________________NAV_L3___________________       ___________NAV_L3_FOUR____________, _______
@@ -184,9 +216,9 @@ enum userspace_custom_keycodes {
 #define __________________NUM_R3___________________       _______, _______, _______, _______, _______
 
 // Media
-#define _________________MEDIA_L1__________________       A(KC_F4),_______, _______, _______, _______
+#define _________________MEDIA_L1__________________       CLS_WIN, CLS_WIN, _______, _______, _______
 #define _________________MEDIA_L2__________________       _______, _______, _______, S(KC_PSCR), G(S(KC_PSCR))
-#define __________MEDIA_L3_FOUR___________                RESET,   _______, _______, TO(_QWERTY)
+#define __________MEDIA_L3_FOUR___________                RESET,   _______, OS_MENU, TO(_QWERTY)
 #define _________________MEDIA_L3__________________       __________MEDIA_L3_FOUR___________, _______
 
 #define _________________MEDIA_R1__________________       RGB_TOG, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI
