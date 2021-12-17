@@ -1,3 +1,5 @@
+COMB(qpReset,       RESET,          CTL_Q, KC_P)
+
 COMB(zxs_combo,     GUI_ZX,         SFT_Z, KC_X)
 COMB(zx_combo,      GUI_ZX,         KC_Z, KC_X)
 
@@ -79,9 +81,3 @@ COMB(cds_combo,     KC_DOT,         KC_COMM, SFT_DOT)
 COMB(md_combo,      KC_SLSH,        KC_M, KC_DOT)
 COMB(mds_combo,     KC_SLSH,        KC_M, SFT_DOT)
 #endif
-
-
-
-
-
-COMB(qpReset,    RESET,          CTL_Q, KC_P)
