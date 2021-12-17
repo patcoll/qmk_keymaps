@@ -6,8 +6,6 @@
 #define TAPPING_TERM_PER_KEY
 #define IGNORE_MOD_TAP_INTERRUPT
 #define TAPPING_FORCE_HOLD
-// #undef  PERMISSIVE_HOLD
-// #define PERMISSIVE_HOLD
 #define PERMISSIVE_HOLD_PER_KEY
 #define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 
@@ -20,7 +18,6 @@
 
 // Combos
 #ifdef COMBO_ENABLE
-// #define COMBO_COUNT 50
 #define COMBO_TERM 36
 #endif // COMBO_ENABLE
 
@@ -93,16 +90,16 @@
 #define TAP_CODE_DELAY 5
 
 #ifdef SPLIT_KEYBOARD
-#    define OLED_UPDATE_INTERVAL 60
+#  define OLED_UPDATE_INTERVAL 60
 #else
-#    define OLED_UPDATE_INTERVAL 15
+#  define OLED_UPDATE_INTERVAL 15
 #endif
 
 #ifdef LOCKING_SUPPORT_ENABLE
-#    undef LOCKING_SUPPORT_ENABLE
+#  undef LOCKING_SUPPORT_ENABLE
 #endif
 #ifdef LOCKING_RESYNC_ENABLE
-#    undef LOCKING_RESYNC_ENABLE
+#  undef LOCKING_RESYNC_ENABLE
 #endif
 
 // Hex size reduction options

@@ -13,7 +13,7 @@ TAP_DANCE_ENABLE      = no
 VPATH += keyboards/gboards/
 
 ifneq ($(PLATFORM),CHIBIOS)
-    LTO_ENABLE        = yes
+	LTO_ENABLE        = yes
 endif
 
 SPACE_CADET_ENABLE    = no
