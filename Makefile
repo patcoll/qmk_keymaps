@@ -50,8 +50,7 @@ qmk_firmware/keyboards/relic/keymaps/default/keymap.c: | qmk yohewi-qmk
 	rsync -avz relic/ qmk_firmware/keyboards/relic/
 
 .PHONY: keymaps
-keymaps: qmk_firmware/keyboards/plop/keymaps/patcoll/keymap.c
-qmk_firmware/keyboards/plop/keymaps/patcoll/keymap.c: | qmk twoyo-default plop-default kawaii-default relic userspace
+keymaps: | qmk twoyo-default plop-default kawaii-default relic userspace
 	init-keymaps
 
 .PHONY: userspace
