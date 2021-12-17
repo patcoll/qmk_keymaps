@@ -54,13 +54,6 @@ enum userspace_custom_keycodes {
   NEW_SAFE_RANGE
 };
 
-enum tap_dance_keycodes {
-  XFN_ENT,
-  XGUI_X,
-  XALT_C,
-  TD_RAND
-};
-
 #define CTL_ESC    MT(MOD_LCTL, KC_ESC)
 #define CTL_ENT    MT(MOD_LCTL, KC_ENT)
 #define CTL_Q      MT(MOD_LCTL, KC_Q)
@@ -128,11 +121,6 @@ enum tap_dance_keycodes {
 
 #define CTL_SCLN   MT(MOD_LCTL, KC_SCLN)
 #define CTL_SLSH   MT(MOD_LCTL, KC_SLSH)
-
-// #define GUI_X      MT(MOD_LGUI, KC_X)
-// #define ALT_C      MT(MOD_LALT, KC_C)
-#define T_GUI_X    TD(XGUI_X)
-#define T_ALT_C    TD(XALT_C)
 
 #define GUI_ZX    LM(_NAV, MOD_LGUI)
 #define ALT_XC    LM(_NAV, MOD_LALT)

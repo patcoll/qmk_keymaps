@@ -5,7 +5,7 @@ COMBO_ENABLE          = yes
 EXTRAKEY_ENABLE       = yes
 MOUSEKEY_ENABLE       = yes
 NKRO_ENABLE           = no
-TAP_DANCE_ENABLE      = yes
+TAP_DANCE_ENABLE      = no
 CONSOLE_ENABLE = no
 
 VPATH += keyboards/gboards/

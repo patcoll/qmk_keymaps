@@ -13,192 +13,6 @@ bool is_alt_tab_enc_active = false;
 uint16_t alt_tab_enc_timer = 0;
 #endif
 
-typedef enum {
-  TD_NONE,
-  TD_UNKNOWN,
-  TD_SINGLE_TAP,
-  TD_SINGLE_HOLD,
-  TD_DOUBLE_TAP,
-  TD_DOUBLE_HOLD,
-  TD_DOUBLE_SINGLE_TAP, // Send two single taps
-  TD_TRIPLE_TAP,
-  TD_TRIPLE_HOLD
-} td_state_t;
-
-typedef struct {
-  bool is_press_action;
-  td_state_t state;
-} td_tap_t;
-
-td_state_t cur_dance(qk_tap_dance_state_t *state);
-
-// For the x tap dance. Put it here so it can be used in any keymap
-/* void x_finished(qk_tap_dance_state_t *state, void *user_data); */
-/* void x_reset(qk_tap_dance_state_t *state, void *user_data); */
-
-/* Return an integer that corresponds to what kind of tap dance should be executed.
- *
- * How to figure out tap dance state: interrupted and pressed.
- *
- * Interrupted: If the state of a dance dance is "interrupted", that means that another key has been hit
- *  under the tapping term. This is typically indicitive that you are trying to "tap" the key.
- *
- * Pressed: Whether or not the key is still being pressed. If this value is true, that means the tapping term
- *  has ended, but the key is still being pressed down. This generally means the key is being "held".
- *
- * One thing that is currenlty not possible with qmk software in regards to tap dance is to mimic the "permissive hold"
- *  feature. In general, advanced tap dances do not work well if they are used with commonly typed letters.
- *  For example "A". Tap dances are best used on non-letter keys that are not hit while typing letters.
- *
- * Good places to put an advanced tap dance:
- *  z,q,x,j,k,v,b, any function key, home/end, comma, semi-colon
- *
- * Criteria for "good placement" of a tap dance key:
- *  Not a key that is hit frequently in a sentence
- *  Not a key that is used frequently to double tap, for example 'tab' is often double tapped in a terminal, or
- *    in a web form. So 'tab' would be a poor choice for a tap dance.
- *  Letters used in common words as a double. For example 'p' in 'pepper'. If a tap dance function existed on the
- *    letter 'p', the word 'pepper' would be quite frustating to type.
- *
- * For the third point, there does exist the 'TD_DOUBLE_SINGLE_TAP', however this is not fully tested
- *
- */
-/* td_state_t cur_dance(qk_tap_dance_state_t *state) { */
-/*   if (state->count == 1) { */
-/*     if (state->interrupted || !state->pressed) return TD_SINGLE_TAP; */
-/*     // Key has not been interrupted, but the key is still held. Means you want to send a 'HOLD'. */
-/*     else return TD_SINGLE_HOLD; */
-/*   } */
-/*   #<{(| else if (state->count >= 2) { |)}># */
-/*   #<{(|   // TD_DOUBLE_SINGLE_TAP is to distinguish between typing "pepper", and actually wanting a double tap |)}># */
-/*   #<{(|   // action when hitting 'pp'. Suggested use case for this return value is when you want to send two |)}># */
-/*   #<{(|   // keystrokes of the key, and not the 'double tap' action/macro. |)}># */
-/*   #<{(|   #<{(| if (state->interrupted) return TD_DOUBLE_SINGLE_TAP; |)}># |)}># */
-/*   #<{(|   #<{(| else if (state->pressed) return TD_DOUBLE_HOLD; |)}># |)}># */
-/*   #<{(|   #<{(| else return TD_DOUBLE_TAP; |)}># |)}># */
-/*   #<{(|   #<{(| if (state->interrupted || !state->pressed) return TD_TRIPLE_TAP; |)}># |)}># */
-/*   #<{(|   #<{(| else return TD_TRIPLE_HOLD; |)}># |)}># */
-/*   #<{(|   return TD_DOUBLE_TAP; |)}># */
-/*   #<{(| } |)}># */
-/*  */
-/*   return TD_DOUBLE_TAP; */
-/*  */
-/*   // Assumes no one is trying to type the same letter three times (at least not quickly). */
-/*   // If your tap dance key is 'KC_W', and you want to type "www." quickly - then you will need to add */
-/*   // an exception here to return a 'TD_TRIPLE_SINGLE_TAP', and define that enum just like 'TD_DOUBLE_SINGLE_TAP' */
-/*   #<{(| if (state->count == 3) { |)}># */
-/*   #<{(|   if (state->interrupted || !state->pressed) return TD_TRIPLE_TAP; |)}># */
-/*   #<{(|   else return TD_TRIPLE_HOLD; |)}># */
-/*   #<{(| } else return TD_UNKNOWN; |)}># */
-/* } */
-
-// Create an instance of 'td_tap_t' for the 'xfn_ent' tap dance.
-/* static td_tap_t xfn_ent_tap_state = { */
-/*   .is_press_action = true, */
-/*   .state = TD_NONE */
-/* }; */
-/*  */
-/* static td_tap_t xgui_x_tap_state = { */
-/*   .is_press_action = true, */
-/*   .state = TD_NONE */
-/* }; */
-/*  */
-/* static td_tap_t xalt_c_tap_state = { */
-/*   .is_press_action = true, */
-/*   .state = TD_NONE */
-/* }; */
-/*  */
-/* void xfn_ent_finished(qk_tap_dance_state_t *state, void *user_data) { */
-/*   xfn_ent_tap_state.state = cur_dance(state); */
-/*   switch (xfn_ent_tap_state.state) { */
-/*     case TD_SINGLE_TAP: register_code(KC_ENT); break; */
-/*     case TD_SINGLE_HOLD: layer_on(_RAISE); break; */
-/*     case TD_DOUBLE_TAP: layer_on(_LOWER); break; */
-/*     #<{(| case TD_DOUBLE_HOLD: layer_on(_LOWER); break; |)}># */
-/*     // Last case is for fast typing. Assuming your key is `f`: */
-/*     // For example, when typing the word `buffer`, and you want to make sure that you send `ff` and not `Esc`. */
-/*     // In order to type `ff` when typing fast, the next character will have to be hit within the `TAPPING_TERM`, which by default is 200ms. */
-/*     #<{(| case TD_DOUBLE_SINGLE_TAP: tap_code(KC_X); register_code(KC_X); |)}># */
-/*     default: break; */
-/*   } */
-/* } */
-/*  */
-/* void xfn_ent_reset(qk_tap_dance_state_t *state, void *user_data) { */
-/*   switch (xfn_ent_tap_state.state) { */
-/*     case TD_SINGLE_TAP: unregister_code(KC_ENT); break; */
-/*     case TD_SINGLE_HOLD: layer_off(_RAISE); break; */
-/*     case TD_DOUBLE_TAP: layer_off(_LOWER); break; */
-/*     #<{(| case TD_DOUBLE_HOLD: layer_off(_LOWER); |)}># */
-/*     #<{(| case TD_DOUBLE_SINGLE_TAP: unregister_code(KC_X); |)}># */
-/*     default: break; */
-/*   } */
-/*   xfn_ent_tap_state.state = TD_NONE; */
-/* } */
-/*  */
-/* void xgui_x_finished(qk_tap_dance_state_t *state, void *user_data) { */
-/*   xgui_x_tap_state.state = cur_dance(state); */
-/*  */
-/*   if (xgui_x_tap_state.state != TD_SINGLE_TAP) { */
-/*     register_code(KC_LGUI); */
-/*     layer_on(_NAV); */
-/*   } else { */
-/*     register_code(KC_X); */
-/*   } */
-/*   #<{(| switch (xgui_x_tap_state.state) { |)}># */
-/*   #<{(|   case TD_SINGLE_TAP: register_code(KC_X); break; |)}># */
-/*   #<{(|   default: register_code(KC_LGUI); layer_on(_NAV); break; |)}># */
-/*   #<{(| } |)}># */
-/* } */
-/*  */
-/* void xgui_x_reset(qk_tap_dance_state_t *state, void *user_data) { */
-/*   #<{(| switch (xgui_x_tap_state.state) { |)}># */
-/*   #<{(|   case TD_SINGLE_TAP: unregister_code(KC_X); break; |)}># */
-/*   #<{(|   default: unregister_code(KC_LGUI); layer_off(_NAV); break; |)}># */
-/*   #<{(| } |)}># */
-/*   if (xgui_x_tap_state.state != TD_SINGLE_TAP) { */
-/*     unregister_code(KC_LGUI); */
-/*     layer_off(_NAV); */
-/*   } else { */
-/*     unregister_code(KC_X); */
-/*   } */
-/*   xgui_x_tap_state.state = TD_NONE; */
-/* } */
-/*  */
-/* void xalt_c_finished(qk_tap_dance_state_t *state, void *user_data) { */
-/*   xalt_c_tap_state.state = cur_dance(state); */
-/*  */
-/*   if (xalt_c_tap_state.state != TD_SINGLE_TAP) { */
-/*     register_code(KC_LALT); */
-/*     layer_on(_NAV); */
-/*   } else { */
-/*     register_code(KC_C); */
-/*   } */
-/*   #<{(| switch (xalt_c_tap_state.state) { |)}># */
-/*   #<{(|   case TD_SINGLE_TAP: register_code(KC_C); break; |)}># */
-/*   #<{(|   default: register_code(KC_LALT); layer_on(_NAV); break; |)}># */
-/*   #<{(| } |)}># */
-/* } */
-/*  */
-/* void xalt_c_reset(qk_tap_dance_state_t *state, void *user_data) { */
-/*   #<{(| switch (xalt_c_tap_state.state) { |)}># */
-/*   #<{(|   case TD_SINGLE_TAP: unregister_code(KC_C); break; |)}># */
-/*   #<{(|   default: unregister_code(KC_LALT); layer_off(_NAV); break; |)}># */
-/*   #<{(| } |)}># */
-/*   if (xalt_c_tap_state.state != TD_SINGLE_TAP) { */
-/*     unregister_code(KC_LALT); */
-/*     layer_off(_NAV); */
-/*   } else { */
-/*     unregister_code(KC_C); */
-/*   } */
-/*   xalt_c_tap_state.state = TD_NONE; */
-/* } */
-
-qk_tap_dance_action_t tap_dance_actions[] = {
-  /* [XFN_ENT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, xfn_ent_finished, xfn_ent_reset), */
-  /* [XGUI_X] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, xgui_x_finished, xgui_x_reset), */
-  /* [XALT_C] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, xalt_c_finished, xalt_c_reset) */
-};
-
 void matrix_scan_user(void) {
   // End fancy nav switching if the NAV layer has been deactivated.
   if (is_win_switch_active && !IS_LAYER_ON(_NAV)) {
@@ -374,10 +188,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     case SFT_DOT:
     case SFT_M:
     case SFT_SLSH:
-    case TD(XFN_ENT):
       return TAPPING_TERM - 20;
-    /* case TD(XFN_ENT): */
-    /*   return TAPPING_TERM - 30; */
     default:
       return TAPPING_TERM;
   }
@@ -397,7 +208,6 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     case SFT_SLSH:
     case SFT_DOT:
     case SFT_M:
-    case TD(XFN_ENT):
       return true;
     default:
       return false;
@@ -406,8 +216,7 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
 
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    case LT(1, KC_BSPC):
-    case TD(XFN_ENT):
+    /* case LT(1, KC_BSPC): */
     /*   // Immediately select the hold action when another key is pressed. */
     /*   return true; */
     default:
