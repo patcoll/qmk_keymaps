@@ -1,8 +1,6 @@
 #pragma once
 #include QMK_KEYBOARD_H
 
-void oled_render_layer_state(void);
-
 enum userspace_layers {
   _QWERTY = 0,
   _NUMBERS,
@@ -22,11 +20,6 @@ enum userspace_layers {
 };
 
 enum userspace_custom_keycodes {
-  // TG_CLMK = SAFE_RANGE,
-  // TG_HNDS,
-  // TG_QWER,
-  // GAMEOVR,
-  // HR_MODS,
   ALT_TAB = SAFE_RANGE,
   SALTTAB,
   NXT_TAB,
@@ -36,29 +29,7 @@ enum userspace_custom_keycodes {
   EX_PAR,
   EX_INSP,
   EX_SEAR,
-  // WNDW_1,
-  // WNDW_2,
-  // WNDW_3,
-  // WNDW_4,
-  // WNDW_5,
-  // WNDW_6,
-  // WNDW_7,
-  // WNDW_8,
-  // WNDW_9,
-  // WNDW_0,
-# ifdef QUICK_SWITCH
-  QCK_TAB,
-  QCKSTAB,
-  QCK_SEL,
-# endif
   NEW_SAFE_RANGE
-};
-
-enum tap_dance_keycodes {
-  XFN_ENT,
-  XGUI_X,
-  XALT_C,
-  TD_RAND
 };
 
 #define CTL_ESC    MT(MOD_LCTL, KC_ESC)
@@ -71,10 +42,8 @@ enum tap_dance_keycodes {
 #define CLS_WIN    A(KC_F4)
 #define OS_MENU    A(KC_SPC)
 
-
 #define NAV_W LT(_NAV, KC_W)
 #define NAV_Z LT(_NAV, KC_Z)
-// #define ATAB_C LT(_ATAB, KC_C)
 
 #define MO_NAV MO(_NAV)
 
@@ -110,8 +79,6 @@ enum tap_dance_keycodes {
 #define RSE_BSPC   LT(_RAISE, KC_BSPC)
 #define RSE_B      LT(_RAISE, KC_B)
 
-// #define NAV_Z      LT(_NAV, KC_Z)
-// #define MOUSE_X    LT(_MOUSE, KC_X)
 #define SFT_Z      MT(MOD_LSFT, KC_Z)
 #define SFT_A      MT(MOD_LSFT, KC_A)
 #define SFT_E      MT(MOD_LSFT, KC_E)
@@ -129,16 +96,8 @@ enum tap_dance_keycodes {
 #define CTL_SCLN   MT(MOD_LCTL, KC_SCLN)
 #define CTL_SLSH   MT(MOD_LCTL, KC_SLSH)
 
-// #define GUI_X      MT(MOD_LGUI, KC_X)
-// #define ALT_C      MT(MOD_LALT, KC_C)
-#define T_GUI_X    TD(XGUI_X)
-#define T_ALT_C    TD(XALT_C)
-
 #define GUI_ZX    LM(_NAV, MOD_LGUI)
 #define ALT_XC    LM(_NAV, MOD_LALT)
-
-// #define NAV_TAB    LT(_NAV, KC_TAB)
-// #define MOUSE_Q    LT(_MOUSE, KC_Q)
 
 #define _________________QWERTY_L1_________________       CTL_Q,   NAV_W,   KC_E,    KC_R,    KC_T
 #define _________________QWERTY_L2_________________       KC_A,    KC_S,    KC_D,    KC_F,    KC_G
@@ -244,3 +203,5 @@ enum tap_dance_keycodes {
 #define                __MOUSE_R3_ARROW_KEYS__                                       KC_MS_L, KC_MS_D, KC_MS_R
 
 #define ___________________BLANK___________________       _______, _______, _______, _______, _______
+
+void oled_render_layer_state(void);
