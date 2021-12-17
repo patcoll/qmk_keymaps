@@ -24,9 +24,8 @@
 #define COMBO_TERM 36
 #endif // COMBO_ENABLE
 
-// Define combos for alpha keyboard.
+// Only define combos for alpha keyboard. This def will be found there.
 #undef PATCOLL_ALPHA_COMBOS
-// #define PATCOLL_ALPHA_COMBOS
 
 // Ricing
 // #define USB_POLLING_INTERVAL_MS 2
