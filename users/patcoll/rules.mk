@@ -2,11 +2,12 @@ SRC += patcoll.c
 
 BOOTMAGIC_ENABLE      = no
 COMBO_ENABLE          = yes
+CONSOLE_ENABLE        = no
+ENCODER_ENABLE        = yes
 EXTRAKEY_ENABLE       = yes
 MOUSEKEY_ENABLE       = yes
 NKRO_ENABLE           = no
 TAP_DANCE_ENABLE      = no
-CONSOLE_ENABLE = no
 
 # Allow loading of `combos.def`
 VPATH += keyboards/gboards/
