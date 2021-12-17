@@ -44,10 +44,8 @@ enum userspace_custom_keycodes {
 #define CLS_WIN    A(KC_F4)
 #define OS_MENU    A(KC_SPC)
 
-
 #define NAV_W LT(_NAV, KC_W)
 #define NAV_Z LT(_NAV, KC_Z)
-// #define ATAB_C LT(_ATAB, KC_C)
 
 #define MO_NAV MO(_NAV)
 
@@ -83,8 +81,6 @@ enum userspace_custom_keycodes {
 #define RSE_BSPC   LT(_RAISE, KC_BSPC)
 #define RSE_B      LT(_RAISE, KC_B)
 
-// #define NAV_Z      LT(_NAV, KC_Z)
-// #define MOUSE_X    LT(_MOUSE, KC_X)
 #define SFT_Z      MT(MOD_LSFT, KC_Z)
 #define SFT_A      MT(MOD_LSFT, KC_A)
 #define SFT_E      MT(MOD_LSFT, KC_E)
@@ -104,9 +100,6 @@ enum userspace_custom_keycodes {
 
 #define GUI_ZX    LM(_NAV, MOD_LGUI)
 #define ALT_XC    LM(_NAV, MOD_LALT)
-
-// #define NAV_TAB    LT(_NAV, KC_TAB)
-// #define MOUSE_Q    LT(_MOUSE, KC_Q)
 
 #define _________________QWERTY_L1_________________       CTL_Q,   NAV_W,   KC_E,    KC_R,    KC_T
 #define _________________QWERTY_L2_________________       KC_A,    KC_S,    KC_D,    KC_F,    KC_G
