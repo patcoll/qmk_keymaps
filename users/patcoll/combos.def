@@ -14,6 +14,14 @@ COMB(lprp_combo,    KC_BSPC,        KC_LPRN, KC_RPRN)
 COMB(as_combo,      KC_TAB,         KC_A, KC_S)
 COMB(sas_combo,     KC_TAB,         SFT_A, KC_S)
 
+COMB(fv_combo,      KC_BTN1,        KC_F, KC_V)
+COMB(fvs_combo,     KC_BTN1,        KC_F, SFT_V)
+COMB(jn_combo,      KC_BTN1,        KC_J, KC_N)
+
+COMB(efv_combo,     KC_BTN2,        KC_E, KC_F, KC_V)
+COMB(efvs_combo,    KC_BTN2,        KC_E, KC_F, SFT_V)
+COMB(ijn_combo,     KC_BTN2,        KC_I, KC_J, KC_N)
+
 //COMB(qw_combo,      KC_ESC,         CTL_Q, NAV_W)
 COMB(sd_combo,      KC_ESC,         KC_S, KC_D)
 
