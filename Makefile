@@ -25,6 +25,11 @@ yohewi-qmk: working_area/yohewi-qmk/Makefile
 working_area/yohewi-qmk/Makefile:
 	git clone https://github.com/yohewi/qmk_firmware working_area/yohewi-qmk
 
+.PHONY: projectcain-firmware
+projectcain-firmware: working_area/projectcain-firmware/relic/readme.md
+working_area/projectcain-firmware/relic/readme.md:
+	git clone https://github.com/projectcain/Board-Firmware working_area/projectcain-firmware
+
 .PHONY: twoyo-default
 plop-default: qmk_firmware/keyboards/twoyo/keymaps/default/keymap.c
 qmk_firmware/keyboards/twoyo/keymaps/default/keymap.c: | qmk rainkeebs-resources
@@ -43,14 +48,14 @@ qmk_firmware/keyboards/kawaii/keymaps/default/keymap.c: | qmk yohewi-qmk
 	mkdir -p qmk_firmware/keyboards/kawaii
 	rsync -avz working_area/yohewi-qmk/keyboards/kawaii/ qmk_firmware/keyboards/kawaii/
 
-.PHONY: relic
-relic: qmk_firmware/keyboards/relic/keymaps/default/keymap.c
-qmk_firmware/keyboards/relic/keymaps/default/keymap.c: | qmk yohewi-qmk
+.PHONY: relic-default
+relic-default: qmk_firmware/keyboards/relic/keymaps/default/keymap.c
+qmk_firmware/keyboards/relic/keymaps/default/keymap.c: | qmk projectcain-firmware
 	mkdir -p qmk_firmware/keyboards/relic
-	rsync -avz relic/ qmk_firmware/keyboards/relic/
+	rsync -avz working_area/projectcain-firmware/relic/ qmk_firmware/keyboards/relic/
 
 .PHONY: keymaps
-keymaps: | qmk twoyo-default plop-default kawaii-default relic userspace
+keymaps: | qmk twoyo-default plop-default kawaii-default relic-default userspace
 	init-keymaps
 
 .PHONY: userspace
