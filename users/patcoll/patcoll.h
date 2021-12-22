@@ -183,7 +183,7 @@ enum userspace_custom_keycodes {
 #define _________________MEDIA_R1__________________       RGB_TOG, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI
 #define __________MEDIA_R2_FOUR___________                KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
 #define _________________MEDIA_R2__________________       __________MEDIA_R2_FOUR___________, _______
-#define __________MEDIA_R3_FOUR___________                _______, _______, _______, _______
+#define __________MEDIA_R3_FOUR___________                OS_MENU, OS_MENU, _______, _______
 #define _________________MEDIA_R3__________________       __________MEDIA_R3_FOUR___________, _______
 #define _________________MEDIA_R3_ARROWS___________       __________MEDIA_R3_FOUR___________, KC_VOLU
 #define                __MEDIA_R3_ARROW_KEYS__                                       KC_MNXT, KC_VOLD, KC_MPLY
