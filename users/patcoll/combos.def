@@ -1,5 +1,8 @@
 COMB(qpReset,       RESET,          CTL_Q, KC_P)
 
+//COMB(rt_combo,      KC_LPRN,         KC_R, KC_T)
+//COMB(yu_combo,      KC_RPRN,         KC_Y, KC_U)
+
 COMB(zxs_combo,     GUI_ZX,         SFT_Z, KC_X)
 COMB(zx_combo,      GUI_ZX,         KC_Z, KC_X)
 
@@ -12,15 +15,15 @@ COMB(nt_combo,      KC_BSPC,        KC_9, KC_0)
 COMB(lprp_combo,    KC_BSPC,        KC_LPRN, KC_RPRN)
 
 COMB(as_combo,      KC_TAB,         KC_A, KC_S)
-COMB(sas_combo,     KC_TAB,         SFT_A, KC_S)
+//COMB(sas_combo,     KC_TAB,         SFT_A, KC_S)
 
-COMB(fv_combo,      KC_BTN1,        KC_F, KC_V)
-COMB(fvs_combo,     KC_BTN1,        KC_F, SFT_V)
-COMB(jn_combo,      KC_BTN1,        KC_J, KC_N)
+//COMB(fv_combo,      KC_BTN1,        KC_F, KC_V)
+//COMB(fvs_combo,     KC_BTN1,        KC_F, SFT_V)
+//COMB(jn_combo,      KC_BTN1,        KC_J, KC_N)
 
-COMB(efv_combo,     KC_BTN2,        KC_E, KC_F, KC_V)
-COMB(efvs_combo,    KC_BTN2,        KC_E, KC_F, SFT_V)
-COMB(ijn_combo,     KC_BTN2,        KC_I, KC_J, KC_N)
+//COMB(efv_combo,     KC_BTN2,        KC_E, KC_F, KC_V)
+//COMB(efvs_combo,    KC_BTN2,        KC_E, KC_F, SFT_V)
+//COMB(ijn_combo,     KC_BTN2,        KC_I, KC_J, KC_N)
 
 //COMB(qw_combo,      KC_ESC,         CTL_Q, NAV_W)
 COMB(sd_combo,      KC_ESC,         KC_S, KC_D)
@@ -33,8 +36,10 @@ COMB(dg_combo,      KC_UNDS,        KC_D, KC_G)
 
 COMB(dfdot_combo,   EX_PIPE,        KC_D, KC_F, KC_DOT)
 COMB(dfsdot_combo,  EX_PIPE,        KC_D, KC_F, SFT_DOT)
+COMB(dfio_combo,    EX_PIPE,        KC_D, KC_F, KC_I, KC_O)
 COMB(sdfdot_combo,  EX_ARR,         KC_S, KC_D, KC_F, KC_DOT)
 COMB(sdfsdot_combo, EX_ARR,         KC_S, KC_D, KC_F, SFT_DOT)
+COMB(sdfio_combo,   EX_ARR,         KC_S, KC_D, KC_F, KC_I, KC_O)
 COMB(dfi_combo,     EX_INSP,        KC_D, KC_F, KC_I)
 COMB(dfo_combo,     EX_PAR,         KC_D, KC_F, KC_O)
 COMB(dfp_combo,     EX_SEAR,        KC_D, KC_F, KC_P)
@@ -42,6 +47,12 @@ COMB(dfp_combo,     EX_SEAR,        KC_D, KC_F, KC_P)
 #ifdef PATCOLL_ALPHA_COMBOS
 COMB(dfm_combo,     EX_PIPE,        KC_D, KC_F, KC_M)
 #endif
+
+//COMB(fj_combo,      TG_RSE,         KC_F, KC_J)
+//COMB(raisefj_combo, TG_RSE,         KC_F4, KC_MINS)
+//COMB(nm_combo,      TG_RSE,         KC_N, KC_M)
+//COMB(nsm_combo,     TG_RSE,         KC_N, SFT_M)
+//COMB(raisenm_combo, TG_RSE,         KC_GRV, KC_BSLS)
 
 COMB(gh_combo,      KC_EQL,         KC_G, KC_H)
 
@@ -59,7 +70,7 @@ COMB(jlc_combo,     KC_DQUO,        KC_J, CTL_L)
 
 COMB(navhj_combo,      OS_MENU,        KC_LEFT, KC_DOWN)
 COMB(navfj_combo,      ALT_TAB,        MO_RSE, KC_DOWN)
-COMB(navfjtg_combo,    ALT_TAB,        TG_RSE, KC_DOWN)
+//COMB(navfjtg_combo,    ALT_TAB,        TG_RSE, KC_DOWN)
 COMB(navkl_combo,      ALT_TAB,        KC_UP, KC_RGHT)
 
 #ifdef PATCOLL_ALPHA_COMBOS
@@ -67,6 +78,7 @@ COMB(bk_combo,      KC_ENT,         KC_B, KC_K)
 COMB(rbk_combo,     KC_ENT,         RSE_B, KC_K)
 #else
 COMB(mk_combo,      KC_ENT,         KC_M, KC_K)
+//COMB(smk_combo,     KC_ENT,         SFT_M, KC_K)
 #endif
 
 
@@ -78,14 +90,43 @@ COMB(nm_combo,      SFT_DOT,         KC_N, KC_M)
 COMB(nms_combo,      SFT_DOT,         KC_N, SFT_M)
 //COMB(ds_combo,      KC_DOT,         KC_DOT, KC_SLSH)
 COMB(bm_combo,      KC_SLSH,        KC_B, KC_M)
-COMB(bms_combo,      KC_SLSH,        KC_B, SFT_M)
-COMB(rbm_combo,      KC_SLSH,        RSE_B, KC_M)
-COMB(rbms_combo,      KC_SLSH,        RSE_B, SFT_M)
+COMB(bms_combo,     KC_SLSH,        KC_B, SFT_M)
+COMB(rbm_combo,     KC_SLSH,        RSE_B, KC_M)
+COMB(rbms_combo,    KC_SLSH,        RSE_B, SFT_M)
 //COMB(cs_combo,      KC_SLSH,        KC_COMM, KC_SLSH)
 #else
+//COMB(smc_combo,     KC_COMM,        SFT_M, KC_COMM)
 COMB(mc_combo,      KC_COMM,        KC_M, KC_COMM)
 COMB(cd_combo,      KC_DOT,         KC_COMM, KC_DOT)
 COMB(cds_combo,     KC_DOT,         KC_COMM, SFT_DOT)
 COMB(md_combo,      KC_SLSH,        KC_M, KC_DOT)
+//COMB(smd_combo,     KC_SLSH,        SFT_M, KC_DOT)
 COMB(mds_combo,     KC_SLSH,        KC_M, SFT_DOT)
+//COMB(smds_combo,    KC_SLSH,        SFT_M, SFT_DOT)
 #endif
+
+COMB(ui_combo,      KC_COMM,        KC_U, KC_I)
+COMB(io_combo,      KC_DOT,         KC_I, KC_O)
+COMB(uo_combo,      KC_SLSH,        KC_U, KC_O)
+
+//COMB(lspc_combo,    MO_RSE,         KC_L, KC_SPC)
+COMB(lsspc_combo,   MO_RSE,         KC_L, SFT_SPC)
+COMB(lrent_combo,   MO_RSE,         KC_L, RSE_ENT)
+
+//COMB(mspc_combo,    MO_RSE,         KC_M, KC_SPC)
+//COMB(smspc_combo,   MO_RSE,         SFT_M, KC_SPC)
+COMB(msspc_combo,   MO_RSE,         KC_M, SFT_SPC)
+//COMB(smsspc_combo,  MO_RSE,         SFT_M, SFT_SPC)
+//COMB(nspc_combo,    MO_RSE,         KC_N, KC_SPC)
+//COMB(nsspc_combo,   MO_RSE,         KC_N, SFT_SPC)
+
+//COMB(sspc_combo,     MO_LWR,         KC_S, KC_SPC)
+COMB(ssspc_combo,    MO_LWR,         KC_S, SFT_SPC)
+//COMB(zsspc_combo,    MO_LWR,         KC_Z, SFT_SPC)
+//COMB(szsspc_combo,   MO_LWR,         SFT_Z, SFT_SPC)
+
+//COMB(xspc_combo,     MO_LWR,         KC_X, KC_SPC)
+COMB(xsspc_combo,    MO_LWR,         KC_X, SFT_SPC)
+//COMB(cspc_combo,     MO_LWR,         KC_C, KC_SPC)
+COMB(csspc_combo,    MO_LWR,         KC_C, SFT_SPC)
+

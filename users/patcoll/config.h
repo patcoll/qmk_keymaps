@@ -18,16 +18,16 @@
 
 // Combos
 #ifdef COMBO_ENABLE
-#define COMBO_TERM 36
+#define COMBO_TERM 34
 #endif // COMBO_ENABLE
 
 // Only define combos for alpha keyboard. This def will be found there.
 #undef PATCOLL_ALPHA_COMBOS
 
 // Ricing
-#define USB_POLLING_INTERVAL_MS 2
-#define QMK_KEYS_PER_SCAN 10
-#define FORCE_NKRO
+// #define USB_POLLING_INTERVAL_MS 2
+// #define QMK_KEYS_PER_SCAN 10
+// #define FORCE_NKRO
 
 // RGBLight
 #undef RGBLIGHT_HUE_STEP

@@ -1,6 +1,8 @@
 #pragma once
 #include QMK_KEYBOARD_H
 
+#define COMBO_VARIABLE_LEN
+
 enum userspace_layers {
   _QWERTY = 0,
   _NUMBERS,
@@ -38,6 +40,7 @@ enum userspace_custom_keycodes {
 #define CTL_1      MT(MOD_LCTL, KC_1)
 #define CTL_L      MT(MOD_LCTL, KC_L)
 #define CTL_QUOT   MT(MOD_LCTL, KC_QUOT)
+#define CTL_DQUO   MT(MOD_LCTL, KC_DQUO)
 
 #define CLS_WIN    A(KC_F4)
 #define OS_MENU    A(KC_SPC)
@@ -68,6 +71,7 @@ enum userspace_custom_keycodes {
 #define MO_LWR     MO(_LOWER)
 #define MO_RSE     MO(_RAISE)
 #define MO_MED     MO(_MEDIA)
+#define MO_MSE     MO(_MOUSE)
 
 #define TG_LWR     TG(_LOWER)
 #define TG_RSE     TG(_RAISE)
@@ -98,16 +102,19 @@ enum userspace_custom_keycodes {
 
 #define GUI_ZX    LM(_NAV, MOD_LGUI)
 #define ALT_XC    LM(_NAV, MOD_LALT)
+#define NCTL_L    LM(_NAV, MOD_LCTL)
+
+#define RSE_CTL   LM(_RAISE, MOD_LCTL)
 
 #define _________________QWERTY_L1_________________       CTL_Q,   NAV_W,   KC_E,    KC_R,    KC_T
 #define _________________QWERTY_L2_________________       KC_A,    KC_S,    KC_D,    KC_F,    KC_G
-#define         _________QWERTY_L3_FOUR________           SFT_Z,   KC_X,    KC_C,    SFT_V
-#define _________________QWERTY_L3_________________       _________QWERTY_L3_FOUR________,    RSE_B
+#define         _________QWERTY_L3_FOUR________           SFT_Z,   KC_X,    KC_C,    KC_V
+#define _________________QWERTY_L3_________________       _________QWERTY_L3_FOUR________,    KC_B
 
 #define _________________QWERTY_R1_________________       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
 #define         _________QWERTY_R2_FOUR________           KC_H,    KC_J,    KC_K,    KC_L
 #define _________________QWERTY_R2_________________       _________QWERTY_R2_FOUR________,    CTL_SCLN
-#define _________QWERTY_R3_FOUR________                   KC_N,    KC_M,    KC_COMM, SFT_DOT
+#define _________QWERTY_R3_FOUR________                   KC_N,    KC_M,   KC_COMM, SFT_DOT
 #define _________________QWERTY_R3_________________       _________QWERTY_R3_FOUR________,    SFT_SLSH
 #define _________________QWERTY_R3_ARROWS__________       _________QWERTY_R3_FOUR________,    KC_UP
 #define                __QWERTY_R4_ARROW_KEYS__                                      KC_LEFT, KC_DOWN, KC_RGHT
@@ -122,12 +129,12 @@ enum userspace_custom_keycodes {
 #define _______________SYMBOLS_RIGHT_______________       KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN
 
 // Nav stuff
-#define __________________NAV_L1___________________       CTL_1,   _______, SFT_3,   MOUSE_4, KC_5
+#define __________________NAV_L1___________________       KC_LCTL, _______, KC_LSFT, MO_MSE,  _______
 #define __________________NAV_L2___________________       _______, _______, MO_MED,  MO_RSE,  MO_LWR
 #define ___________NAV_L3_FOUR____________                KC_LCTL, KC_LGUI, KC_LALT, TO(_QWERTY)
 #define __________________NAV_L3___________________       ___________NAV_L3_FOUR____________, _______
 
-#define __________________NAV_R1___________________       KC_6,    KC_7,    KC_8,    KC_9,    KC_0
+#define __________________NAV_R1___________________       KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_NO
 #define      _____________NAV_R2_FOUR__________           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 #define __________________NAV_R2___________________       _____________NAV_R2_FOUR__________, ALT_TAB
 #define _____________NAV_R3_FOUR__________                KC_HOME, KC_PGDN, KC_PGUP, KC_END

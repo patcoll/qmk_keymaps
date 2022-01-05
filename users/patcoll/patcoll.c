@@ -13,6 +13,22 @@ void matrix_scan_user(void) {
   }
 }
 
+/* OLD COMBOS START */
+/* enum combo_events { */
+/*   JK_COMBO, */
+/*   COMBO_LENGTH */
+/* }; */
+/*  */
+/* uint16_t COMBO_LEN = COMBO_LENGTH; */
+/*  */
+/* const uint16_t PROGMEM jk_combo[] = {KC_J, KC_K, COMBO_END}; */
+/*  */
+/*  */
+/* combo_t key_combos[] = { */
+/*   [JK_COMBO] = COMBO(jk_combo, KC_ESC), */
+/* }; */
+/* OLD COMBOS END */
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed) {
     if (keycode >= EX_PIPE && keycode <= EX_SEAR) {
@@ -56,13 +72,13 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     // Shift
     case SFT_SPC:
+    /* case SFT_M: */
     case SFT_ENT:
     case SFT_A:
     case SFT_V:
       return TAPPING_TERM - 12;
     case SFT_Z:
     case SFT_DOT:
-    case SFT_M:
     case SFT_SLSH:
       return TAPPING_TERM - 20;
     default:
