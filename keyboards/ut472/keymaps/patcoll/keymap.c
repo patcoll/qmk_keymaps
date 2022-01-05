@@ -1,4 +1,3 @@
-#include QMK_KEYBOARD_H
 #include "patcoll.h"
 
 #define LAYOUT_wrapper(...) LAYOUT(__VA_ARGS__)
