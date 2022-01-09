@@ -30,6 +30,11 @@ projectcain-firmware: working_area/projectcain-firmware/relic/readme.md
 working_area/projectcain-firmware/relic/readme.md:
 	git clone https://github.com/projectcain/Board-Firmware working_area/projectcain-firmware
 
+.PHONY: fruitbar-firmware
+fruitbar-firmware: working_area/fruitbar-firmware/firmware/qmk/fruitbar/readme.md
+working_area/fruitbar-firmware/firmware/qmk/fruitbar/readme.md:
+	git clone https://github.com/blewis308/Fruitbar working_area/fruitbar-firmware
+
 .PHONY: twoyo-default
 plop-default: qmk_firmware/keyboards/twoyo/keymaps/default/keymap.c
 qmk_firmware/keyboards/twoyo/keymaps/default/keymap.c: | qmk rainkeebs-resources
@@ -54,8 +59,14 @@ qmk_firmware/keyboards/relic/keymaps/default/keymap.c: | qmk projectcain-firmwar
 	mkdir -p qmk_firmware/keyboards/relic
 	rsync -avz working_area/projectcain-firmware/relic/ qmk_firmware/keyboards/relic/
 
+.PHONY: fruitbar-default
+fruitbar-default: qmk_firmware/keyboards/fruitbar/keymaps/default/keymap.c
+qmk_firmware/keyboards/fruitbar/keymaps/default/keymap.c: | qmk fruitbar-firmware
+	mkdir -p qmk_firmware/keyboards/fruitbar
+	rsync -avz working_area/fruitbar-firmware/firmware/qmk/fruitbar/ qmk_firmware/keyboards/fruitbar/
+
 .PHONY: keymaps
-keymaps: | qmk twoyo-default plop-default kawaii-default relic-default userspace
+keymaps: | qmk twoyo-default plop-default kawaii-default relic-default fruitbar-default userspace
 	init-keymaps
 
 .PHONY: userspace
