@@ -65,8 +65,13 @@ qmk_firmware/keyboards/fruitbar/keymaps/default/keymap.c: | qmk fruitbar-firmwar
 	mkdir -p qmk_firmware/keyboards/fruitbar
 	rsync -avz working_area/fruitbar-firmware/firmware/qmk/fruitbar/ qmk_firmware/keyboards/fruitbar/
 
+.PHONY: caravan2
+caravan2: | qmk
+	mkdir -p qmk_firmware/keyboards/caravan2
+	rsync -avz caravan2/ qmk_firmware/keyboards/caravan2/
+
 .PHONY: keymaps
-keymaps: | qmk twoyo-default plop-default kawaii-default relic-default fruitbar-default userspace
+keymaps: | qmk twoyo-default plop-default kawaii-default relic-default fruitbar-default caravan2 userspace
 	init-keymaps
 
 .PHONY: userspace
