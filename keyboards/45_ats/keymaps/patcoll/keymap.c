@@ -14,7 +14,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_LSFT, __________________NAV_L1___________________, __________________NAV_R1___________________, CS_BSPC, _______, _______,
   KC_LCTL, __________________NAV_L2___________________, __________________NAV_R2___________________, KC_BSLS,          _______,
   KC_LSFT, __________________NAV_L3___________________, __________________NAV_R3___________________, _______,          _______,
-  _______, _______, _______, _______,                   ALT_TAB, _______, _______, __NAV_R4_ARROW_KEYS___
+  _______, _______, _______, ALT_TAB,                   ALT_TAB, _______, _______, __NAV_R4_ARROW_KEYS___
 ),
 
 [_LOWER] = LAYOUT_wrapper(
@@ -45,3 +45,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, KC_BTN1, KC_BTN1, KC_BTN1,                   KC_BTN1, KC_BTN2, _______, __MOUSE_R3_ARROW_KEYS__
 ),
 };
+
+bool encoder_update_user(uint8_t index, bool clockwise) {
+    if (index == 0) {
+        if (clockwise) {
+            tap_code(KC_VOLU);
+        } else {
+            tap_code(KC_VOLD);
+        }
+    }
+    return true;
+}
