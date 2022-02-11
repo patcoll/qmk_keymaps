@@ -1,1 +1,2 @@
-# COMBO_ENABLE = yes
+# reduce RAM usage
+RGBLIGHT_ENABLE = no
