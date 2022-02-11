@@ -3,6 +3,8 @@
 #include "g/keymap_combo.h"
 #endif
 
+bool mac_mode = false;
+
 bool is_alt_tab_active = false;
 
 void matrix_scan_user(void) {
@@ -31,6 +33,31 @@ void matrix_scan_user(void) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed) {
+    if (keycode == MAC_TG) {
+      mac_mode = !mac_mode;
+      return false;
+    }
+
+    if (keycode == CLS_WIN) {
+      mac_mode == true ? tap_code16(C(KC_W)) : tap_code16(A(KC_F4));
+      return false;
+    }
+
+    if (keycode == SCR_SHT) {
+      mac_mode == true ? tap_code16(S(A(KC_3))) : tap_code16(S(KC_PSCR));
+      return false;
+    }
+
+    if (keycode == SCR_WIN) {
+      mac_mode == true ? tap_code16(S(A(KC_4))) : tap_code16(G(S(KC_PSCR)));
+      return false;
+    }
+
+    if (keycode == SCR_LCK) {
+      mac_mode == true ? tap_code16(C(A(KC_Q))) : tap_code16(C(G(A(S(KC_L)))));
+      return false;
+    }
+
     if (keycode >= EX_PIPE && keycode <= EX_SEAR) {
       switch (keycode) {
         case EX_PIPE:
@@ -84,6 +111,26 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     default:
       return TAPPING_TERM;
   }
+}
+
+uint16_t get_combo_term(uint16_t index, combo_t *combo) {
+  // or with combo index, i.e. its name from enum.
+  switch (index) {
+    case as_combo:
+    case ui_combo:
+    case io_combo:
+    case uo_combo:
+
+    case dsspc_combo:
+    case ksspc_combo:
+    case fsspc_combo:
+    case jsspc_combo:
+    case lsspc_combo:
+    case ssspc_combo:
+      return COMBO_TERM - 12;
+  }
+
+  return COMBO_TERM;
 }
 
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {

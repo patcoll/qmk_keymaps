@@ -26,11 +26,19 @@ enum userspace_custom_keycodes {
   SALTTAB,
   NXT_TAB,
   PRV_TAB,
+
+  MAC_TG,
+  CLS_WIN,
+  SCR_SHT,
+  SCR_WIN,
+  SCR_LCK,
+
   EX_PIPE,
   EX_ARR,
   EX_PAR,
   EX_INSP,
   EX_SEAR,
+
   NEW_SAFE_RANGE
 };
 
@@ -40,9 +48,9 @@ enum userspace_custom_keycodes {
 #define CTL_1      MT(MOD_LCTL, KC_1)
 #define CTL_L      MT(MOD_LCTL, KC_L)
 #define CTL_QUOT   MT(MOD_LCTL, KC_QUOT)
-#define CTL_DQUO   MT(MOD_LCTL, KC_DQUO)
+#define CS_DQUO   MT(MOD_LCTL | MOD_LSFT, KC_DQUO)
 
-#define CLS_WIN    A(KC_F4)
+// #define CLS_WIN    A(KC_F4)
 #define OS_MENU    A(KC_SPC)
 
 #define NAV_W LT(_NAV, KC_W)
@@ -66,7 +74,11 @@ enum userspace_custom_keycodes {
 #define CS_3   MT(MOD_LCTL | MOD_LSFT, KC_3)
 #define CS_4   MT(MOD_LCTL | MOD_LSFT, KC_4)
 #define CS_BSPC   MT(MOD_LCTL | MOD_LSFT, KC_BSPC)
+#define CS_P   MT(MOD_LCTL | MOD_LSFT, KC_P)
 #define CS_0   MT(MOD_LCTL | MOD_LSFT, KC_0)
+#define CS_NO   MT(MOD_LCTL | MOD_LSFT, KC_NO)
+
+#define AS_NO   MT(MOD_LALT | MOD_LSFT, KC_NO)
 
 #define MO_LWR     MO(_LOWER)
 #define MO_RSE     MO(_RAISE)
@@ -111,7 +123,7 @@ enum userspace_custom_keycodes {
 #define         _________QWERTY_L3_FOUR________           SFT_Z,   KC_X,    KC_C,    KC_V
 #define _________________QWERTY_L3_________________       _________QWERTY_L3_FOUR________,    KC_B
 
-#define _________________QWERTY_R1_________________       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
+#define _________________QWERTY_R1_________________       KC_Y,    KC_U,    KC_I,    KC_O,    CS_P
 #define         _________QWERTY_R2_FOUR________           KC_H,    KC_J,    KC_K,    KC_L
 #define _________________QWERTY_R2_________________       _________QWERTY_R2_FOUR________,    CTL_SCLN
 #define _________QWERTY_R3_FOUR________                   KC_N,    KC_M,   KC_COMM, SFT_DOT
@@ -183,14 +195,15 @@ enum userspace_custom_keycodes {
 
 // Media
 #define _________________MEDIA_L1__________________       CLS_WIN, CLS_WIN, _______, _______, _______
-#define _________________MEDIA_L2__________________       _______, _______, _______, S(KC_PSCR), G(S(KC_PSCR))
+#define _________________MEDIA_L2__________________       _______, _______, _______, SCR_SHT, SCR_WIN
 #define __________MEDIA_L3_FOUR___________                RESET,   _______, OS_MENU, TO(_QWERTY)
 #define _________________MEDIA_L3__________________       __________MEDIA_L3_FOUR___________, _______
 
 #define _________________MEDIA_R1__________________       RGB_TOG, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI
 #define __________MEDIA_R2_FOUR___________                KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
 #define _________________MEDIA_R2__________________       __________MEDIA_R2_FOUR___________, _______
-#define __________MEDIA_R3_FOUR___________                OS_MENU, OS_MENU, _______, _______
+#define __MEDIA_R3_TWO__                                  OS_MENU, OS_MENU
+#define __________MEDIA_R3_FOUR___________                __MEDIA_R3_TWO__, _______, _______
 #define _________________MEDIA_R3__________________       __________MEDIA_R3_FOUR___________, _______
 #define _________________MEDIA_R3_ARROWS___________       __________MEDIA_R3_FOUR___________, KC_VOLU
 #define                __MEDIA_R3_ARROW_KEYS__                                       KC_MNXT, KC_VOLD, KC_MPLY

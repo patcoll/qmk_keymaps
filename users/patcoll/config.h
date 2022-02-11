@@ -19,6 +19,8 @@
 // Combos
 #ifdef COMBO_ENABLE
 #define COMBO_TERM 34
+#define EXTRA_SHORT_COMBOS
+#define COMBO_TERM_PER_COMBO
 #endif // COMBO_ENABLE
 
 // Only define combos for alpha keyboard. This def will be found there.
