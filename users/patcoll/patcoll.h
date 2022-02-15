@@ -7,6 +7,7 @@ enum userspace_layers {
   _QWERTY = 0,
   _NUMBERS,
   _NAV,
+  _OSK,
   _MEDIA,
   _MOUSE,
   _GLOWER,
@@ -33,6 +34,11 @@ enum userspace_custom_keycodes {
   SCR_WIN,
   SCR_LCK,
 
+  GO_BACK,
+  GO_FWD,
+  WIN_HIDE,
+  WIN_MAX,
+
   EX_PIPE,
   EX_ARR,
   EX_PAR,
@@ -57,6 +63,7 @@ enum userspace_custom_keycodes {
 #define NAV_Z LT(_NAV, KC_Z)
 
 #define MO_NAV MO(_NAV)
+#define MO_OSK MO(_OSK)
 
 #define CTL_V LCTL_T(KC_V)
 
@@ -114,6 +121,7 @@ enum userspace_custom_keycodes {
 
 #define GUI_ZX    LM(_NAV, MOD_LGUI)
 #define ALT_XC    LM(_NAV, MOD_LALT)
+#define GA_ZXC    LM(_NAV, MOD_LGUI | MOD_LALT)
 #define NCTL_L    LM(_NAV, MOD_LCTL)
 
 #define RSE_CTL   LM(_RAISE, MOD_LCTL)
@@ -153,6 +161,20 @@ enum userspace_custom_keycodes {
 #define __________________NAV_R3___________________       _____________NAV_R3_FOUR__________, _______
 #define __________________NAV_R3_ARROWS____________       _____________NAV_R3_FOUR__________, _______
 #define                 __NAV_R4_ARROW_KEYS___                                       _______, _______, _______
+
+// OS keys
+#define __________________OSK_L1___________________       _______, _______, _______, _______, _______
+#define __________________OSK_L2___________________       _______, _______, _______, _______, _______
+#define ___________OSK_L3_FOUR____________                _______, _______, _______, _______
+#define __________________OSK_L3___________________       ___________OSK_L3_FOUR____________, _______
+
+#define __________________OSK_R1___________________       _______, _______, _______, _______, _______
+#define      _____________OSK_R2_FOUR__________           GO_BACK, WIN_HIDE, WIN_MAX, GO_FWD
+#define __________________OSK_R2___________________       _____________OSK_R2_FOUR__________, _______
+#define _____________OSK_R3_FOUR__________                _______, _______, _______, _______
+#define __________________OSK_R3___________________       _____________OSK_R3_FOUR__________, _______
+#define __________________OSK_R3_ARROWS____________       _____________OSK_R3_FOUR__________, _______
+#define                 __OSK_R4_ARROW_KEYS___                                       _______, _______, _______
 
 // Lower
 #define _________________LOWER_L1__________________       _______________SYMBOLS_LEFT________________

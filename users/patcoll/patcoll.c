@@ -40,6 +40,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     if (keycode == CLS_WIN) {
       mac_mode == true ? tap_code16(C(KC_W)) : tap_code16(A(KC_F4));
+    }
+
+    if (keycode == GO_BACK) {
+      mac_mode == true ? tap_code16(A(KC_LBRC)) : tap_code16(A(KC_LEFT));
+      return false;
+    }
+
+    if (keycode == GO_FWD) {
+      mac_mode == true ? tap_code16(A(KC_RBRC)) : tap_code16(A(KC_RGHT));
+      return false;
+    }
+
+    if (keycode == WIN_HIDE) {
+      mac_mode == true ? tap_code16(A(KC_H)) : tap_code16(G(KC_PGDN));
+      return false;
+    }
+
+    if (keycode == WIN_MAX) {
+      mac_mode == true ? tap_code16(G(A(KC_F))) : tap_code16(G(KC_PGUP));
       return false;
     }
 
