@@ -1,4 +1,4 @@
-COMB(qpReset,       RESET,          CTL_Q, CS_P)
+COMB(qpzReset,      RESET,          CTL_Q, CS_P, SFT_Z)
 COMB(qpm_combo,     MAC_TG,          CTL_Q, CS_P, KC_M)
 COMB(qpl_combo,     SCR_LCK,         CTL_Q, CS_P, KC_L)
 
