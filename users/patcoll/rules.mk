@@ -5,7 +5,7 @@ COMBO_ENABLE          = yes
 CONSOLE_ENABLE        = no
 EXTRAKEY_ENABLE       = yes
 MOUSEKEY_ENABLE       = yes
-NKRO_ENABLE           = yes
+NKRO_ENABLE           = no
 TAP_DANCE_ENABLE      = no
 
 # Allow loading of `combos.def`
