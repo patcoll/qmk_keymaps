@@ -18,7 +18,7 @@
 
 // Combos
 #ifdef COMBO_ENABLE
-#define COMBO_TERM 34
+#define COMBO_TERM 33
 #define EXTRA_SHORT_COMBOS
 #define COMBO_TERM_PER_COMBO
 #endif // COMBO_ENABLE
