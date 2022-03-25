@@ -40,6 +40,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     if (keycode == CLS_WIN) {
       mac_mode == true ? tap_code16(C(KC_W)) : tap_code16(A(KC_F4));
+      return false;
     }
 
     if (keycode == GO_BACK) {
