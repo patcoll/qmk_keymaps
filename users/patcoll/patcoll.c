@@ -127,6 +127,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     case SFT_DOT:
     case SFT_SLSH:
       return TAPPING_TERM - 20;
+    case CS_P:
+      return TAPPING_TERM + 12;
     default:
       return TAPPING_TERM;
   }
@@ -146,6 +148,7 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     case jsspc_combo:
     case lsspc_combo:
     case ssspc_combo:
+    case zsspc_combo:
       return COMBO_TERM - 12;
   }
 
