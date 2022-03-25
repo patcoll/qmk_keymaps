@@ -70,8 +70,13 @@ caravan2: | qmk
 	mkdir -p qmk_firmware/keyboards/caravan2
 	rsync -avz caravan2/ qmk_firmware/keyboards/caravan2/
 
+.PHONY: agony
+agony: | qmk
+	mkdir -p qmk_firmware/keyboards/handwired/patcoll/agony
+	rsync -avz handwired/patcoll/agony/ qmk_firmware/keyboards/handwired/patcoll/agony/
+
 .PHONY: keymaps
-keymaps: | qmk twoyo-default plop-default kawaii-default relic-default fruitbar-default caravan2 userspace
+keymaps: | qmk twoyo-default plop-default kawaii-default relic-default fruitbar-default caravan2 agony userspace
 	init-keymaps
 
 .PHONY: userspace
