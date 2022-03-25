@@ -125,6 +125,7 @@ COMB(io_combo,      KC_DOT,         KC_I, KC_O)
 COMB(uo_combo,      KC_SLSH,        KC_U, KC_O)
 
 COMB(zsspc_combo,   KC_SPC,         SFT_Z, SFT_SPC)
+COMB(asspc_combo,   KC_SPC,         KC_A, SFT_SPC)
 
 COMB(fsspc_combo,   KC_LCTL,         KC_F, SFT_SPC)
 COMB(jsspc_combo,   KC_LCTL,         KC_J, SFT_SPC)
