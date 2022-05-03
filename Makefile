@@ -36,7 +36,7 @@ working_area/fruitbar-firmware/firmware/qmk/fruitbar/readme.md:
 	git clone https://github.com/blewis308/Fruitbar working_area/fruitbar-firmware
 
 .PHONY: twoyo-default
-plop-default: qmk_firmware/keyboards/twoyo/keymaps/default/keymap.c
+twoyo-default: qmk_firmware/keyboards/twoyo/keymaps/default/keymap.c
 qmk_firmware/keyboards/twoyo/keymaps/default/keymap.c: | qmk rainkeebs-resources
 	mkdir -p qmk_firmware/keyboards/twoyo
 	rsync -avz working_area/rainkeebs-resources/firmware/twoyo/ qmk_firmware/keyboards/twoyo/
