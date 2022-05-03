@@ -41,6 +41,12 @@ qmk_firmware/keyboards/twoyo/keymaps/default/keymap.c: | qmk rainkeebs-resources
 	mkdir -p qmk_firmware/keyboards/twoyo
 	rsync -avz working_area/rainkeebs-resources/firmware/twoyo/ qmk_firmware/keyboards/twoyo/
 
+.PHONY: minisub-default
+minisub-default: qmk_firmware/keyboards/minisub/keymaps/default/keymap.c
+qmk_firmware/keyboards/minisub/keymaps/default/keymap.c: | qmk rainkeebs-resources
+	mkdir -p qmk_firmware/keyboards/minisub
+	rsync -avz working_area/rainkeebs-resources/firmware/minisub/ qmk_firmware/keyboards/minisub/
+
 .PHONY: plop-default
 plop-default: qmk_firmware/keyboards/plop/keymaps/default/keymap.c
 qmk_firmware/keyboards/plop/keymaps/default/keymap.c: | qmk rain-vial-qmk
@@ -76,7 +82,7 @@ agony: | qmk
 	rsync -avz handwired/patcoll/agony/ qmk_firmware/keyboards/handwired/patcoll/agony/
 
 .PHONY: keymaps
-keymaps: | qmk twoyo-default plop-default kawaii-default relic-default fruitbar-default caravan2 agony userspace
+keymaps: | qmk twoyo-default minisub-default plop-default kawaii-default relic-default fruitbar-default caravan2 agony userspace
 	init-keymaps
 
 .PHONY: userspace
