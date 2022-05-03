@@ -131,7 +131,7 @@ enum userspace_custom_keycodes {
 #define         _________QWERTY_L3_FOUR________           SFT_Z,   KC_X,    KC_C,    KC_V
 #define _________________QWERTY_L3_________________       _________QWERTY_L3_FOUR________,    KC_B
 
-#define _________________QWERTY_R1_________________       KC_Y,    KC_U,    KC_I,    KC_O,    CS_P
+#define _________________QWERTY_R1_________________       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
 #define         _________QWERTY_R2_FOUR________           KC_H,    KC_J,    KC_K,    KC_L
 #define _________________QWERTY_R2_________________       _________QWERTY_R2_FOUR________,    CTL_SCLN
 #define _________QWERTY_R3_FOUR________                   KC_N,    KC_M,   KC_COMM, SFT_DOT

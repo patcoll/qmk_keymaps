@@ -128,8 +128,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     case SFT_DOT:
     case SFT_SLSH:
       return TAPPING_TERM - 20;
-    case CS_P:
-      return TAPPING_TERM + 12;
+    /* case CS_P: */
+    /*   return TAPPING_TERM + 12; */
     default:
       return TAPPING_TERM;
   }
@@ -169,6 +169,7 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     case SFT_SLSH:
     case SFT_DOT:
     case SFT_M:
+    case CS_P:
       return true;
     default:
       return false;
