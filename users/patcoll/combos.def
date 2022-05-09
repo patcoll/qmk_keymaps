@@ -8,12 +8,12 @@ COMB(qpl_combo,     SCR_LCK,         CTL_Q, KC_P, KC_L)
 COMB(wd_combo,     MO_MED,         NAV_W, KC_D)
 /* COMB(wr_combo,     MO_MSE,         NAV_W, KC_R) */
 
-COMB(zxs_combo,     GUI_ZX,         SFT_Z, KC_X)
-COMB(zx_combo,      GUI_ZX,         KC_Z, KC_X)
+COMB(zxs_combo,     GUI_ZX,         SFT_Z, GUI_X)
+COMB(zx_combo,      GUI_ZX,         KC_Z, GUI_X)
 
-COMB(xc_combo,     MO_OSK,         KC_X, KC_C)
+COMB(xc_combo,     MO_OSK,         GUI_X, KC_C)
 
-COMB(ga_zxc_combo,     GA_ZXC,         SFT_Z, KC_X, KC_C)
+COMB(ga_zxc_combo,     GA_ZXC,         SFT_Z, GUI_X, KC_C)
 
 COMB(op_combo,      KC_BSPC,        KC_O, KC_P)
 COMB(pbsp_combo,    KC_BSPC,        KC_P, KC_BSPC)
@@ -146,8 +146,8 @@ COMB(ssspc_combo,    MO_LWR,         KC_S, SFT_SPC)
 //COMB(zsspc_combo,    MO_LWR,         KC_Z, SFT_SPC)
 //COMB(szsspc_combo,   MO_LWR,         SFT_Z, SFT_SPC)
 
-//COMB(xspc_combo,     MO_LWR,         KC_X, KC_SPC)
-//COMB(xsspc_combo,    MO_LWR,         KC_X, SFT_SPC)
+//COMB(xspc_combo,     MO_LWR,         GUI_X, KC_SPC)
+//COMB(xsspc_combo,    MO_LWR,         GUI_X, SFT_SPC)
 //COMB(cspc_combo,     MO_LWR,         KC_C, KC_SPC)
 //COMB(csspc_combo,    MO_LWR,         KC_C, SFT_SPC)
 

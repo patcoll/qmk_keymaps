@@ -56,6 +56,8 @@ enum userspace_custom_keycodes {
 #define CTL_QUOT   MT(MOD_LCTL, KC_QUOT)
 #define CS_DQUO   MT(MOD_LCTL | MOD_LSFT, KC_DQUO)
 
+#define GUI_X      MT(MOD_LGUI, KC_X)
+
 // #define CLS_WIN    A(KC_F4)
 #define OS_MENU    A(KC_SPC)
 
@@ -128,7 +130,7 @@ enum userspace_custom_keycodes {
 
 #define _________________QWERTY_L1_________________       CTL_Q,   NAV_W,   KC_E,    KC_R,    KC_T
 #define _________________QWERTY_L2_________________       KC_A,    KC_S,    KC_D,    KC_F,    KC_G
-#define         _________QWERTY_L3_FOUR________           SFT_Z,   KC_X,    KC_C,    KC_V
+#define         _________QWERTY_L3_FOUR________           SFT_Z,   GUI_X,    KC_C,    KC_V
 #define _________________QWERTY_L3_________________       _________QWERTY_L3_FOUR________,    KC_B
 
 #define _________________QWERTY_R1_________________       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
