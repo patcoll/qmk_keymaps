@@ -34,6 +34,10 @@ enum userspace_custom_keycodes {
   SCR_WIN,
   SCR_LCK,
 
+  C_CUT,
+  C_COPY,
+  C_PASTE,
+
   GO_BACK,
   GO_FWD,
   WIN_HIDE,
