@@ -2,14 +2,11 @@ COMB(qpzReset,      RESET,          CTL_Q, KC_P, SFT_Z)
 COMB(qpm_combo,     MAC_TG,          CTL_Q, KC_P, KC_M)
 COMB(qpl_combo,     SCR_LCK,         CTL_Q, KC_P, KC_L)
 
-//COMB(rt_combo,      KC_LPRN,         KC_R, KC_T)
-//COMB(yu_combo,      KC_RPRN,         KC_Y, KC_U)
-
 COMB(wd_combo,     MO_MED,         NAV_W, KC_D)
 /* COMB(wr_combo,     MO_MSE,         NAV_W, KC_R) */
 
 COMB(zxs_combo,     GUI_ZX,         SFT_Z, GUI_X)
-COMB(zx_combo,      GUI_ZX,         KC_Z, GUI_X)
+/* COMB(zx_combo,      GUI_ZX,         KC_Z, GUI_X) */
 
 COMB(xc_combo,     MO_OSK,         GUI_X, KC_C)
 
@@ -34,7 +31,7 @@ COMB(jn_combo,      KC_BTN1,        KC_J, KC_N)
 
 COMB(efv_combo,     KC_BTN2,        KC_E, KC_F, KC_V)
 COMB(efb_combo,     KC_BTN2,        KC_E, KC_F, KC_B)
-COMB(ijn_combo,     KC_BTN2,        KC_I, KC_J, KC_N)
+/* COMB(ijn_combo,     KC_BTN2,        KC_I, KC_J, KC_N) */
 
 COMB(sd_combo,      KC_ESC,         KC_S, KC_D)
 
@@ -91,19 +88,19 @@ COMB(bn_combo,      KC_COMM,        KC_B, KC_N)
 COMB(rbn_combo,     KC_COMM,        RSE_B, KC_N)
 //COMB(cd_combo,      KC_COMM,        KC_COMM, KC_DOT)
 COMB(nm_combo,      SFT_DOT,         KC_N, KC_M)
-COMB(nms_combo,      SFT_DOT,         KC_N, SFT_M)
+/* COMB(nms_combo,      SFT_DOT,         KC_N, SFT_M) */
 //COMB(ds_combo,      KC_DOT,         KC_DOT, KC_SLSH)
 COMB(bm_combo,      KC_SLSH,        KC_B, KC_M)
-COMB(bms_combo,     KC_SLSH,        KC_B, SFT_M)
+/* COMB(bms_combo,     KC_SLSH,        KC_B, SFT_M) */
 COMB(rbm_combo,     KC_SLSH,        RSE_B, KC_M)
-COMB(rbms_combo,    KC_SLSH,        RSE_B, SFT_M)
+/* COMB(rbms_combo,    KC_SLSH,        RSE_B, SFT_M) */
 //COMB(cs_combo,      KC_SLSH,        KC_COMM, KC_SLSH)
 #else
 //COMB(smc_combo,     KC_COMM,        SFT_M, KC_COMM)
 COMB(mc_combo,      KC_COMM,        KC_M, KC_COMM)
-COMB(cd_combo,      KC_DOT,         KC_COMM, KC_DOT)
+/* COMB(cd_combo,      KC_DOT,         KC_COMM, KC_DOT) */
 COMB(cds_combo,     KC_DOT,         KC_COMM, SFT_DOT)
-COMB(md_combo,      KC_SLSH,        KC_M, KC_DOT)
+/* COMB(md_combo,      KC_SLSH,        KC_M, KC_DOT) */
 //COMB(smd_combo,     KC_SLSH,        SFT_M, KC_DOT)
 COMB(mds_combo,     KC_SLSH,        KC_M, SFT_DOT)
 //COMB(smds_combo,    KC_SLSH,        SFT_M, SFT_DOT)
