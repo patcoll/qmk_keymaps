@@ -13,6 +13,16 @@ environment up that I need.
 For local dev, it assumes you have `direnv`, `git`, `rsync`, `qmk` (The QMK
 CLI), and probably more.
 
+## preamble
+
+It's worth noting that QMK recommends not using the latest AVR GCC (`avr-gcc`)
+package. In its own setup scripts (referenced from `util/qmk_install.sh` at the
+time of this writing), it explicitly installs an old version before attempting
+to connect to a package repo to install the latest.
+
+The install scripts are good reference points to help you install the right
+versions locally.
+
 ## quick setup
 
 Run `make` to set everything up. Running it multiple times should do the bare
