@@ -6,6 +6,7 @@
 enum userspace_layers {
   _QWERTY = 0,
   _NUMBERS,
+  _GAMING,
   _NAV,
   _OSK,
   _MEDIA,
@@ -33,6 +34,7 @@ enum userspace_custom_keycodes {
   SCR_SHT,
   SCR_WIN,
   SCR_LCK,
+  GAME_TG,
 
   C_CUT,
   C_COPY,
@@ -145,6 +147,21 @@ enum userspace_custom_keycodes {
 #define _________________QWERTY_R3_ARROWS__________       _________QWERTY_R3_FOUR________,    KC_UP
 #define                __QWERTY_R4_ARROW_KEYS__                                      KC_LEFT, KC_DOWN, KC_RGHT
 #define                __QWERTY_R4_NORMAL_KEYS_                                      KC_HYPR, KC_MEH,  _______
+
+// Game layer
+#define _________________GAMING_L1_________________       KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
+#define _________________GAMING_L2_________________       KC_A,    KC_S,    KC_D,    KC_F,    KC_G
+#define         _________GAMING_L3_FOUR________           KC_Z,    KC_X,    KC_C,    KC_V
+#define _________________GAMING_L3_________________       _________GAMING_L3_FOUR________,    KC_B
+
+#define _________________GAMING_R1_________________       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
+#define         _________GAMING_R2_FOUR________           KC_H,    KC_J,    KC_K,    KC_L
+#define _________________GAMING_R2_________________       _________GAMING_R2_FOUR________,    KC_SCLN
+#define _________GAMING_R3_FOUR________                   KC_N,    KC_M,    KC_COMM, KC_DOT
+#define _________________GAMING_R3_________________       _________GAMING_R3_FOUR________,    KC_SLSH
+#define _________________GAMING_R3_ARROWS__________       _________GAMING_R3_FOUR________,    KC_UP
+#define                __GAMING_R4_ARROW_KEYS__                                      KC_LEFT, KC_DOWN, KC_RGHT
+#define                __GAMING_R4_NORMAL_KEYS_                                      KC_HYPR, KC_MEH,  _______
 
 // Numbers and stuff
 #define ________________NUMBER_LEFT________________       KC_1,    KC_2,    KC_3,    KC_4,    KC_5

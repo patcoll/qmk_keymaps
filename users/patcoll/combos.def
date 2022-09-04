@@ -1,6 +1,8 @@
 COMB(qpzReset,      RESET,          CTL_Q, KC_P, SFT_Z)
 COMB(qpm_combo,     MAC_TG,          CTL_Q, KC_P, KC_M)
 COMB(qpl_combo,     SCR_LCK,         CTL_Q, KC_P, KC_L)
+COMB(qpfj_combo,    GAME_TG,          KC_Q, KC_P, KC_F, KC_J)
+COMB(cqpfj_combo,   GAME_TG,          CTL_Q, KC_P, KC_F, KC_J)
 
 COMB(wd_combo,     MO_MED,         NAV_W, KC_D)
 /* COMB(wr_combo,     MO_MSE,         NAV_W, KC_R) */
@@ -25,11 +27,19 @@ COMB(snslsh_combo,      KC_SLSH,         KC_7, KC_9)
 
 COMB(as_combo,      KC_TAB,         KC_A, KC_S)
 
+COMB(dc_combo,      KC_BTN1,        KC_D, KC_C)
+COMB(dv_combo,      KC_BTN1,        KC_D, KC_V)
 COMB(fv_combo,      KC_BTN1,        KC_F, KC_V)
 COMB(fb_combo,      KC_BTN1,        KC_F, KC_B)
 COMB(jn_combo,      KC_BTN1,        KC_J, KC_N)
 
+COMB(wdc_combo,     KC_BTN2,        NAV_W, KC_D, KC_C)
+COMB(wdv_combo,     KC_BTN2,        NAV_W, KC_D, KC_V)
+COMB(sdc_combo,     KC_BTN2,        KC_S, KC_D, KC_C)
+COMB(sdv_combo,     KC_BTN2,        KC_S, KC_D, KC_V)
 COMB(efv_combo,     KC_BTN2,        KC_E, KC_F, KC_V)
+COMB(dfb_combo,     KC_BTN2,        KC_D, KC_F, KC_B)
+COMB(dfv_combo,     KC_BTN2,        KC_D, KC_F, KC_V)
 COMB(efb_combo,     KC_BTN2,        KC_E, KC_F, KC_B)
 /* COMB(ijn_combo,     KC_BTN2,        KC_I, KC_J, KC_N) */
 

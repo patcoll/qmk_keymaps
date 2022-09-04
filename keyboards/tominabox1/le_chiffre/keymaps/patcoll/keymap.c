@@ -1,4 +1,3 @@
-#include QMK_KEYBOARD_H
 #include "patcoll.h"
 
 #define LAYOUT_wrapper(...) LAYOUT(__VA_ARGS__)
@@ -9,6 +8,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _________________QWERTY_L2_________________,          _________________QWERTY_R2_________________,
   _________________QWERTY_L3_________________,          _________________QWERTY_R3_________________,
   KC_LALT, SFT_SPC, RSE_ENT, KC_HYPR
+),
+
+[_GAMING] = LAYOUT_wrapper(
+  _________________GAMING_L1_________________, _______, _________________GAMING_R1_________________,
+  _________________GAMING_L2_________________,          _________________GAMING_R2_________________,
+  _________________GAMING_L3_________________,          _________________GAMING_R3_________________,
+  KC_SPC,  KC_SPC,  KC_SPC,  KC_SPC
 ),
 
 [_NAV] = LAYOUT_wrapper(

@@ -1,2 +1,4 @@
 #!/bin/bash
+# qmk clone vial-kb/vial-qmk -b rp2040
+# qmk clone vial-kb/vial-qmk -b vial
 qmk clone

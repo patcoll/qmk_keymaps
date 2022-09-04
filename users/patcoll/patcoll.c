@@ -4,6 +4,7 @@
 #endif
 
 bool mac_mode = false;
+bool game_mode = false;
 
 bool is_alt_tab_active = false;
 
@@ -33,6 +34,18 @@ void matrix_scan_user(void) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed) {
+    if (keycode == GAME_TG) {
+      // TODO: toggle layer
+      if (game_mode == false) {
+        layer_on(_GAMING);
+        game_mode = true;
+      } else {
+        layer_off(_GAMING);
+        game_mode = false;
+      }
+      return false;
+    }
+
     if (keycode == MAC_TG) {
       mac_mode = !mac_mode;
       return false;

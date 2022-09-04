@@ -47,12 +47,6 @@ qmk_firmware/keyboards/minisub/keymaps/default/keymap.c: | qmk rainkeebs-resourc
 	mkdir -p qmk_firmware/keyboards/minisub
 	rsync -avz working_area/rainkeebs-resources/firmware/minisub/ qmk_firmware/keyboards/minisub/
 
-.PHONY: plop-default
-plop-default: qmk_firmware/keyboards/plop/keymaps/default/keymap.c
-qmk_firmware/keyboards/plop/keymaps/default/keymap.c: | qmk rain-vial-qmk
-	mkdir -p qmk_firmware/keyboards/plop
-	rsync -avz working_area/vial-qmk/keyboards/plop/ qmk_firmware/keyboards/plop/
-
 .PHONY: kawaii-default
 kawaii-default: qmk_firmware/keyboards/kawaii/keymaps/default/keymap.c
 qmk_firmware/keyboards/kawaii/keymaps/default/keymap.c: | qmk yohewi-qmk
@@ -86,8 +80,23 @@ agony: | qmk
 	mkdir -p qmk_firmware/keyboards/handwired/patcoll/agony
 	rsync -avz handwired/patcoll/agony/ qmk_firmware/keyboards/handwired/patcoll/agony/
 
+.PHONY: oxymoron
+oxymoron: | qmk
+	mkdir -p qmk_firmware/keyboards/oxymoron
+	rsync -avz oxy/oxymoron/ qmk_firmware/keyboards/oxymoron/
+
+.PHONY: ca66r3
+ca66r3: | qmk
+	mkdir -p qmk_firmware/keyboards/ca66r3
+	rsync -avz ca66r3/ qmk_firmware/keyboards/ca66r3/
+
+.PHONY: curio
+curio: | qmk
+	mkdir -p qmk_firmware/keyboards/curio
+	rsync -avz curio/ qmk_firmware/keyboards/curio/
+
 .PHONY: keymaps
-keymaps: | qmk twoyo-default minisub-default plop-default kawaii-default relic-default fruitbar-default caravan2 menhir agony userspace
+keymaps: | qmk twoyo-default minisub-default kawaii-default relic-default fruitbar-default caravan2 menhir agony oxymoron ca66r3 curio userspace
 	init-keymaps
 
 .PHONY: userspace
