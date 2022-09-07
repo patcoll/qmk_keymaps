@@ -14,6 +14,8 @@ qmk-clean:
 rainkeebs-resources: working_area/rainkeebs-resources/firmware
 working_area/rainkeebs-resources/firmware:
 	git clone https://github.com/rainkeebs/rainkeebs-resources working_area/rainkeebs-resources
+	sed -i 's=lite=no=' working_area/rainkeebs-resources/firmware/minisub/rules.mk
+	sed -i 's=lite=no=' working_area/rainkeebs-resources/firmware/twoyo/rules.mk
 
 .PHONY: rain-vial-qmk
 rain-vial-qmk: working_area/vial-qmk/Makefile
@@ -24,11 +26,13 @@ working_area/vial-qmk/Makefile:
 yohewi-qmk: working_area/yohewi-qmk/Makefile
 working_area/yohewi-qmk/Makefile:
 	git clone https://github.com/yohewi/qmk_firmware working_area/yohewi-qmk
+	sed -i 's=lite=no=' working_area/yohewi-qmk/keyboards/kawaii/rules.mk
 
 .PHONY: projectcain-firmware
 projectcain-firmware: working_area/projectcain-firmware/relic/readme.md
 working_area/projectcain-firmware/relic/readme.md:
 	git clone https://github.com/projectcain/Board-Firmware working_area/projectcain-firmware
+	sed -i 's=lite=no=' working_area/projectcain-firmware/relic/rules.mk
 
 .PHONY: twoyo-default
 twoyo-default: qmk_firmware/keyboards/twoyo/keymaps/default/keymap.c
