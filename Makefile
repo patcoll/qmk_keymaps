@@ -34,6 +34,11 @@ working_area/projectcain-firmware/relic/readme.md:
 	git clone https://github.com/projectcain/Board-Firmware working_area/projectcain-firmware
 	sed -i 's=lite=no=' working_area/projectcain-firmware/relic/rules.mk
 
+.PHONY: alphalpha-plus-firmware
+alphalpha-plus-firmware: working_area/alphalpha_plus/README.md
+working_area/alphalpha_plus/README.md:
+	git clone https://github.com/subottimale/alphalpha_plus working_area/alphalpha_plus
+
 .PHONY: twoyo-default
 twoyo-default: qmk_firmware/keyboards/twoyo/keymaps/default/keymap.c
 qmk_firmware/keyboards/twoyo/keymaps/default/keymap.c: | qmk rainkeebs-resources
@@ -88,8 +93,13 @@ curio: | qmk
 	mkdir -p qmk_firmware/keyboards/curio
 	rsync -avz curio/ qmk_firmware/keyboards/curio/
 
+.PHONY: alphalpha-plus
+alphalpha-plus: | qmk alphalpha-plus-firmware
+	mkdir -p qmk_firmware/keyboards/alphalpha_plus
+	rsync -avz working_area/alphalpha_plus/v2\ Files/Firmware/ qmk_firmware/keyboards/alphalpha_plus/
+
 .PHONY: keymaps
-keymaps: | qmk twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony oxymoron ca66r3 curio userspace
+keymaps: | qmk twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony oxymoron ca66r3 curio alphalpha-plus userspace
 	init-keymaps
 
 .PHONY: userspace
