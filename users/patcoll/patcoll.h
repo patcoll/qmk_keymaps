@@ -97,6 +97,7 @@ enum userspace_custom_keycodes {
 
 #define MO_LWR     MO(_LOWER)
 #define MO_RSE     MO(_RAISE)
+#define MO_OSK     MO(_OSK)
 #define MO_MED     MO(_MEDIA)
 #define MO_MSE     MO(_MOUSE)
 
@@ -173,7 +174,7 @@ enum userspace_custom_keycodes {
 
 // Nav stuff
 #define __________________NAV_L1___________________       KC_LCTL, _______, KC_LSFT, MO_MSE,  _______
-#define __________________NAV_L2___________________       _______, _______, MO_MED,  MO_RSE,  MO_LWR
+#define __________________NAV_L2___________________       _______, _______, MO_MED,  MO_OSK,  MO_LWR
 #define ___________NAV_L3_FOUR____________                KC_LCTL, KC_LGUI, KC_LALT, TO(_QWERTY)
 #define __________________NAV_L3___________________       ___________NAV_L3_FOUR____________, _______
 
@@ -191,7 +192,7 @@ enum userspace_custom_keycodes {
 #define ___________OSK_L3_FOUR____________                _______, _______, _______, _______
 #define __________________OSK_L3___________________       ___________OSK_L3_FOUR____________, _______
 
-#define __________________OSK_R1___________________       _________________FUNC_RIGHT________________
+#define __________________OSK_R1___________________       KC_F6,   KC_F7,   KC_F8,   KC_LBRC, KC_RBRC
 #define      _____________OSK_R2_FOUR__________           GO_BACK, WIN_HIDE, WIN_MAX, GO_FWD
 #define __________________OSK_R2___________________       _____________OSK_R2_FOUR__________, _______
 #define _____________OSK_R3_FOUR__________                _______, _______, _______, _______
@@ -221,8 +222,8 @@ enum userspace_custom_keycodes {
 #define _________________RAISE_L3__________________       __________RAISE_L3_FOUR___________, _______
 
 #define _________________RAISE_R1__________________       ________________NUMBER_RIGHT_______________
-#define __________RAISE_R2_FOUR___________                KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC
-#define _________________RAISE_R2__________________       _______, __________RAISE_R2_FOUR___________
+#define __________RAISE_R2_FOUR___________                KC_NO,   KC_MINS, KC_EQL,  KC_LBRC
+#define _________________RAISE_R2__________________       __________RAISE_R2_FOUR___________, KC_RBRC
 #define __RAISE_R3_TWO__                                  KC_GRV,  KC_BSLS
 #define __________RAISE_R3_FOUR___________                __RAISE_R3_TWO__, _______, _______
 #define _________________RAISE_R3__________________       __________RAISE_R3_FOUR___________, KC_BSLS

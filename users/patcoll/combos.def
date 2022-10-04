@@ -6,6 +6,7 @@ COMB(cqpfj_combo,   GAME_TG,          CTL_Q, KC_P, KC_F, KC_J)
 
 COMB(wd_combo,     MO_MED,         NAV_W, KC_D)
 /* COMB(wr_combo,     MO_MSE,         NAV_W, KC_R) */
+COMB(wf_combo,     MO_OSK,         NAV_W, KC_F)
 
 COMB(zxs_combo,     GUI_ZX,         SFT_Z, GUI_X)
 /* COMB(zx_combo,      GUI_ZX,         KC_Z, GUI_X) */
