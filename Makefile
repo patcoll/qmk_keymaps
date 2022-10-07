@@ -16,6 +16,8 @@ working_area/rainkeebs-resources/firmware:
 	git clone https://github.com/rainkeebs/rainkeebs-resources working_area/rainkeebs-resources
 	sed -i 's=lite=no=' working_area/rainkeebs-resources/firmware/minisub/rules.mk
 	sed -i 's=lite=no=' working_area/rainkeebs-resources/firmware/twoyo/rules.mk
+	sed -i 's=K39, K3B=K39, K3A, K3B=' working_area/rainkeebs-resources/firmware/minisub/minisub.h
+	sed -i 's=KC_NO, K3B=K3A,   K3B=' working_area/rainkeebs-resources/firmware/minisub/minisub.h
 
 .PHONY: rain-vial-qmk
 rain-vial-qmk: working_area/vial-qmk/Makefile
