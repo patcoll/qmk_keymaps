@@ -35,10 +35,8 @@ jobs:
 
       - run: make test
 
-      - run: mkdir -p "$QMK_HOME/hexes"
-
       - uses: actions/upload-artifact@v3
         with:
           name: patcoll-hexes
-          path: $QMK_HOME/*.hex
+          path: ${{ github.workspace }}/qmk_firmware/*.hex
 
