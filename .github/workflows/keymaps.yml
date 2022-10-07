@@ -34,3 +34,9 @@ jobs:
       - run: make
 
       - run: make test
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: patcoll-hexes
+          path: ${{ github.workspace }}/qmk_firmware/*.hex
+
