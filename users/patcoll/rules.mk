@@ -1,6 +1,6 @@
 SRC += patcoll.c
 
-BOOTMAGIC_ENABLE      = no
+BOOTMAGIC_ENABLE      = yes
 COMBO_ENABLE          = yes
 CONSOLE_ENABLE        = no
 EXTRAKEY_ENABLE       = yes
