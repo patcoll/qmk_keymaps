@@ -29,7 +29,7 @@
 /*   ), */
 /*  */
 /*   [NUM] = LAYOUT_all( */
-/*     KC_TRNS,    KC_PGUP,    KC_HOME,    KC_UP,    KC_END,    KC_WBAK,    KC_PSLS,    KC_7,    KC_8,    KC_9,    KC_PMNS,    KC_DEL,    RESET, */
+/*     KC_TRNS,    KC_PGUP,    KC_HOME,    KC_UP,    KC_END,    KC_WBAK,    KC_PSLS,    KC_7,    KC_8,    KC_9,    KC_PMNS,    KC_DEL,    QK_BOOT, */
 /*     KC_TRNS,    KC_PGDN,    KC_LEFT,    KC_DOWN,    KC_RGHT,    KC_WFWD,    KC_PAST,    KC_4,    KC_5,    KC_6,    KC_PPLS,             KC_TRNS, */
 /*     KC_LBRC,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_0,    KC_1,    KC_2,    KC_3,    KC_PDOT,             KC_RBRC, */
 /*         KC_RCTRL, KC_LGUI, KC_LALT,     MO(1), SFT_T(KC_BSPC), KC_SPACE,  KC_SPACE,  MO(2),            KC_LEFT, KC_DOWN, KC_RIGHT */
