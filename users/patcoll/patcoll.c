@@ -114,6 +114,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case EX_ARR:
           SEND_STRING("->");
           break;
+        case EX_DARR:
+          SEND_STRING("=>");
+          break;
         case EX_PAR:
           SEND_STRING("()");
           break;

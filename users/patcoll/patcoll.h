@@ -47,6 +47,7 @@ enum userspace_custom_keycodes {
 
   EX_PIPE,
   EX_ARR,
+  EX_DARR,
   EX_PAR,
   EX_INSP,
   EX_SEAR,
@@ -98,11 +99,15 @@ enum userspace_custom_keycodes {
 #define MO_LWR     MO(_LOWER)
 #define MO_RSE     MO(_RAISE)
 #define MO_OSK     MO(_OSK)
+#define MO_SOSK    LM(_OSK, MOD_LSFT)
 #define MO_MED     MO(_MEDIA)
 #define MO_MSE     MO(_MOUSE)
 
 #define TG_LWR     TG(_LOWER)
 #define TG_RSE     TG(_RAISE)
+
+#define OSK_ESC    LT(_OSK, KC_ESC)
+#define SOSK_ESC   LM(_OSK, MOD_LSFT)
 
 #define LWR_SPC    LT(_LOWER, KC_SPC)
 #define LWR_V      LT(_LOWER, KC_V)
