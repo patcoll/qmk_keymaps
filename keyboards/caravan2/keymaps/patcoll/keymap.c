@@ -11,6 +11,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_LCTL, KC_HYPR, KC_LGUI, KC_LALT, SFT_SPC,                   RSE_ENT, KC_LCTL, __QWERTY_R4_ARROW_KEYS__
 ),
 
+[_GAMING] = LAYOUT_wrapper(
+  _______, _________________GAMING_L1_________________, _________________GAMING_R1_________________, _______,
+  _______, _________________GAMING_L2_________________, _________________GAMING_R2_________________, _______,
+  _______, _________________GAMING_L3_________________, _________________GAMING_R3_ARROWS__________, KC_LSFT,
+  _______, _______, _______, _______, KC_SPC,                    KC_ENT,  _______, __GAMING_R4_ARROW_KEYS__
+),
+
 [_NAV] = LAYOUT_wrapper(
   KC_LSFT, __________________NAV_L1___________________, __________________NAV_R1___________________, CS_BSPC,
   KC_LCTL, __________________NAV_L2___________________, __________________NAV_R2___________________, KC_BSLS,
