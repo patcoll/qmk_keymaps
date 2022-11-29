@@ -80,6 +80,11 @@ agony: | qmk
 	mkdir -p qmk_firmware/keyboards/handwired/patcoll/agony
 	rsync -avz handwired/patcoll/agony/ qmk_firmware/keyboards/handwired/patcoll/agony/
 
+.PHONY: piedmont
+piedmont: | qmk
+	mkdir -p qmk_firmware/keyboards/handwired/patcoll/piedmont
+	rsync -avz handwired/patcoll/piedmont/ qmk_firmware/keyboards/handwired/patcoll/piedmont/
+
 .PHONY: oxymoron
 oxymoron: | qmk
 	mkdir -p qmk_firmware/keyboards/oxymoron
@@ -101,7 +106,7 @@ alphalpha-plus: | qmk alphalpha-plus-firmware
 	rsync -avz working_area/alphalpha_plus/v2\ Files/Firmware/ qmk_firmware/keyboards/alphalpha_plus/
 
 .PHONY: keymaps
-keymaps: | qmk twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony oxymoron ca66r3 curio alphalpha-plus userspace
+keymaps: | qmk twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus userspace
 	init-keymaps
 
 .PHONY: userspace
