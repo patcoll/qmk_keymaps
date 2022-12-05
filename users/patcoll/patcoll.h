@@ -212,7 +212,7 @@ enum userspace_custom_keycodes {
 #define _________________LOWER_L3__________________       __________LOWER_L3_FOUR___________, _______
 
 #define _________________LOWER_R1__________________       _______________SYMBOLS_RIGHT_______________
-#define __________LOWER_R2_FOUR___________                KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR
+#define __________LOWER_R2_FOUR___________                _______, _______, _______, _______
 #define _________________LOWER_R2__________________       _______, __________LOWER_R2_FOUR___________
 #define __LOWER_R3_TWO__                                  KC_TILD, KC_PIPE
 #define __________LOWER_R3_FOUR___________                __LOWER_R3_TWO__, _______, _______
