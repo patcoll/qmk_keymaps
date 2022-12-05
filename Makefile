@@ -41,6 +41,12 @@ alphalpha-plus-firmware: working_area/alphalpha_plus/README.md
 working_area/alphalpha_plus/README.md:
 	git clone https://github.com/subottimale/alphalpha_plus working_area/alphalpha_plus
 
+.PHONY: 45_ats_hot_firmware
+45_ats_hot_firmware: working_area/npspears-qmk-firmware/45_ats_hot/readme.md
+working_area/npspears-qmk-firmware/45_ats_hot/readme.md:
+	git clone https://github.com/npspears/QMK-Firmware.git working_area/npspears-qmk-firmware
+	sed -i 's=lite=no=' working_area/npspears-qmk-firmware/45_ats_hot/rules.mk
+
 .PHONY: twoyo-default
 twoyo-default: qmk_firmware/keyboards/twoyo/keymaps/default/keymap.c
 qmk_firmware/keyboards/twoyo/keymaps/default/keymap.c: | qmk rainkeebs-resources
@@ -105,8 +111,14 @@ alphalpha-plus: | qmk alphalpha-plus-firmware
 	mkdir -p qmk_firmware/keyboards/alphalpha_plus
 	rsync -avz working_area/alphalpha_plus/v2\ Files/Firmware/ qmk_firmware/keyboards/alphalpha_plus/
 
+.PHONY: 45_ats_hot
+45_ats_hot: | qmk 45_ats_hot_firmware
+	mkdir -p qmk_firmware/keyboards/45_ats_hot
+	rsync -avz working_area/npspears-qmk-firmware/45_ats_hot/ qmk_firmware/keyboards/45_ats_hot/
+
+
 .PHONY: keymaps
-keymaps: | qmk twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus userspace
+keymaps: | qmk twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus 45_ats_hot userspace
 	init-keymaps
 
 .PHONY: userspace
