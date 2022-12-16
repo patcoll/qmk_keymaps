@@ -8,14 +8,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _________________QWERTY_L1_________________, _________________QWERTY_R1_________________,
   _________________QWERTY_L2_________________, _________________QWERTY_R2_________________,
   _________________QWERTY_L3_________________, _________________QWERTY_R3_________________,
-  KC_LCTL, KC_LGUI, KC_LALT, SFT_SPC,          RSE_ENT, __QWERTY_R4_ARROW_KEYS__
+  KC_LCTL, KC_LGUI, KC_LALT, SFT_SPC,          RSE_ENT, KC_LCTL, KC_HYPR, KC_MEH
 ),
 
 [_GAMING] = LAYOUT_wrapper(
   _________________GAMING_L1_________________, _________________GAMING_R1_________________,
   _________________GAMING_L2_________________, _________________GAMING_R2_________________,
   _________________GAMING_L3_________________, _________________GAMING_R3_________________,
-  _______, _______, _______, KC_SPC,           KC_ENT, __GAMING_R4_ARROW_KEYS__
+  _______, _______, _______, KC_SPC,           KC_ENT, __GAMING_R4_NORMAL_KEYS_
 ),
 
 [_NAV] = LAYOUT_wrapper(
