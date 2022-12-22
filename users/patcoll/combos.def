@@ -4,6 +4,8 @@ COMB(qpl_combo,     SCR_LCK,         CTL_Q, KC_P, KC_L)
 COMB(qpfj_combo,    GAME_TG,          KC_Q, KC_P, KC_F, KC_J)
 COMB(cqpfj_combo,   GAME_TG,          CTL_Q, KC_P, KC_F, KC_J)
 
+COMB(qwe_combo,     MO_CSNV,         CTL_Q, NAV_W, KC_E)
+
 COMB(wd_combo,     MO_MED,         NAV_W, KC_D)
 /* COMB(wr_combo,     MO_MSE,         NAV_W, KC_R) */
 COMB(wf_combo,     MO_OSK,         NAV_W, KC_F)
@@ -144,6 +146,9 @@ COMB(lrent_combo,   MO_RSE,         KC_L, RSE_ENT)
 
 COMB(psspc_combo,   CS_NO,         KC_P, SFT_SPC)
 COMB(prent_combo,   CS_NO,         KC_P, RSE_ENT)
+
+COMB(opsspc_combo,  CA_OSK,         KC_O, KC_P, SFT_SPC)
+COMB(oprent_combo,  CA_OSK,         KC_O, KC_P, RSE_ENT)
 
 /* COMB(qpsspc_combo,   AS_NO,         CTL_Q, KC_P, SFT_SPC) */
 /* COMB(qprent_combo,   AS_NO,         CTL_Q, KC_P, RSE_ENT) */

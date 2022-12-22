@@ -72,6 +72,7 @@ enum userspace_custom_keycodes {
 #define NAV_Z LT(_NAV, KC_Z)
 
 #define MO_NAV MO(_NAV)
+#define MO_CSNV    LM(_NAV, MOD_LCTL | MOD_LSFT)
 #define MO_OSK MO(_OSK)
 
 #define CTL_V LCTL_T(KC_V)
@@ -93,6 +94,8 @@ enum userspace_custom_keycodes {
 #define CS_P   MT(MOD_LCTL | MOD_LSFT, KC_P)
 #define CS_0   MT(MOD_LCTL | MOD_LSFT, KC_0)
 #define CS_NO   MT(MOD_LCTL | MOD_LSFT, KC_NO)
+
+#define CA_OSK   LM(_OSK, MOD_LCTL | MOD_LALT)
 
 #define AS_NO   MT(MOD_LALT | MOD_LSFT, KC_NO)
 
