@@ -116,9 +116,12 @@ alphalpha-plus: | qmk alphalpha-plus-firmware
 	mkdir -p qmk_firmware/keyboards/45_ats_hot
 	rsync -avz working_area/npspears-qmk-firmware/45_ats_hot/ qmk_firmware/keyboards/45_ats_hot/
 
+.PHONY: firmware
+firmware: | twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus 45_ats_hot
+	echo firmware
 
 .PHONY: keymaps
-keymaps: | qmk twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus 45_ats_hot userspace
+keymaps: | qmk firmware userspace
 	init-keymaps
 
 .PHONY: userspace
