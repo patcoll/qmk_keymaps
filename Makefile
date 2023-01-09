@@ -75,8 +75,13 @@ alphalpha-plus: | qmk
 	mkdir -p qmk_firmware/keyboards/45_ats_hot
 	rsync -avz firmware/45_ats_hot/ qmk_firmware/keyboards/45_ats_hot/
 
+.PHONY: plop
+plop: | qmk
+	mkdir -p qmk_firmware/keyboards/plop
+	rsync -avz firmware/plop/ qmk_firmware/keyboards/plop/
+
 .PHONY: firmware
-firmware: | twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus 45_ats_hot
+firmware: | twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus 45_ats_hot plop
 	echo firmware
 
 .PHONY: keymaps
