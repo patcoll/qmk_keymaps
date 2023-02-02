@@ -35,9 +35,9 @@
 #undef RGBLIGHT_HUE_STEP
 #define RGBLIGHT_HUE_STEP 1
 #undef RGBLIGHT_SAT_STEP
-#define RGBLIGHT_SAT_STEP 1
+#define RGBLIGHT_SAT_STEP 2
 #undef RGBLIGHT_VAL_STEP
-#define RGBLIGHT_VAL_STEP 1
+#define RGBLIGHT_VAL_STEP 5
 
 // RGB Matrix
 // RGB_Matrix settings
