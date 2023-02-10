@@ -4,7 +4,7 @@
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_QWERTY] = LAYOUT_wrapper(
-  _________________QWERTY_L1_________________, _______, _________________QWERTY_R1_________________,
+  _________________QWERTY_L1_________________, KC_MUTE, _________________QWERTY_R1_________________,
   _________________QWERTY_L2_________________,          _________________QWERTY_R2_________________,
   _________________QWERTY_L3_________________,          _________________QWERTY_R3_________________,
   KC_LALT, SFT_SPC, RSE_ENT, KC_LCTL
@@ -59,6 +59,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_NO,   KC_BTN1, KC_BTN1, KC_BTN2
 ),
 };
+
+bool encoder_update_user(uint8_t index, bool clockwise) {
+  if (index == 0) {
+    if (clockwise) {
+      tap_code(KC_VOLU);
+    } else {
+      tap_code(KC_VOLD);
+    }
+  }
+  return false;
+}
 
 /* #define HOME 0 */
 /* #define MODS 1 */
