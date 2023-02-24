@@ -150,6 +150,9 @@ COMB(prent_combo,   CS_NO,         KC_P, RSE_ENT)
 COMB(opsspc_combo,  CA_OSK,         KC_O, KC_P, SFT_SPC)
 COMB(oprent_combo,  CA_OSK,         KC_O, KC_P, RSE_ENT)
 
+COMB(iopsspc_combo,  CAS_NO,         KC_I, KC_O, KC_P, SFT_SPC)
+COMB(ioprent_combo,  CAS_NO,         KC_I, KC_O, KC_P, RSE_ENT)
+
 /* COMB(qpsspc_combo,   AS_NO,         CTL_Q, KC_P, SFT_SPC) */
 /* COMB(qprent_combo,   AS_NO,         CTL_Q, KC_P, RSE_ENT) */
 

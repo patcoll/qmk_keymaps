@@ -31,6 +31,7 @@ enum userspace_custom_keycodes {
 
   MAC_TG,
   CLS_WIN,
+  CEN_WIN,
   SCR_SHT,
   SCR_WIN,
   SCR_LCK,
@@ -96,6 +97,9 @@ enum userspace_custom_keycodes {
 #define CS_NO   MT(MOD_LCTL | MOD_LSFT, KC_NO)
 
 #define CA_OSK   LM(_OSK, MOD_LCTL | MOD_LALT)
+
+#define CAS_NO   MT(MOD_LCTL | MOD_LALT | MOD_LSFT, KC_NO)
+#define CAS_NAV   LM(_NAV, MOD_LCTL | MOD_LALT | MOD_LSFT)
 
 #define AS_NO   MT(MOD_LALT | MOD_LSFT, KC_NO)
 
@@ -197,7 +201,7 @@ enum userspace_custom_keycodes {
 // OS keys
 #define __________________OSK_L1___________________       _________________FUNC_LEFT_________________
 #define __________________OSK_L2___________________       _______, _______, _______, _______, _______
-#define ___________OSK_L3_FOUR____________                _______, _______, _______, _______
+#define ___________OSK_L3_FOUR____________                _______, _______, CEN_WIN, _______
 #define __________________OSK_L3___________________       ___________OSK_L3_FOUR____________, _______
 
 #define __________________OSK_R1___________________       KC_F6,   KC_F7,   KC_F8,   KC_LBRC, KC_RBRC
