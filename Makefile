@@ -86,12 +86,12 @@ embrace: | qmk
 	rsync -avz firmware/embrace/ qmk_firmware/keyboards/embrace/
 
 .PHONY: apricot
-embrace: | qmk
+apricot: | qmk
 	mkdir -p qmk_firmware/keyboards/lazydesigners/apricot
 	rsync -avz firmware/lazydesigners/apricot/ qmk_firmware/keyboards/lazydesigners/apricot/
 
 .PHONY: firmware
-firmware: | twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus 45_ats_hot plop embrace
+firmware: | twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus 45_ats_hot plop embrace apricot
 	echo firmware
 
 .PHONY: keymaps
