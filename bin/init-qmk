@@ -1,4 +1,5 @@
 #!/bin/bash
 # qmk clone vial-kb/vial-qmk -b rp2040
-# qmk clone vial-kb/vial-qmk -b vial
-qmk clone -b 0.18.17
+qmk clone vial-kb/vial-qmk -b vial
+cd qmk_firmware && git checkout c99b885bd048375761ea775fba6584f7b8411599
+# qmk clone -b 0.18.17
