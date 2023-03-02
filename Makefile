@@ -90,8 +90,13 @@ apricot: | qmk
 	mkdir -p qmk_firmware/keyboards/lazydesigners/apricot
 	rsync -avz firmware/lazydesigners/apricot/ qmk_firmware/keyboards/lazydesigners/apricot/
 
+.PHONY: sst60
+sst60: | qmk
+	mkdir -p qmk_firmware/keyboards/sst60
+	rsync -avz firmware/sst60/ qmk_firmware/keyboards/sst60/
+
 .PHONY: firmware
-firmware: | twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus 45_ats_hot plop embrace apricot
+firmware: | twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus 45_ats_hot plop embrace apricot sst60
 	echo firmware
 
 .PHONY: keymaps

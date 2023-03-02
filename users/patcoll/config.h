@@ -112,3 +112,5 @@
   #define NO_PRINT
 #endif // !NO_PRINT
 #define NO_ACTION_ONESHOT
+
+#define RP2040_BOOTLOADER_DOUBLE_TAP_RESET
