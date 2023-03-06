@@ -215,7 +215,7 @@ enum userspace_custom_keycodes {
 // Lower
 #define _________________LOWER_L1__________________       _______________SYMBOLS_LEFT________________
 #define _________________LOWER_L2__________________       _________________FUNC_LEFT_________________
-#define __________LOWER_L3_FOUR___________                QK_BOOT, _______, _______, TO(_QWERTY)
+#define __________LOWER_L3_FOUR___________                _______, _______, _______, TO(_QWERTY)
 #define _________________LOWER_L3__________________       __________LOWER_L3_FOUR___________, _______
 
 #define _________________LOWER_R1__________________       _______________SYMBOLS_RIGHT_______________
@@ -254,7 +254,7 @@ enum userspace_custom_keycodes {
 // Media
 #define _________________MEDIA_L1__________________       CLS_WIN, CLS_WIN, _______, _______, _______
 #define _________________MEDIA_L2__________________       _______, _______, _______, SCR_SHT, SCR_WIN
-#define __________MEDIA_L3_FOUR___________                QK_BOOT, _______, OS_MENU, TO(_QWERTY)
+#define __________MEDIA_L3_FOUR___________                _______, _______, OS_MENU, TO(_QWERTY)
 #define _________________MEDIA_L3__________________       __________MEDIA_L3_FOUR___________, _______
 
 #define _________________MEDIA_R1__________________       RGB_TOG, RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI
@@ -269,7 +269,7 @@ enum userspace_custom_keycodes {
 // Mouse
 #define _________________MOUSE_L1__________________       KC_LCTL, KC_NO,   KC_NO,   KC_NO,   KC_NO
 #define _________________MOUSE_L2__________________       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO
-#define __________MOUSE_L3_FOUR___________                QK_BOOT, KC_BTN2, KC_BTN1, TO(_QWERTY)
+#define __________MOUSE_L3_FOUR___________                _______, KC_BTN2, KC_BTN1, TO(_QWERTY)
 #define _________________MOUSE_L3__________________       __________MOUSE_L3_FOUR___________, KC_NO
 
 #define _________________MOUSE_R1__________________       KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, KC_NO
