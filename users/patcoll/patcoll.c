@@ -144,7 +144,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           is_alt_tab_active = true;
           register_code(KC_LALT);
           // 2023-03-06: I found that without adding a slight delay, the custom alt-tab behavior would not act as expected for the first invocation.
-          _delay_ms(alt_tab_slight_delay_ms);
+          wait_ms(alt_tab_slight_delay_ms);
         }
         keycode == ALT_TAB ? tap_code16(KC_TAB) : tap_code16(S(KC_TAB));
         return false;
