@@ -7,7 +7,7 @@ bool mac_mode = false;
 bool game_mode = false;
 
 bool is_alt_tab_active = false;
-int alt_tab_slight_delay_ms = 100;
+int alt_tab_slight_delay_ms = 120;
 
 void matrix_scan_user(void) {
   // End fancy nav switching if the NAV layer has been deactivated.
