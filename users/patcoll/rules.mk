@@ -5,7 +5,7 @@ COMBO_ENABLE          = yes
 CONSOLE_ENABLE        = no
 EXTRAKEY_ENABLE       = yes
 MOUSEKEY_ENABLE       = yes
-NKRO_ENABLE           = no
+NKRO_ENABLE           = yes
 TAP_DANCE_ENABLE      = no
 AUTO_SHIFT_ENABLE     = yes
 
