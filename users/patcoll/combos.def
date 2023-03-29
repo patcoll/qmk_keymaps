@@ -132,6 +132,7 @@ COMB(uo_combo,      KC_SLSH,        KC_U, KC_O)
 COMB(zsspc_combo,   KC_SPC,         SFT_Z, SFT_SPC)
 COMB(asspc_combo,   KC_SPC,         KC_A, SFT_SPC)
 
+#ifdef PATCOLL_BIG_BAR_COMBOS
 COMB(fsspc_combo,   KC_LCTL,         KC_F, SFT_SPC)
 COMB(jsspc_combo,   KC_LCTL,         KC_J, SFT_SPC)
 COMB(jrent_combo,   KC_LCTL,         KC_J, RSE_ENT)
@@ -143,14 +144,21 @@ COMB(krent_combo,   KC_LALT,         KC_K, RSE_ENT)
 //COMB(lspc_combo,    MO_RSE,         KC_L, KC_SPC)
 COMB(lsspc_combo,   MO_RSE,         KC_L, SFT_SPC)
 COMB(lrent_combo,   MO_RSE,         KC_L, RSE_ENT)
+#endif
 
+#ifdef PATCOLL_BIG_BAR_COMBOS
 COMB(psspc_combo,   CS_NO,         KC_P, SFT_SPC)
+#endif
 COMB(prent_combo,   CS_NO,         KC_P, RSE_ENT)
 
+#ifdef PATCOLL_BIG_BAR_COMBOS
 COMB(opsspc_combo,  CA_OSK,         KC_O, KC_P, SFT_SPC)
+#endif
 COMB(oprent_combo,  CA_OSK,         KC_O, KC_P, RSE_ENT)
 
+#ifdef PATCOLL_BIG_BAR_COMBOS
 COMB(iopsspc_combo,  CAS_NO,         KC_I, KC_O, KC_P, SFT_SPC)
+#endif
 COMB(ioprent_combo,  CAS_NO,         KC_I, KC_O, KC_P, RSE_ENT)
 
 /* COMB(qpsspc_combo,   AS_NO,         CTL_Q, KC_P, SFT_SPC) */
@@ -163,6 +171,7 @@ COMB(ioprent_combo,  CAS_NO,         KC_I, KC_O, KC_P, RSE_ENT)
 //COMB(nspc_combo,    MO_RSE,         KC_N, KC_SPC)
 //COMB(nsspc_combo,   MO_RSE,         KC_N, SFT_SPC)
 
+#ifdef PATCOLL_BIG_BAR_COMBOS
 //COMB(sspc_combo,     MO_LWR,         KC_S, KC_SPC)
 COMB(ssspc_combo,    MO_LWR,         KC_S, SFT_SPC)
 //COMB(zsspc_combo,    MO_LWR,         KC_Z, SFT_SPC)
@@ -172,4 +181,4 @@ COMB(ssspc_combo,    MO_LWR,         KC_S, SFT_SPC)
 //COMB(xsspc_combo,    MO_LWR,         GUI_X, SFT_SPC)
 //COMB(cspc_combo,     MO_LWR,         KC_C, KC_SPC)
 //COMB(csspc_combo,    MO_LWR,         KC_C, SFT_SPC)
-
+#endif

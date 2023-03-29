@@ -30,6 +30,9 @@
 // Only define combos for alpha keyboard. This def will be found there.
 #undef PATCOLL_ALPHA_COMBOS
 
+// Only define combos for big bar keyboards. This def will be found in big bar keymaps.
+#undef PATCOLL_BIG_BAR_COMBOS
+
 // Ricing
 // #define USB_POLLING_INTERVAL_MS 2
 // #define QMK_KEYS_PER_SCAN 10
