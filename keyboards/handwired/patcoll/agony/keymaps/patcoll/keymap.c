@@ -1,4 +1,3 @@
-#include "agony.h"
 #include "patcoll.h"
 
 #define LAYOUT_wrapper(...) LAYOUT(__VA_ARGS__)
