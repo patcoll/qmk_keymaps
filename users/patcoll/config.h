@@ -23,6 +23,10 @@
 #define COMBO_TERM_PER_COMBO
 #endif // COMBO_ENABLE
 
+#define AUTO_SHIFT_TIMEOUT 175
+#define NO_AUTO_SHIFT_SPECIAL
+#define NO_AUTO_SHIFT_ALPHA
+
 // Only define combos for alpha keyboard. This def will be found there.
 #undef PATCOLL_ALPHA_COMBOS
 

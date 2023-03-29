@@ -7,6 +7,7 @@ EXTRAKEY_ENABLE       = yes
 MOUSEKEY_ENABLE       = yes
 NKRO_ENABLE           = no
 TAP_DANCE_ENABLE      = no
+AUTO_SHIFT_ENABLE     = yes
 
 # Allow loading of `combos.def`
 VPATH += keyboards/gboards/
