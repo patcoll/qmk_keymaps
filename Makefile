@@ -95,8 +95,13 @@ sst60: | qmk
 	mkdir -p qmk_firmware/keyboards/sst60
 	rsync -avz firmware/sst60/ qmk_firmware/keyboards/sst60/
 
+.PHONY: orbital
+orbital: | qmk
+	mkdir -p qmk_firmware/keyboards/orbital
+	rsync -avz firmware/orbital/ qmk_firmware/keyboards/orbital/
+
 .PHONY: firmware
-firmware: | twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus 45_ats_hot plop embrace apricot sst60
+firmware: | twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus 45_ats_hot plop embrace apricot sst60 orbital
 	echo firmware
 
 .PHONY: keymaps
