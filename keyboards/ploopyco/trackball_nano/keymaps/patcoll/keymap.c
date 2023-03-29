@@ -53,7 +53,7 @@ void process_mouse_user(report_mouse_t *mouse_report, int8_t x, int8_t y) {
     }
 }
 
-void keyboard_post_init_user(void) {
+void keyboard_post_init_keymap(void) {
 	lock_state = host_keyboard_led_state().num_lock;
 }
 

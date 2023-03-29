@@ -9,29 +9,33 @@ bool game_mode = false;
 bool is_alt_tab_active = false;
 int alt_tab_slight_delay_ms = 120;
 
+__attribute__((weak)) void keyboard_post_init_keymap(void) {}
+
+__attribute__((weak)) void matrix_scan_keymap(void) {}
+
+__attribute__((weak)) bool encoder_update_keymap(uint8_t index, bool clockwise) {
+    return true;
+}
+
+__attribute__((weak)) bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
+    return true;
+}
+
+__attribute__((weak)) void pointing_device_init_keymap(void) {}
+
+void keyboard_post_init_user(void) {
+  keyboard_post_init_keymap();
+}
+
 void matrix_scan_user(void) {
   // End fancy nav switching if the NAV layer has been deactivated.
   if (is_alt_tab_active && !IS_LAYER_ON(_NAV)) {
     unregister_code(KC_LALT);
     is_alt_tab_active = false;
   }
-}
 
-/* OLD COMBOS START */
-/* enum combo_events { */
-/*   JK_COMBO, */
-/*   COMBO_LENGTH */
-/* }; */
-/*  */
-/* uint16_t COMBO_LEN = COMBO_LENGTH; */
-/*  */
-/* const uint16_t PROGMEM jk_combo[] = {KC_J, KC_K, COMBO_END}; */
-/*  */
-/*  */
-/* combo_t key_combos[] = { */
-/*   [JK_COMBO] = COMBO(jk_combo, KC_ESC), */
-/* }; */
-/* OLD COMBOS END */
+  matrix_scan_keymap();
+}
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed) {
@@ -148,11 +152,50 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
         keycode == ALT_TAB ? tap_code16(KC_TAB) : tap_code16(S(KC_TAB));
         return false;
+#ifdef POINTING_DEVICE_ENABLE
+      case KC_CPI1:
+        pointing_device_set_cpi(200);
+        return false;
+      case KC_CPI2:
+        pointing_device_set_cpi(400);
+        return false;
+      case KC_CPI3:
+        pointing_device_set_cpi(800);
+        return false;
+      case KC_CPI4:
+        pointing_device_set_cpi(1600);
+        return false;
+#endif
     }
+  }
+
+  return process_record_keymap(keycode, record);
+}
+
+#ifdef ENCODER_ENABLE
+bool encoder_update_user(uint8_t index, bool clockwise) {
+  if (!encoder_update_keymap(index, clockwise)) {
+    return false;
+  }
+
+  if (clockwise) {
+    tap_code(KC_VOLU);
+  } else {
+    tap_code(KC_VOLD);
   }
 
   return true;
 }
+#endif
+
+#ifdef POINTING_DEVICE_ENABLE
+void pointing_device_init_user(void) {
+  // set default pointing device resolution
+  pointing_device_set_cpi(400);
+
+  pointing_device_init_keymap();
+}
+#endif
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
@@ -182,6 +225,7 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     case io_combo:
     case uo_combo:
 
+#ifdef PATCOLL_BIG_BAR_COMBOS
     case dsspc_combo:
     case ksspc_combo:
     case fsspc_combo:
@@ -189,6 +233,7 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     case lsspc_combo:
     case ssspc_combo:
     case zsspc_combo:
+#endif
       return COMBO_TERM - 12;
   }
 

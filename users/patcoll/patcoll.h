@@ -1,7 +1,17 @@
 #pragma once
 #include QMK_KEYBOARD_H
 
+void keyboard_post_init_keymap(void);
+void matrix_scan_keymap(void);
+bool encoder_update_keymap(uint8_t index, bool clockwise);
+bool process_record_keymap(uint16_t keycode, keyrecord_t *record);
+void pointing_device_init_keymap(void);
+
+void oled_render_layer_state(void);
+
+#ifdef COMBO_ENABLE
 #define COMBO_VARIABLE_LEN
+#endif
 
 enum userspace_layers {
   _QWERTY = 0,
@@ -36,6 +46,12 @@ enum userspace_custom_keycodes {
   SCR_WIN,
   SCR_LCK,
   GAME_TG,
+
+  MOUSESCROLL,
+  KC_CPI1,
+  KC_CPI2,
+  KC_CPI3,
+  KC_CPI4,
 
   C_CUT,
   C_COPY,
@@ -268,7 +284,7 @@ enum userspace_custom_keycodes {
 
 // Mouse
 #define _________________MOUSE_L1__________________       KC_LCTL, KC_NO,   KC_NO,   KC_NO,   KC_NO
-#define _________________MOUSE_L2__________________       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO
+#define _________________MOUSE_L2__________________       KC_CPI1, KC_CPI2, KC_CPI3, KC_CPI4, KC_NO
 #define __________MOUSE_L3_FOUR___________                _______, KC_BTN2, KC_BTN1, TO(_QWERTY)
 #define _________________MOUSE_L3__________________       __________MOUSE_L3_FOUR___________, KC_NO
 
@@ -281,5 +297,3 @@ enum userspace_custom_keycodes {
 #define                __MOUSE_R3_ARROW_KEYS__                                       KC_MS_L, KC_MS_D, KC_MS_R
 
 #define ___________________BLANK___________________       _______, _______, _______, _______, _______
-
-void oled_render_layer_state(void);
