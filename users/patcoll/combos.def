@@ -10,8 +10,9 @@ COMB(wd_combo,     MO_MED,         NAV_W, KC_D)
 COMB(wf_combo,     MO_OSK,         NAV_W, KC_F)
 COMB(wef_combo,    MO_SOSK,        NAV_W, KC_E, KC_F)
 
-COMB(wer_combo,    MOUSESCROLL,    NAV_W, KC_E, KC_R)
 COMB(asdv_combo,   MOUSESCROLL,    KC_A, KC_S, KC_D, KC_V)
+COMB(asdb_combo,   MOUSESCROLL,    KC_A, KC_S, KC_D, KC_B)
+COMB(sdfb_combo,   MOUSESCROLL,    KC_S, KC_D, KC_F, KC_B)
 
 COMB(zxs_combo,     GUI_ZX,         SFT_Z, GUI_X)
 
@@ -38,7 +39,6 @@ COMB(dv_combo,      KC_BTN1,        KC_D, KC_V)
 COMB(fv_combo,      KC_BTN1,        KC_F, KC_V)
 COMB(fb_combo,      KC_BTN1,        KC_F, KC_B)
 COMB(db_combo,      KC_BTN1,        KC_D, KC_B)
-COMB(jn_combo,      KC_BTN1,        KC_J, KC_N)
 
 COMB(wdc_combo,     KC_BTN2,        NAV_W, KC_D, KC_C)
 COMB(wdv_combo,     KC_BTN2,        NAV_W, KC_D, KC_V)
@@ -84,6 +84,7 @@ COMB(bk_combo,      KC_ENT,         KC_B, KC_K)
 COMB(rbk_combo,     KC_ENT,         RSE_B, KC_K)
 #else
 COMB(mk_combo,      KC_ENT,         KC_M, KC_K)
+COMB(jn_combo,      KC_ENT,        KC_J, KC_N)
 #endif
 
 
