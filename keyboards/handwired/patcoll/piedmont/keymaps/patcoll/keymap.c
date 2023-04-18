@@ -1,4 +1,3 @@
-#include "piedmont.h"
 #include "patcoll.h"
 
 #define LAYOUT_wrapper(...) LAYOUT(__VA_ARGS__)
