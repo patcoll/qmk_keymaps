@@ -24,6 +24,12 @@ __attribute__((weak)) bool process_record_keymap(uint16_t keycode, keyrecord_t *
 __attribute__((weak)) void pointing_device_init_keymap(void) {}
 
 void keyboard_post_init_user(void) {
+#ifdef CONSOLE_ENABLE
+  debug_enable = true;
+  /* debug_matrix = true; */
+  /* debug_keyboard = true; */
+#endif
+
   keyboard_post_init_keymap();
 }
 
@@ -43,11 +49,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       // TODO: toggle layer
       if (game_mode == false) {
         layer_on(_GAMING);
-        game_mode = true;
       } else {
         layer_off(_GAMING);
-        game_mode = false;
       }
+      game_mode = !game_mode;
       return false;
     }
 
@@ -200,8 +205,7 @@ void pointing_device_init_user(void) {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     // Shift
-    case SFT_SPC:
-    /* case SFT_M: */
+    /* case SFT_SPC: */
     case SFT_ENT:
     case SFT_A:
     case SFT_V:
@@ -210,8 +214,13 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     case SFT_DOT:
     case SFT_SLSH:
       return TAPPING_TERM - 20;
-    /* case CS_P: */
-    /*   return TAPPING_TERM + 12; */
+    case CS_NO:
+    case CA_OSK:
+      return TAPPING_TERM + 150;
+    case CTL_A:
+    case GUI_X:
+    case ALT_C:
+      return TAPPING_TERM + 220;
     default:
       return TAPPING_TERM;
   }
@@ -264,7 +273,7 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     /* case LT(1, KC_BSPC): */
     /*   // Immediately select the hold action when another key is pressed. */
-    /*   return true; */
+      /* return true; */
     default:
       // Do not select the hold action when another key is pressed.
       return false;

@@ -100,8 +100,13 @@ orbital: | qmk
 	mkdir -p qmk_firmware/keyboards/orbital
 	rsync -avz firmware/orbital/ qmk_firmware/keyboards/orbital/
 
+.PHONY: m0ii040pcb
+m0ii040pcb: | qmk
+	mkdir -p qmk_firmware/keyboards/m0ii040pcb
+	rsync -avz firmware/m0ii040pcb/ qmk_firmware/keyboards/m0ii040pcb/
+
 .PHONY: firmware
-firmware: | twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus 45_ats_hot plop embrace apricot sst60 orbital
+firmware: | twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus 45_ats_hot plop embrace apricot sst60 orbital m0ii040pcb
 	echo firmware
 
 .PHONY: keymaps

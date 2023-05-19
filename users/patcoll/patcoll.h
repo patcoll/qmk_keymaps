@@ -75,6 +75,7 @@ enum userspace_custom_keycodes {
 #define CTL_ESC    MT(MOD_LCTL, KC_ESC)
 #define CTL_ENT    MT(MOD_LCTL, KC_ENT)
 #define CTL_Q      MT(MOD_LCTL, KC_Q)
+#define CTL_A      MT(MOD_LCTL, KC_A)
 #define CTL_1      MT(MOD_LCTL, KC_1)
 #define CTL_L      MT(MOD_LCTL, KC_L)
 #define CTL_QUOT   MT(MOD_LCTL, KC_QUOT)
@@ -93,6 +94,7 @@ enum userspace_custom_keycodes {
 #define MO_OSK MO(_OSK)
 
 #define CTL_V LCTL_T(KC_V)
+#define ALT_C LALT_T(KC_C)
 
 #define LT1_W LT(1, KC_W)
 #define LT1_Z LT(1, KC_Z)
@@ -164,8 +166,8 @@ enum userspace_custom_keycodes {
 #define RSE_CTL   LM(_RAISE, MOD_LCTL)
 
 #define _________________QWERTY_L1_________________       CTL_Q,   NAV_W,   KC_E,    KC_R,    KC_T
-#define _________________QWERTY_L2_________________       KC_A,    KC_S,    KC_D,    KC_F,    KC_G
-#define         _________QWERTY_L3_FOUR________           SFT_Z,   GUI_X,    KC_C,    KC_V
+#define _________________QWERTY_L2_________________       CTL_A,    KC_S,    KC_D,    KC_F,    KC_G
+#define         _________QWERTY_L3_FOUR________           SFT_Z,   GUI_X,   ALT_C,    KC_V
 #define _________________QWERTY_L3_________________       _________QWERTY_L3_FOUR________,    KC_B
 
 #define _________________QWERTY_R1_________________       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
@@ -208,7 +210,7 @@ enum userspace_custom_keycodes {
 
 #define __________________NAV_R1___________________       KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_NO
 #define      _____________NAV_R2_FOUR__________           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
-#define __________________NAV_R2___________________       _____________NAV_R2_FOUR__________, ALT_TAB
+#define __________________NAV_R2___________________       _____________NAV_R2_FOUR__________, _______
 #define _____________NAV_R3_FOUR__________                KC_HOME, KC_PGDN, KC_PGUP, KC_END
 #define __________________NAV_R3___________________       _____________NAV_R3_FOUR__________, _______
 #define __________________NAV_R3_ARROWS____________       _____________NAV_R3_FOUR__________, _______
