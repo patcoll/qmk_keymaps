@@ -105,8 +105,13 @@ m0ii040pcb: | qmk
 	mkdir -p qmk_firmware/keyboards/m0ii040pcb
 	rsync -avz firmware/m0ii040pcb/ qmk_firmware/keyboards/m0ii040pcb/
 
+.PHONY: cutiepie
+cutiepie: | qmk
+	mkdir -p qmk_firmware/keyboards/cutiepie
+	rsync -avz firmware/cutiepie/ qmk_firmware/keyboards/cutiepie/
+
 .PHONY: firmware
-firmware: | twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus 45_ats_hot plop embrace apricot sst60 orbital m0ii040pcb
+firmware: | twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus 45_ats_hot plop embrace apricot sst60 orbital m0ii040pcb cutiepie
 	echo firmware
 
 .PHONY: keymaps
