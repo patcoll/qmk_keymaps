@@ -7,7 +7,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_GRV,           ________________NUMBER_LEFT________________, ________________NUMBER_RIGHT_______________, KC_MINS, KC_EQL,  KC_BSPC, KC_BSPC,
   SFT_TAB,          _________________QWERTY_L1_________________, _________________QWERTY_R1_________________, KC_LBRC, KC_RBRC, KC_BSLS,
   CTL_ESC,          _________________QWERTY_L2_________________, _________________QWERTY_R2_________________, SFT_QUOT,_______, KC_ENT,
-  KC_LSFT, _______, _________________QWERTY_L3_________________, _________________QWERTY_R3_________________, KC_RSFT, _______,
+  KC_LSFT, KC_LSFT, _________________QWERTY_L3_________________, _________________QWERTY_R3_________________, KC_RSFT, _______,
   KC_LCTL, KC_LGUI, KC_LALT, KC_LALT, SFT_SPC, SFT_SPC,          RSE_ENT,          KC_LCTL, KC_HYPR, KC_MEH,  _______
 ),
 
