@@ -2,6 +2,6 @@
 # qmk clone vial-kb/vial-qmk -b rp2040
 
 qmk clone vial-kb/vial-qmk -b vial
-cd qmk_firmware && git checkout 61a3cd6a9c30757a54c625d65c8f6535436d376a
+cd qmk_firmware && git checkout 0373554f48c5fbcb827ca3cebc25b1d80759d7c4
 
 # qmk clone -b 0.18.17

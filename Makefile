@@ -115,8 +115,13 @@ paintbrush_avr: | qmk
 	mkdir -p qmk_firmware/keyboards/paintbrush_avr
 	rsync -avz firmware/paintbrush_avr/ qmk_firmware/keyboards/paintbrush_avr/
 
+.PHONY: bully
+bully: | qmk
+	mkdir -p qmk_firmware/keyboards/bully
+	rsync -avz firmware/bully/ qmk_firmware/keyboards/bully/
+
 .PHONY: firmware
-firmware: | twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus 45_ats_hot plop embrace apricot sst60 orbital m0ii040pcb cutiepie paintbrush_avr
+firmware: | twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus 45_ats_hot plop embrace apricot sst60 orbital m0ii040pcb cutiepie paintbrush_avr bully
 	echo firmware
 
 .PHONY: keymaps
