@@ -13,7 +13,7 @@ COMBO_ENABLE          = yes
 # DIGITIZER_ENABLE      = no
 # DIP_SWITCH_ENABLE     = no
 # ENCODER_ENABLE        = no
-# DEFERRED_EXEC_ENABLE  = no
+DEFERRED_EXEC_ENABLE  = yes
 # DYNAMIC_MACRO_ENABLE  = no
 # DYNAMIC_TAPPING_TERM_ENABLE = no
 EXTRAKEY_ENABLE       = yes
@@ -22,13 +22,14 @@ EXTRAKEY_ENABLE       = yes
 # HD44780_ENABLE        = no
 # JOYSTICK_ENABLE       = no
 # KEY_LOCK_ENABLE       = no
-# KEY_OVERRIDE_ENABLE   = no
+KEY_OVERRIDE_ENABLE   = yes
 # LEADER_ENABLE         = no
 # LED_MATRIX_ENABLE     = no
 # MIDI_ENABLE           = no
 MOUSEKEY_ENABLE       = yes
 NKRO_ENABLE           = yes
 # OLED_ENABLE           = no
+OS_DETECTION_ENABLE   = yes
 # POINTING_DEVICE_ENABLE = no
 # PROGRAMMABLE_BUTTON_ENABLE = no
 # PS2_MOUSE_ENABLE      = no
@@ -51,6 +52,9 @@ NKRO_ENABLE           = yes
 # VELOCIKEY_ENABLE      = no
 # VIA_ENABLE            = no
 # WPM_ENABLE            = no
+
+# Allow warnings, useful for rp2040 boards.
+ALLOW_WARNINGS = yes
 
 # Allow loading of `combos.def`
 VPATH += keyboards/gboards/

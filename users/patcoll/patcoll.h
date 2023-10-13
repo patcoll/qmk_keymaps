@@ -15,9 +15,11 @@ void oled_render_layer_state(void);
 
 enum userspace_layers {
   _QWERTY = 0,
+  _MAC,
   _NUMBERS,
   _GAMING,
   _NAV,
+  _NMC,
   _OSK,
   _MEDIA,
   _MOUSE,
@@ -40,12 +42,14 @@ enum userspace_custom_keycodes {
   PRV_TAB,
 
   MAC_TG,
+  OS_MENU,
   CLS_WIN,
   CEN_WIN,
   SCR_SHT,
   SCR_WIN,
   SCR_LCK,
   GAME_TG,
+  KEY_TIMER,
 
   MOUSESCROLL,
   KC_CPI1,
@@ -84,13 +88,15 @@ enum userspace_custom_keycodes {
 #define GUI_X      MT(MOD_LGUI, KC_X)
 
 // #define CLS_WIN    A(KC_F4)
-#define OS_MENU    A(KC_SPC)
+// #define OS_MENU    A(KC_SPC)
 
 #define NAV_W LT(_NAV, KC_W)
-#define NAV_Z LT(_NAV, KC_Z)
+#define NMC_W LT(_NMC, KC_W)
+// #define NAV_Z LT(_NAV, KC_Z)
 
 #define MO_NAV MO(_NAV)
 #define MO_CSNV    LM(_NAV, MOD_LCTL | MOD_LSFT)
+#define MO_CSNM    LM(_NMC, MOD_LCTL | MOD_LSFT)
 #define MO_OSK MO(_OSK)
 
 #define CTL_V LCTL_T(KC_V)
@@ -118,6 +124,7 @@ enum userspace_custom_keycodes {
 
 #define CAS_NO   MT(MOD_LCTL | MOD_LALT | MOD_LSFT, KC_NO)
 #define CAS_NAV   LM(_NAV, MOD_LCTL | MOD_LALT | MOD_LSFT)
+#define CAS_NMC   LM(_NMC, MOD_LCTL | MOD_LALT | MOD_LSFT)
 
 #define AS_NO   MT(MOD_LALT | MOD_LSFT, KC_NO)
 
@@ -216,11 +223,25 @@ enum userspace_custom_keycodes {
 #define __________________NAV_R3_ARROWS____________       _____________NAV_R3_FOUR__________, _______
 #define                 __NAV_R4_ARROW_KEYS___                                       _______, _______, _______
 
+// Nav stuff on Mac
+#define __________________NMC_L1___________________       KC_LCTL, _______, KC_LSFT, MO_MSE,  _______
+#define __________________NMC_L2___________________       _______, _______, MO_MED,  MO_OSK,  MO_LWR
+#define ___________NMC_L3_FOUR____________                KC_LCTL, KC_LGUI, KC_LALT, TO(_QWERTY)
+#define __________________NMC_L3___________________       ___________NMC_L3_FOUR____________, _______
+
+#define __________________NMC_R1___________________       KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_NO
+#define      _____________NMC_R2_FOUR__________           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+#define __________________NMC_R2___________________       _____________NMC_R2_FOUR__________, _______
+#define _____________NMC_R3_FOUR__________                KC_HOME, KC_PGDN, KC_PGUP, KC_END
+#define __________________NMC_R3___________________       _____________NMC_R3_FOUR__________, _______
+#define __________________NMC_R3_ARROWS____________       _____________NMC_R3_FOUR__________, _______
+#define                 __NMC_R4_ARROW_KEYS___                                       _______, _______, _______
+
 // OS keys
 #define __________________OSK_L1___________________       _________________FUNC_LEFT_________________
-#define __________________OSK_L2___________________       _______, _______, _______, _______, _______
+#define __________________OSK_L2___________________       _______, _______, _______, KC_LSFT, _______
 #define ___________OSK_L3_FOUR____________                _______, _______, CEN_WIN, _______
-#define __________________OSK_L3___________________       ___________OSK_L3_FOUR____________, _______
+#define __________________OSK_L3___________________       ___________OSK_L3_FOUR____________, EEPROM_RESET
 
 #define __________________OSK_R1___________________       KC_F6,   KC_F7,   KC_F8,   KC_LBRC, KC_RBRC
 #define      _____________OSK_R2_FOUR__________           GO_BACK, WIN_HIDE, WIN_MAX, GO_FWD

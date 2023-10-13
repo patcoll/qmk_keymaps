@@ -2,12 +2,103 @@
 #ifdef COMBO_ENABLE
 #include "g/keymap_combo.h"
 #endif
+#ifdef OS_DETECTION_ENABLE
+#include "os_detection.h"
+#endif
+#ifdef CONSOLE_ENABLE
+#include "print.h"
+#endif
 
 bool mac_mode = false;
 bool game_mode = false;
 
 bool is_alt_tab_active = false;
 int alt_tab_slight_delay_ms = 120;
+
+static uint32_t key_timer = 0;
+static bool key_trigger = false;
+
+/* extern keymap_config_t keymap_config; */
+
+// KEY OVERRIDES
+
+#ifdef KEY_OVERRIDE_ENABLE
+// clang-format off
+
+#define ko_make_with_layers_negmods_and_enabled(trigger_mods_, trigger_key, replacement_key, layer_mask, negative_mask, enabled_) \
+    ((const key_override_t){                                                                \
+        .trigger_mods                           = (trigger_mods_),                          \
+        .layers                                 = (layer_mask),                             \
+        .suppressed_mods                        = (trigger_mods_),                          \
+        .options                                = ko_options_default,                       \
+        .negative_mod_mask                      = (negative_mask),                          \
+        .custom_action                          = NULL,                                     \
+        .context                                = NULL,                                     \
+        .trigger                                = (trigger_key),                            \
+        .replacement                            = (replacement_key),                        \
+        .enabled                                = (enabled_)                                \
+    })
+
+#define ko_make_with_options(trigger_mods_, trigger_key, replacement_key, options_)         \
+    ((const key_override_t){                                                                \
+        .trigger_mods                           = (trigger_mods_),                          \
+        .layers                                 = ~0,                                       \
+        .suppressed_mods                        = (trigger_mods_),                          \
+        .options                                = (options_),                               \
+        .negative_mod_mask                      = 0,                                        \
+        .custom_action                          = NULL,                                     \
+        .context                                = NULL,                                     \
+        .trigger                                = (trigger_key),                            \
+        .replacement                            = (replacement_key),                        \
+        .enabled                                = NULL                                      \
+    })
+
+// clang-format on
+
+const key_override_t delete_key_override = ko_make_basic(MOD_MASK_CTRL, KC_BSPC, KC_DEL);
+
+const key_override_t word_move_ov_left = ko_make_with_layers_negmods_and_enabled(MOD_MASK_CTRL, KC_LEFT, LALT(KC_LEFT), (1 << _MAC), MOD_MASK_SG, NULL);
+const key_override_t word_move_ov_down = ko_make_with_layers_negmods_and_enabled(MOD_MASK_CTRL, KC_DOWN, LALT(KC_DOWN), (1 << _MAC), MOD_MASK_SG, NULL);
+const key_override_t word_move_ov_up = ko_make_with_layers_negmods_and_enabled(MOD_MASK_CTRL, KC_UP, LALT(KC_UP), (1 << _MAC), MOD_MASK_SG, NULL);
+const key_override_t word_move_ov_right = ko_make_with_layers_negmods_and_enabled(MOD_MASK_CTRL, KC_RGHT, LALT(KC_RGHT), (1 << _MAC), MOD_MASK_SG, NULL);
+
+// This is called when the override activates and deactivates. Enable the fn
+// layer on activation and disable on deactivation
+/* bool momentary_alt(bool key_down, void *nothing) { */
+/*   if (key_down) { */
+/*     #<{(| layer_on((uint8_t)(uintptr_t)layer); |)}># */
+/*     register_code(KC_LALT); */
+/*   } else { */
+/*     #<{(| layer_off((uint8_t)(uintptr_t)layer); |)}># */
+/*     unregister_code(KC_LALT); */
+/*   } */
+/*  */
+/*   return false; */
+/* } */
+/* const key_override_t word_move_override = { */
+/*   .trigger_mods      = MOD_BIT(KC_LCTL), */
+/*   .layers            = ~(1 << _NAV), */
+/*   .suppressed_mods   = MOD_BIT(KC_LCTL), */
+/*   .options           = ko_option_activation_required_mod_down | ko_option_no_unregister_on_other_key_down, */
+/*   .negative_mod_mask = ~MOD_BIT(KC_LCTL), */
+/*   .custom_action     = momentary_alt, */
+/*   #<{(| .context           = NULL, |)}># */
+/*   .trigger           = KC_NO, */
+/*   #<{(| .replacement       = MOD_BIT(KC_LALT), |)}># */
+/*   .replacement       = KC_NO, */
+/*   .enabled           = NULL */
+/* }; */
+
+// This globally defines all key overrides to be used
+const key_override_t **key_overrides = (const key_override_t *[]){
+  &delete_key_override,
+  &word_move_ov_left,
+  &word_move_ov_up,
+  &word_move_ov_down,
+  &word_move_ov_right,
+  NULL // Null terminate the array of overrides!
+};
+#endif
 
 __attribute__((weak)) void keyboard_post_init_keymap(void) {}
 
@@ -23,11 +114,98 @@ __attribute__((weak)) bool process_record_keymap(uint16_t keycode, keyrecord_t *
 
 __attribute__((weak)) void pointing_device_init_keymap(void) {}
 
+#if defined(OS_DETECTION_ENABLE) && defined(DEFERRED_EXEC_ENABLE)
+uint32_t startup_exec(uint32_t trigger_time, void *cb_arg);
+#endif
+
+#if defined(OS_DETECTION_ENABLE) && defined(DEFERRED_EXEC_ENABLE)
+os_variant_t os_type;
+
+uint32_t startup_exec(uint32_t trigger_time, void *cb_arg) {
+    keymap_config.raw = eeconfig_read_keymap();
+    keymap_config.swap_lalt_lgui = keymap_config.swap_ralt_rgui = true;
+    eeconfig_update_keymap(keymap_config.raw);
+
+    if (is_keyboard_master()) {
+        os_type = detected_host_os();
+
+        if (os_type) {
+            bool is_mac = (os_type == OS_MACOS) || (os_type == OS_IOS);
+
+            mac_mode = is_mac;
+
+            /* keymap_config.raw = eeconfig_read_keymap(); */
+            /* keymap_config.swap_lalt_lgui = keymap_config.swap_ralt_rgui = true; */
+            /* eeconfig_update_keymap(keymap_config.raw); */
+
+            /* if (keymap_config.swap_lalt_lgui != is_mac) { */
+            /*     keymap_config.swap_lalt_lgui = keymap_config.swap_ralt_rgui = is_mac; */
+            /*     eeconfig_update_keymap(keymap_config.raw); */
+            /* } */
+
+/* #    ifdef UNICODE_COMMON_ENABLE */
+/*             set_unicode_input_mode_soft(is_mac ? UNICODE_MODE_MACOS : UNICODE_MODE_WINCOMPOSE); */
+/* #    endif */
+
+            switch (os_type) {
+                case OS_UNSURE:
+                    xprintf("unknown OS Detected\n");
+                    break;
+                case OS_LINUX:
+                    xprintf("Linux Detected\n");
+                    break;
+                case OS_WINDOWS:
+                    xprintf("Windows Detected\n");
+                    break;
+#    if 0
+                case OS_WINDOWS_UNSURE:
+                    xprintf("Windows? Detected\n");
+                    break;
+#    endif
+                case OS_MACOS:
+                    xprintf("MacOS Detected\n");
+                    break;
+                case OS_IOS:
+                    xprintf("iOS Detected\n");
+                    break;
+#    if 0
+                case OS_PS5:
+                    xprintf("PlayStation 5 Detected\n");
+                    break;
+                case OS_HANDHELD:
+                    xprintf("Nintend Switch/Quest 2 Detected\n");
+                    break;
+#    endif
+            }
+        }
+    }
+
+    return os_type ? 0 : 500;
+}
+#endif
+
+
 void keyboard_post_init_user(void) {
 #ifdef CONSOLE_ENABLE
   debug_enable = true;
   /* debug_matrix = true; */
   /* debug_keyboard = true; */
+#endif
+
+    /* uprint("keyboard_post_init_user\n"); */
+    /* uprintf("KL: kc: %u, col: %u, row: %u, pressed: %u\n", keycode, record->event.key.col, record->event.key.row, record->event.pressed); */
+    /* xprintf("keyboard_post_init_user\n"); */
+
+
+#if defined(OS_DETECTION_ENABLE) && defined(DEFERRED_EXEC_ENABLE)
+  defer_exec(100, startup_exec, NULL);
+#endif
+
+#ifdef OS_DETECTION_ENABLE
+  /* if (detected_host_os() == OS_MACOS) { */
+  /*   process_magic(MAGIC_SWAP_ALT_GUI, record); */
+  /*   #<{(| mac_mode = true; |)}># */
+  /* } */
 #endif
 
   keyboard_post_init_keymap();
@@ -36,48 +214,101 @@ void keyboard_post_init_user(void) {
 void matrix_scan_user(void) {
   // End fancy nav switching if the NAV layer has been deactivated.
   if (is_alt_tab_active && !IS_LAYER_ON(_NAV)) {
-    unregister_code(KC_LALT);
+    if (mac_mode) {
+      unregister_code(KC_LGUI);
+    } else {
+      unregister_code(KC_LALT);
+    }
     is_alt_tab_active = false;
+  }
+
+  // trigger kc_no after timer if option is on
+  if (timer_elapsed32(key_timer) > 30000) { // 30 seconds
+    key_timer = timer_read32();  // resets timer
+    if (key_trigger) tap_code(KC_NO); // tap if enabled
   }
 
   matrix_scan_keymap();
 }
 
+#if defined(DEFERRED_EXEC_ENABLE)
+uint32_t deferred_debug(uint32_t trigger_time, void *cb_arg) {
+    xprintf("DEBUG!");
+    return 0;
+}
+#endif
+
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+#if defined(OS_DETECTION_ENABLE) && defined(DEFERRED_EXEC_ENABLE)
+    defer_exec(10, deferred_debug, NULL);
+#endif
+
+#ifdef CONSOLE_ENABLE
+    /* xprintf("KL: kc: %u, col: %u, row: %u, pressed: %u\n", keycode, record->event.key.col, record->event.key.row, record->event.pressed); */
+#endif
   if (record->event.pressed) {
+    if (keycode == KEY_TIMER) {
+      key_trigger = !key_trigger;
+      return false;
+    }
+
     if (keycode == GAME_TG) {
-      // TODO: toggle layer
+      // toggle layer
       if (game_mode == false) {
         layer_on(_GAMING);
+        /* default_layer_set(1 << _GAMING); */
       } else {
         layer_off(_GAMING);
+        /* default_layer_set(1 << _QWERTY); */
       }
       game_mode = !game_mode;
       return false;
     }
 
     if (keycode == MAC_TG) {
+      /* if (mac_mode == false) { */
+      /*   #<{(| layer_on(_MAC); |)}># */
+      /*   #<{(| default_layer_set(1 << _MAC); |)}># */
+      /*   process_magic(MAGIC_SWAP_ALT_GUI, record); */
+      /* } else { */
+      /*   #<{(| layer_off(_MAC); |)}># */
+      /*   #<{(| default_layer_set(1 << _QWERTY); |)}># */
+      /*   process_magic(MAGIC_SWAP_ALT_GUI, record); */
+      /* } */
       mac_mode = !mac_mode;
+
+      keymap_config.swap_lalt_lgui = keymap_config.swap_ralt_rgui = mac_mode;
+      eeconfig_update_keymap(keymap_config.raw);
+
+      xprintf("mac_mode: %d\n", mac_mode);
+      /* xprintf("os? %d\n", detected_host_os()); */
+
       return false;
     }
 
     if (keycode == C_CUT) {
-      mac_mode == true ? tap_code16(A(KC_X)) : tap_code16(C(KC_X));
+      mac_mode == true ? tap_code16(G(KC_X)) : tap_code16(C(KC_X));
       return false;
     }
 
     if (keycode == C_COPY) {
-      mac_mode == true ? tap_code16(A(KC_C)) : tap_code16(C(KC_C));
+      mac_mode == true ? tap_code16(G(KC_C)) : tap_code16(C(KC_C));
       return false;
     }
 
     if (keycode == C_PASTE) {
-      mac_mode == true ? tap_code16(A(KC_V)) : tap_code16(C(KC_V));
+      mac_mode == true ? tap_code16(G(KC_V)) : tap_code16(C(KC_V));
+      return false;
+    }
+
+    if (keycode == OS_MENU) {
+      mac_mode == true ? tap_code16(G(KC_SPC)) : tap_code16(A(KC_SPC));
       return false;
     }
 
     if (keycode == CLS_WIN) {
-      mac_mode == true ? tap_code16(C(KC_W)) : tap_code16(A(KC_F4));
+      mac_mode == true ? tap_code16(G(KC_W)) : tap_code16(A(KC_F4));
       return false;
     }
 
@@ -87,17 +318,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
 
     if (keycode == GO_BACK) {
-      mac_mode == true ? tap_code16(A(KC_LBRC)) : tap_code16(A(KC_LEFT));
+      mac_mode == true ? tap_code16(G(KC_LBRC)) : tap_code16(A(KC_LEFT));
       return false;
     }
 
     if (keycode == GO_FWD) {
-      mac_mode == true ? tap_code16(A(KC_RBRC)) : tap_code16(A(KC_RGHT));
+      mac_mode == true ? tap_code16(G(KC_RBRC)) : tap_code16(A(KC_RGHT));
       return false;
     }
 
     if (keycode == WIN_HIDE) {
-      mac_mode == true ? tap_code16(A(KC_H)) : tap_code16(G(KC_PGDN));
+      mac_mode == true ? tap_code16(G(KC_H)) : tap_code16(G(KC_PGDN));
       return false;
     }
 
@@ -107,17 +338,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
 
     if (keycode == SCR_SHT) {
-      mac_mode == true ? tap_code16(S(A(KC_3))) : tap_code16(S(KC_PSCR));
+      mac_mode == true ? tap_code16(S(G(KC_3))) : tap_code16(S(KC_PSCR));
       return false;
     }
 
     if (keycode == SCR_WIN) {
-      mac_mode == true ? tap_code16(S(A(KC_4))) : tap_code16(G(S(KC_PSCR)));
+      mac_mode == true ? tap_code16(S(G(KC_4))) : tap_code16(G(S(KC_PSCR)));
       return false;
     }
 
     if (keycode == SCR_LCK) {
-      mac_mode == true ? tap_code16(C(A(KC_Q))) : tap_code16(C(G(A(S(KC_L)))));
+      mac_mode == true ? tap_code16(C(G(KC_Q))) : tap_code16(C(G(A(S(KC_L)))));
       return false;
     }
 
@@ -151,7 +382,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       case SALTTAB:
         if (!is_alt_tab_active) {
           is_alt_tab_active = true;
-          register_code(KC_LALT);
+          if (mac_mode) {
+            register_code(KC_LGUI);
+          } else {
+            register_code(KC_LALT);
+          }
           // 2023-03-06: I found that without adding a slight delay, the custom alt-tab behavior would not act as expected for the first invocation.
           wait_ms(alt_tab_slight_delay_ms);
         }

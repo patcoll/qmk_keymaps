@@ -3,6 +3,7 @@ COMB(qpm_combo,     MAC_TG,          CTL_Q, KC_P, KC_M)
 COMB(qpl_combo,     SCR_LCK,         CTL_Q, KC_P, KC_L)
 COMB(qpfj_combo,    GAME_TG,          KC_Q, KC_P, KC_F, KC_J)
 COMB(cqpfj_combo,   GAME_TG,          CTL_Q, KC_P, KC_F, KC_J)
+COMB(qpj_combo,     KEY_TIMER,         CTL_Q, KC_P, KC_J)
 
 COMB(qwe_combo,     MO_CSNV,         CTL_Q, NAV_W, KC_E)
 

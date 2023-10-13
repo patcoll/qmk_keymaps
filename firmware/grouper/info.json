@@ -1,0 +1,16 @@
+{
+    "manufacturer": "Kiser Designs",
+    "keyboard_name": "Grouper",
+    "maintainer": "qmk",
+    "bootloader": "rp2040",
+    "diode_direction": "COL2ROW",
+    "height": 4,
+    "processor": "RP2040",
+    "url": "http://www.keyboard-layout-editor.com/#/gists/9a8e972048b516e5b29cfb68b049d7f8",
+    "usb": {
+        "device_version": "0.0.1",
+        "pid": "0x4770",
+        "vid": "0x4B44"
+    },
+    "width": 16
+}

@@ -1,0 +1,16 @@
+#ifndef CONFIG_H
+#define CONFIG_H
+
+
+// #define MATRIX_ROWS 2
+// #define MATRIX_COLS 6
+//
+//
+// #define MATRIX_ROW_PINS { GP1, GP13 }
+// #define MATRIX_COL_PINS { GP24, GP23, GP16, GP17, GP18, GP19 }
+
+
+// #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET
+// #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 500U
+
+#endif

@@ -120,8 +120,43 @@ bully: | qmk
 	mkdir -p qmk_firmware/keyboards/bully
 	rsync -avz firmware/bully/ qmk_firmware/keyboards/bully/
 
+.PHONY: bully2040
+bully2040: | qmk
+	mkdir -p qmk_firmware/keyboards/bully2040
+	rsync -avz firmware/bully2040/ qmk_firmware/keyboards/bully2040/
+
+.PHONY: monorail
+monorail: | qmk
+	mkdir -p qmk_firmware/keyboards/monorail
+	rsync -avz firmware/monorail/ qmk_firmware/keyboards/monorail/
+
+.PHONY: monorail2
+monorail2: | qmk
+	mkdir -p qmk_firmware/keyboards/monorail2
+	rsync -avz firmware/monorail2/ qmk_firmware/keyboards/monorail2/
+
+.PHONY: cisne
+cisne: | qmk
+	mkdir -p qmk_firmware/keyboards/cisne
+	rsync -avz firmware/cisne/ qmk_firmware/keyboards/cisne/
+
+.PHONY: 3999
+3999: | qmk
+	mkdir -p qmk_firmware/keyboards/3999
+	rsync -avz firmware/3999/ qmk_firmware/keyboards/3999/
+
+.PHONY: grouper
+grouper: | qmk
+	mkdir -p qmk_firmware/keyboards/grouper
+	rsync -avz firmware/grouper/ qmk_firmware/keyboards/grouper/
+
+.PHONY: c11
+c11: | qmk
+	mkdir -p qmk_firmware/keyboards/c11
+	rsync -avz firmware/c11/ qmk_firmware/keyboards/c11/
+
 .PHONY: firmware
-firmware: | twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus 45_ats_hot plop embrace apricot sst60 orbital m0ii040pcb cutiepie paintbrush_avr bully
+firmware: | twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus 45_ats_hot plop embrace apricot sst60 orbital m0ii040pcb cutiepie paintbrush_avr bully monorail monorail2 cisne 3999 bully2040 grouper c11
 	echo firmware
 
 .PHONY: keymaps
