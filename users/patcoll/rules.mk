@@ -1,4 +1,9 @@
-SRC += patcoll.c
+SRC += $(USER_PATH)/patcoll.c
+
+INTROSPECTION_KEYMAP_C += $(USER_PATH)/combos.c
+
+# Allow loading of `combos.def`
+VPATH += keyboards/gboards/
 
 # AUDIO_ENABLE          = no
 # AUTO_SHIFT_ENABLE     = no
@@ -55,9 +60,6 @@ OS_DETECTION_ENABLE   = yes
 
 # Allow warnings, useful for rp2040 boards.
 ALLOW_WARNINGS = yes
-
-# Allow loading of `combos.def`
-VPATH += keyboards/gboards/
 
 ifneq ($(PLATFORM),CHIBIOS)
 	LTO_ENABLE        = yes

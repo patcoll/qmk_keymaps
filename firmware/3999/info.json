@@ -1,7 +1,46 @@
 {
   "keyboard_name": "3999",
-  "url": "",
+  "manufacturer": "dpalka15",
   "maintainer": "dpalka15",
+  "processor": "atmega32u4",
+  "bootloader": "atmel-dfu",
+  "usb": {
+    "vid": "0x7431",
+    "pid": "0xD645",
+    "device_version": "0.0.1"
+  },
+  "features": {
+    "bootmagic": false,
+    "command": false,
+    "console": false,
+    "encoder": true,
+    "extrakey": true,
+    "mousekey": true,
+    "nkro": true,
+    "rgb_matrix": false,
+    "rgblight": true
+  },
+  "build": {
+    "lto": true
+  },
+  "diode_direction": "COL2ROW",
+  "matrix_pins": {
+    "cols": ["B4", "D7", "D6", "B0", "B2", "B1", "B3", "D2", "D1", "D0", "F7"],
+    "rows": ["D3", "D5", "F0", "F1"]
+  },
+  "encoder": {
+    "rotary": [
+      {"pin_a": "B5", "pin_b": "B6"}
+    ]
+  },
+  "rgblight": {
+    "led_count": 9,
+    "driver": "ws2812",
+    "sleep": true
+  },
+  "ws2812": {
+    "pin": "D4"
+  },
   "layouts": {
       "LAYOUT": {
           "layout": [{"label":"Q", "x":0, "y":0},   {"label":"W", "x":1, "y":0},   {"label":"E", "x":2, "y":0},   {"label":"R", "x":3, "y":0},    {"label":"T", "x":4, "y":0},     {"label":"Y", "x":5, "y":0},     {"label":"U", "x":6, "y":0},  {"label":"I", "x":7, "y":0},  {"label":"O", "x":8, "y":8},    {"label":"P", "x":9, "y":0},     {"label":"DEL", "x":10, "y":0}, 

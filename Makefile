@@ -1,159 +1,159 @@
 default: | keymaps qmk-clean
 
 .PHONY: qmk
-qmk: qmk_firmware/Makefile
-qmk_firmware/Makefile:
+qmk: ${QMK_HOME}/Makefile
+${QMK_HOME}/Makefile:
 	init-qmk
 
 .PHONY: qmk-clean
 qmk-clean:
-	cd qmk_firmware && make git-submodule
+	cd ${QMK_HOME} && make git-submodule
 	qmk clean -a
 
 .PHONY: twoyo-default
 twoyo-default: | qmk
-	mkdir -p qmk_firmware/keyboards/twoyo
-	rsync -avz firmware/twoyo/ qmk_firmware/keyboards/twoyo/
+	mkdir -p ${QMK_HOME}/keyboards/twoyo
+	rsync -avz firmware/twoyo/ ${QMK_HOME}/keyboards/twoyo/
 
 .PHONY: minisub-default
 minisub-default: | qmk
-	mkdir -p qmk_firmware/keyboards/minisub
-	rsync -avz firmware/minisub/ qmk_firmware/keyboards/minisub/
+	mkdir -p ${QMK_HOME}/keyboards/minisub
+	rsync -avz firmware/minisub/ ${QMK_HOME}/keyboards/minisub/
 
 .PHONY: kawaii-default
 kawaii-default: | qmk
-	mkdir -p qmk_firmware/keyboards/kawaii
-	rsync -avz firmware/kawaii/ qmk_firmware/keyboards/kawaii/
+	mkdir -p ${QMK_HOME}/keyboards/kawaii
+	rsync -avz firmware/kawaii/ ${QMK_HOME}/keyboards/kawaii/
 
 .PHONY: relic-default
 relic-default: | qmk
-	mkdir -p qmk_firmware/keyboards/relic
-	rsync -avz firmware/relic/ qmk_firmware/keyboards/relic/
+	mkdir -p ${QMK_HOME}/keyboards/relic
+	rsync -avz firmware/relic/ ${QMK_HOME}/keyboards/relic/
 
 .PHONY: caravan2
 caravan2: | qmk
-	mkdir -p qmk_firmware/keyboards/caravan2
-	rsync -avz firmware/caravan2/ qmk_firmware/keyboards/caravan2/
+	mkdir -p ${QMK_HOME}/keyboards/caravan2
+	rsync -avz firmware/caravan2/ ${QMK_HOME}/keyboards/caravan2/
 
 .PHONY: menhir
 menhir: | qmk
-	mkdir -p qmk_firmware/keyboards/menhir
-	rsync -avz firmware/menhir/ qmk_firmware/keyboards/menhir/
+	mkdir -p ${QMK_HOME}/keyboards/menhir
+	rsync -avz firmware/menhir/ ${QMK_HOME}/keyboards/menhir/
 
 .PHONY: agony
 agony: | qmk
-	mkdir -p qmk_firmware/keyboards/handwired/patcoll/agony
-	rsync -avz firmware/handwired/patcoll/agony/ qmk_firmware/keyboards/handwired/patcoll/agony/
+	mkdir -p ${QMK_HOME}/keyboards/handwired/patcoll/agony
+	rsync -avz firmware/handwired/patcoll/agony/ ${QMK_HOME}/keyboards/handwired/patcoll/agony/
 
 .PHONY: piedmont
 piedmont: | qmk
-	mkdir -p qmk_firmware/keyboards/handwired/patcoll/piedmont
-	rsync -avz firmware/handwired/patcoll/piedmont/ qmk_firmware/keyboards/handwired/patcoll/piedmont/
+	mkdir -p ${QMK_HOME}/keyboards/handwired/patcoll/piedmont
+	rsync -avz firmware/handwired/patcoll/piedmont/ ${QMK_HOME}/keyboards/handwired/patcoll/piedmont/
 
 .PHONY: oxymoron
 oxymoron: | qmk
-	mkdir -p qmk_firmware/keyboards/oxymoron
-	rsync -avz firmware/oxymoron/ qmk_firmware/keyboards/oxymoron/
+	mkdir -p ${QMK_HOME}/keyboards/oxymoron
+	rsync -avz firmware/oxymoron/ ${QMK_HOME}/keyboards/oxymoron/
 
 .PHONY: ca66r3
 ca66r3: | qmk
-	mkdir -p qmk_firmware/keyboards/ca66r3
-	rsync -avz firmware/ca66r3/ qmk_firmware/keyboards/ca66r3/
+	mkdir -p ${QMK_HOME}/keyboards/ca66r3
+	rsync -avz firmware/ca66r3/ ${QMK_HOME}/keyboards/ca66r3/
 
 .PHONY: curio
 curio: | qmk
-	mkdir -p qmk_firmware/keyboards/curio
-	rsync -avz firmware/curio/ qmk_firmware/keyboards/curio/
+	mkdir -p ${QMK_HOME}/keyboards/curio
+	rsync -avz firmware/curio/ ${QMK_HOME}/keyboards/curio/
 
 .PHONY: alphalpha-plus
 alphalpha-plus: | qmk
-	mkdir -p qmk_firmware/keyboards/alphalpha_plus
-	rsync -avz firmware/alphalpha_plus/ qmk_firmware/keyboards/alphalpha_plus/
+	mkdir -p ${QMK_HOME}/keyboards/alphalpha_plus
+	rsync -avz firmware/alphalpha_plus/ ${QMK_HOME}/keyboards/alphalpha_plus/
 
 .PHONY: 45_ats_hot
 45_ats_hot: | qmk
-	mkdir -p qmk_firmware/keyboards/45_ats_hot
-	rsync -avz firmware/45_ats_hot/ qmk_firmware/keyboards/45_ats_hot/
+	mkdir -p ${QMK_HOME}/keyboards/45_ats_hot
+	rsync -avz firmware/45_ats_hot/ ${QMK_HOME}/keyboards/45_ats_hot/
 
 .PHONY: plop
 plop: | qmk
-	mkdir -p qmk_firmware/keyboards/plop
-	rsync -avz firmware/plop/ qmk_firmware/keyboards/plop/
+	mkdir -p ${QMK_HOME}/keyboards/plop
+	rsync -avz firmware/plop/ ${QMK_HOME}/keyboards/plop/
 
 .PHONY: embrace
 embrace: | qmk
-	mkdir -p qmk_firmware/keyboards/embrace
-	rsync -avz firmware/embrace/ qmk_firmware/keyboards/embrace/
+	mkdir -p ${QMK_HOME}/keyboards/embrace
+	rsync -avz firmware/embrace/ ${QMK_HOME}/keyboards/embrace/
 
 .PHONY: apricot
 apricot: | qmk
-	mkdir -p qmk_firmware/keyboards/lazydesigners/apricot
-	rsync -avz firmware/lazydesigners/apricot/ qmk_firmware/keyboards/lazydesigners/apricot/
+	mkdir -p ${QMK_HOME}/keyboards/lazydesigners/apricot
+	rsync -avz firmware/lazydesigners/apricot/ ${QMK_HOME}/keyboards/lazydesigners/apricot/
 
 .PHONY: sst60
 sst60: | qmk
-	mkdir -p qmk_firmware/keyboards/sst60
-	rsync -avz firmware/sst60/ qmk_firmware/keyboards/sst60/
+	mkdir -p ${QMK_HOME}/keyboards/sst60
+	rsync -avz firmware/sst60/ ${QMK_HOME}/keyboards/sst60/
 
 .PHONY: orbital
 orbital: | qmk
-	mkdir -p qmk_firmware/keyboards/orbital
-	rsync -avz firmware/orbital/ qmk_firmware/keyboards/orbital/
+	mkdir -p ${QMK_HOME}/keyboards/orbital
+	rsync -avz firmware/orbital/ ${QMK_HOME}/keyboards/orbital/
 
 .PHONY: m0ii040pcb
 m0ii040pcb: | qmk
-	mkdir -p qmk_firmware/keyboards/m0ii040pcb
-	rsync -avz firmware/m0ii040pcb/ qmk_firmware/keyboards/m0ii040pcb/
+	mkdir -p ${QMK_HOME}/keyboards/m0ii040pcb
+	rsync -avz firmware/m0ii040pcb/ ${QMK_HOME}/keyboards/m0ii040pcb/
 
 .PHONY: cutiepie
 cutiepie: | qmk
-	mkdir -p qmk_firmware/keyboards/cutiepie
-	rsync -avz firmware/cutiepie/ qmk_firmware/keyboards/cutiepie/
+	mkdir -p ${QMK_HOME}/keyboards/cutiepie
+	rsync -avz firmware/cutiepie/ ${QMK_HOME}/keyboards/cutiepie/
 
 .PHONY: paintbrush_avr
 paintbrush_avr: | qmk
-	mkdir -p qmk_firmware/keyboards/paintbrush_avr
-	rsync -avz firmware/paintbrush_avr/ qmk_firmware/keyboards/paintbrush_avr/
+	mkdir -p ${QMK_HOME}/keyboards/paintbrush_avr
+	rsync -avz firmware/paintbrush_avr/ ${QMK_HOME}/keyboards/paintbrush_avr/
 
 .PHONY: bully
 bully: | qmk
-	mkdir -p qmk_firmware/keyboards/bully
-	rsync -avz firmware/bully/ qmk_firmware/keyboards/bully/
+	mkdir -p ${QMK_HOME}/keyboards/bully
+	rsync -avz firmware/bully/ ${QMK_HOME}/keyboards/bully/
 
 .PHONY: bully2040
 bully2040: | qmk
-	mkdir -p qmk_firmware/keyboards/bully2040
-	rsync -avz firmware/bully2040/ qmk_firmware/keyboards/bully2040/
+	mkdir -p ${QMK_HOME}/keyboards/bully2040
+	rsync -avz firmware/bully2040/ ${QMK_HOME}/keyboards/bully2040/
 
 .PHONY: monorail
 monorail: | qmk
-	mkdir -p qmk_firmware/keyboards/monorail
-	rsync -avz firmware/monorail/ qmk_firmware/keyboards/monorail/
+	mkdir -p ${QMK_HOME}/keyboards/monorail
+	rsync -avz firmware/monorail/ ${QMK_HOME}/keyboards/monorail/
 
 .PHONY: monorail2
 monorail2: | qmk
-	mkdir -p qmk_firmware/keyboards/monorail2
-	rsync -avz firmware/monorail2/ qmk_firmware/keyboards/monorail2/
+	mkdir -p ${QMK_HOME}/keyboards/monorail2
+	rsync -avz firmware/monorail2/ ${QMK_HOME}/keyboards/monorail2/
 
 .PHONY: cisne
 cisne: | qmk
-	mkdir -p qmk_firmware/keyboards/cisne
-	rsync -avz firmware/cisne/ qmk_firmware/keyboards/cisne/
+	mkdir -p ${QMK_HOME}/keyboards/cisne
+	rsync -avz firmware/cisne/ ${QMK_HOME}/keyboards/cisne/
 
 .PHONY: 3999
 3999: | qmk
-	mkdir -p qmk_firmware/keyboards/3999
-	rsync -avz firmware/3999/ qmk_firmware/keyboards/3999/
+	mkdir -p ${QMK_HOME}/keyboards/3999
+	rsync -avz firmware/3999/ ${QMK_HOME}/keyboards/3999/
 
 .PHONY: grouper
 grouper: | qmk
-	mkdir -p qmk_firmware/keyboards/grouper
-	rsync -avz firmware/grouper/ qmk_firmware/keyboards/grouper/
+	mkdir -p ${QMK_HOME}/keyboards/grouper
+	rsync -avz firmware/grouper/ ${QMK_HOME}/keyboards/grouper/
 
 .PHONY: c11
 c11: | qmk
-	mkdir -p qmk_firmware/keyboards/c11
-	rsync -avz firmware/c11/ qmk_firmware/keyboards/c11/
+	mkdir -p ${QMK_HOME}/keyboards/c11
+	rsync -avz firmware/c11/ ${QMK_HOME}/keyboards/c11/
 
 .PHONY: firmware
 firmware: | twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus 45_ats_hot plop embrace apricot sst60 orbital m0ii040pcb cutiepie paintbrush_avr bully monorail monorail2 cisne 3999 bully2040 grouper c11
@@ -164,8 +164,8 @@ keymaps: | qmk firmware userspace
 	init-keymaps
 
 .PHONY: userspace
-userspace: qmk_firmware/users/patcoll/patcoll.h
-qmk_firmware/users/patcoll/patcoll.h: qmk
+userspace: ${QMK_HOME}/users/patcoll/patcoll.h
+${QMK_HOME}/users/patcoll/patcoll.h: qmk
 	init-userspace
 
 .PHONY: test
@@ -174,4 +174,4 @@ test: | default
 
 .PHONY: clean
 clean:
-	rm -rf qmk_firmware working_area/*
+	rm -rf ${QMK_HOME} working_area/*

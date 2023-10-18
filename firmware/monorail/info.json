@@ -27,18 +27,20 @@
     },
     "rgblight": {
         "led_count": 12,
-        "pin": "B0",
         "hue_steps": 8,
         "saturation_steps": 8,
         "brightness_steps": 8,
         "animations": {
-        "all": false,
-		"static_gradient": true,
-		"breathing": true,
-		"rainbow_swirl": true,
-		"rainbow_mood": true
+            "all": false,
+            "static_gradient": true,
+            "breathing": true,
+            "rainbow_swirl": true,
+            "rainbow_mood": true
         },
         "sleep": true
+    },
+    "ws2812": {
+        "pin": "B0"
     },
     "layouts": {
         "LAYOUT": {

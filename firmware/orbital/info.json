@@ -1,21 +1,22 @@
 {
     "keyboard_name": "orbital",
+    "manufacturer": "qpockets",
     "maintainer": "qmk",
     "processor": "atmega32u4",
     "bootloader": "atmel-dfu",
-    /*"usb": {
+    "usb": {
         "vid": "0x7170",
-        "pid": "0x4F42",
+        "pid": "0x7171",
         "device_version": "0.0.1"
-    },*/
-    /*"features": {
+    },
+    "features": {
         "bootmagic": true,
         "command": false,
         "console": false,
         "extrakey": true,
         "mousekey": true,
         "nkro": true
-    },*/
+    },
     "layouts": {
         "LAYOUT_all": {
             "layout": [

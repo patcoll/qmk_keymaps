@@ -3,15 +3,15 @@
 
 void keyboard_post_init_keymap(void);
 void matrix_scan_keymap(void);
+bool led_update_keymap(led_t led_state);
 bool encoder_update_keymap(uint8_t index, bool clockwise);
 bool process_record_keymap(uint16_t keycode, keyrecord_t *record);
 void pointing_device_init_keymap(void);
 
 void oled_render_layer_state(void);
 
-#ifdef COMBO_ENABLE
-#define COMBO_VARIABLE_LEN
-#endif
+void set_game_mode(bool is_game_mode);
+void set_mac_mode(bool is_mac_mode);
 
 enum userspace_layers {
   _QWERTY = 0,
@@ -241,7 +241,7 @@ enum userspace_custom_keycodes {
 #define __________________OSK_L1___________________       _________________FUNC_LEFT_________________
 #define __________________OSK_L2___________________       _______, _______, _______, KC_LSFT, _______
 #define ___________OSK_L3_FOUR____________                _______, _______, CEN_WIN, _______
-#define __________________OSK_L3___________________       ___________OSK_L3_FOUR____________, EEPROM_RESET
+#define __________________OSK_L3___________________       ___________OSK_L3_FOUR____________, EE_CLR
 
 #define __________________OSK_R1___________________       KC_F6,   KC_F7,   KC_F8,   KC_LBRC, KC_RBRC
 #define      _____________OSK_R2_FOUR__________           GO_BACK, WIN_HIDE, WIN_MAX, GO_FWD

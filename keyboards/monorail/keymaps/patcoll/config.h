@@ -1,4 +1,0 @@
-
-#ifdef OS_DETECTION_ENABLE
-#define OS_DETECTION_ENABLE
-#endif

@@ -15,18 +15,16 @@
  */
 #pragma once
 
-#include "config_common.h"
-
 /* USB Device descriptor parameter */
-#define VENDOR_ID 0x7431
-#define PRODUCT_ID 0xD645
-#define DEVICE_VER 0x0001
-#define MANUFACTURER dpalka15
-#define PRODUCT _3999 Percent
+// #define VENDOR_ID 0x7431
+// #define PRODUCT_ID 0xD645
+// #define DEVICE_VER 0x0001
+// #define MANUFACTURER dpalka15
+// #define PRODUCT _3999 Percent
 
 /* key matrix size */
-#define MATRIX_ROWS 4
-#define MATRIX_COLS 11
+// #define MATRIX_ROWS 4
+// #define MATRIX_COLS 11
 
 /*
  * Keyboard Matrix Assignments
@@ -38,37 +36,37 @@
  *                  ROW2COL = ROW = Anode (+), COL = Cathode (-, marked on diode)
  *
  */
-#define MATRIX_ROW_PINS { D3, D5, F0, F1 }
-#define MATRIX_COL_PINS { B4, D7, D6, B0, B2, B1, B3, D2, D1, D0, F7 }
-#define UNUSED_PINS
+// #define MATRIX_ROW_PINS { D3, D5, F0, F1 }
+// #define MATRIX_COL_PINS { B4, D7, D6, B0, B2, B1, B3, D2, D1, D0, F7 }
+// #define UNUSED_PINS
 
 /* COL2ROW, ROW2COL*/
-#define DIODE_DIRECTION COL2ROW
+// #define DIODE_DIRECTION COL2ROW
 
 /* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
-#define DEBOUNCE 5
+// #define DEBOUNCE 5
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
-#define LOCKING_SUPPORT_ENABLE
+// #define LOCKING_SUPPORT_ENABLE
 /* Locking resynchronize hack */
-#define LOCKING_RESYNC_ENABLE
+// #define LOCKING_RESYNC_ENABLE
 
 /* Define encoder pads */
-#define ENCODERS_PAD_A { B5 }
-#define ENCODERS_PAD_B { B6 }
+// #define ENCODERS_PAD_A { B5 }
+// #define ENCODERS_PAD_B { B6 }
 
 /*
  * WS2812 Underglow Matrix options
  */
-#define RGB_DI_PIN D4
-#ifdef RGB_DI_PIN
-#    define RGBLIGHT_ANIMATIONS
-#    define RGBLED_NUM 9
-#    define RGBLIGHT_HUE_STEP 8
-#    define RGBLIGHT_SAT_STEP 8
-#    define RGBLIGHT_VAL_STEP 8
-#    define RGBLIGHT_SLEEP
-#endif
+// #define RGB_DI_PIN D4
+// #ifdef RGB_DI_PIN
+// #    define RGBLIGHT_ANIMATIONS
+// #    define RGBLED_NUM 9
+// #    define RGBLIGHT_HUE_STEP 8
+// #    define RGBLIGHT_SAT_STEP 8
+// #    define RGBLIGHT_VAL_STEP 8
+// #    define RGBLIGHT_SLEEP
+// #endif
 
-#define DRIVER_LED_TOTAL RGBLED_NUM
+// #define DRIVER_LED_TOTAL RGBLED_NUM
 

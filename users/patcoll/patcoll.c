@@ -1,13 +1,8 @@
 #include "patcoll.h"
-#ifdef COMBO_ENABLE
-#include "g/keymap_combo.h"
-#endif
 #ifdef OS_DETECTION_ENABLE
 #include "os_detection.h"
 #endif
-#ifdef CONSOLE_ENABLE
 #include "print.h"
-#endif
 
 bool mac_mode = false;
 bool game_mode = false;
@@ -102,6 +97,10 @@ const key_override_t **key_overrides = (const key_override_t *[]){
 
 __attribute__((weak)) void keyboard_post_init_keymap(void) {}
 
+__attribute__((weak)) bool led_update_keymap(led_t led_state) {
+    return true;
+}
+
 __attribute__((weak)) void matrix_scan_keymap(void) {}
 
 __attribute__((weak)) bool encoder_update_keymap(uint8_t index, bool clockwise) {
@@ -122,68 +121,19 @@ uint32_t startup_exec(uint32_t trigger_time, void *cb_arg);
 os_variant_t os_type;
 
 uint32_t startup_exec(uint32_t trigger_time, void *cb_arg) {
-    keymap_config.raw = eeconfig_read_keymap();
-    keymap_config.swap_lalt_lgui = keymap_config.swap_ralt_rgui = true;
-    eeconfig_update_keymap(keymap_config.raw);
-
     if (is_keyboard_master()) {
         os_type = detected_host_os();
 
         if (os_type) {
             bool is_mac = (os_type == OS_MACOS) || (os_type == OS_IOS);
 
-            mac_mode = is_mac;
-
-            /* keymap_config.raw = eeconfig_read_keymap(); */
-            /* keymap_config.swap_lalt_lgui = keymap_config.swap_ralt_rgui = true; */
-            /* eeconfig_update_keymap(keymap_config.raw); */
-
-            /* if (keymap_config.swap_lalt_lgui != is_mac) { */
-            /*     keymap_config.swap_lalt_lgui = keymap_config.swap_ralt_rgui = is_mac; */
-            /*     eeconfig_update_keymap(keymap_config.raw); */
-            /* } */
-
-/* #    ifdef UNICODE_COMMON_ENABLE */
-/*             set_unicode_input_mode_soft(is_mac ? UNICODE_MODE_MACOS : UNICODE_MODE_WINCOMPOSE); */
-/* #    endif */
-
-            switch (os_type) {
-                case OS_UNSURE:
-                    xprintf("unknown OS Detected\n");
-                    break;
-                case OS_LINUX:
-                    xprintf("Linux Detected\n");
-                    break;
-                case OS_WINDOWS:
-                    xprintf("Windows Detected\n");
-                    break;
-#    if 0
-                case OS_WINDOWS_UNSURE:
-                    xprintf("Windows? Detected\n");
-                    break;
-#    endif
-                case OS_MACOS:
-                    xprintf("MacOS Detected\n");
-                    break;
-                case OS_IOS:
-                    xprintf("iOS Detected\n");
-                    break;
-#    if 0
-                case OS_PS5:
-                    xprintf("PlayStation 5 Detected\n");
-                    break;
-                case OS_HANDHELD:
-                    xprintf("Nintend Switch/Quest 2 Detected\n");
-                    break;
-#    endif
-            }
+            set_mac_mode(is_mac);
         }
     }
 
     return os_type ? 0 : 500;
 }
 #endif
-
 
 void keyboard_post_init_user(void) {
 #ifdef CONSOLE_ENABLE
@@ -192,20 +142,8 @@ void keyboard_post_init_user(void) {
   /* debug_keyboard = true; */
 #endif
 
-    /* uprint("keyboard_post_init_user\n"); */
-    /* uprintf("KL: kc: %u, col: %u, row: %u, pressed: %u\n", keycode, record->event.key.col, record->event.key.row, record->event.pressed); */
-    /* xprintf("keyboard_post_init_user\n"); */
-
-
-#if defined(OS_DETECTION_ENABLE) && defined(DEFERRED_EXEC_ENABLE)
+#ifdef DEFERRED_EXEC_ENABLE
   defer_exec(100, startup_exec, NULL);
-#endif
-
-#ifdef OS_DETECTION_ENABLE
-  /* if (detected_host_os() == OS_MACOS) { */
-  /*   process_magic(MAGIC_SWAP_ALT_GUI, record); */
-  /*   #<{(| mac_mode = true; |)}># */
-  /* } */
 #endif
 
   keyboard_post_init_keymap();
@@ -231,22 +169,35 @@ void matrix_scan_user(void) {
   matrix_scan_keymap();
 }
 
-#if defined(DEFERRED_EXEC_ENABLE)
-uint32_t deferred_debug(uint32_t trigger_time, void *cb_arg) {
-    xprintf("DEBUG!");
-    return 0;
-}
-#endif
+void set_mac_mode(bool is_mac_mode) {
+  mac_mode = is_mac_mode;
 
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-#if defined(OS_DETECTION_ENABLE) && defined(DEFERRED_EXEC_ENABLE)
-    defer_exec(10, deferred_debug, NULL);
-#endif
+  keymap_config.raw = eeconfig_read_keymap();
+  keymap_config.swap_lalt_lgui = keymap_config.swap_ralt_rgui = mac_mode;
+  eeconfig_update_keymap(keymap_config.raw);
 
 #ifdef CONSOLE_ENABLE
-    /* xprintf("KL: kc: %u, col: %u, row: %u, pressed: %u\n", keycode, record->event.key.col, record->event.key.row, record->event.pressed); */
+  xprintf("mac_mode: %d\n", mac_mode);
 #endif
+}
+
+void set_game_mode(bool is_game_mode) {
+  game_mode = is_game_mode;
+
+  if (game_mode) {
+    layer_on(_GAMING);
+    /* default_layer_set(1 << _GAMING); */
+  } else {
+    layer_off(_GAMING);
+    /* default_layer_set(1 << _QWERTY); */
+  }
+
+#ifdef CONSOLE_ENABLE
+  xprintf("game_mode: %d\n", game_mode);
+#endif
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed) {
     if (keycode == KEY_TIMER) {
       key_trigger = !key_trigger;
@@ -254,36 +205,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
 
     if (keycode == GAME_TG) {
-      // toggle layer
-      if (game_mode == false) {
-        layer_on(_GAMING);
-        /* default_layer_set(1 << _GAMING); */
-      } else {
-        layer_off(_GAMING);
-        /* default_layer_set(1 << _QWERTY); */
-      }
-      game_mode = !game_mode;
+      set_game_mode(!game_mode);
       return false;
     }
 
     if (keycode == MAC_TG) {
-      /* if (mac_mode == false) { */
-      /*   #<{(| layer_on(_MAC); |)}># */
-      /*   #<{(| default_layer_set(1 << _MAC); |)}># */
-      /*   process_magic(MAGIC_SWAP_ALT_GUI, record); */
-      /* } else { */
-      /*   #<{(| layer_off(_MAC); |)}># */
-      /*   #<{(| default_layer_set(1 << _QWERTY); |)}># */
-      /*   process_magic(MAGIC_SWAP_ALT_GUI, record); */
-      /* } */
-      mac_mode = !mac_mode;
-
-      keymap_config.swap_lalt_lgui = keymap_config.swap_ralt_rgui = mac_mode;
-      eeconfig_update_keymap(keymap_config.raw);
-
-      xprintf("mac_mode: %d\n", mac_mode);
-      /* xprintf("os? %d\n", detected_host_os()); */
-
+      set_mac_mode(!mac_mode);
       return false;
     }
 
@@ -412,6 +339,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return process_record_keymap(keycode, record);
 }
 
+bool led_update_user(led_t led_state) {
+  if (!led_update_keymap(led_state)) {
+    return false;
+  }
+
+  return true;
+}
+
 #ifdef ENCODER_ENABLE
 bool encoder_update_user(uint8_t index, bool clockwise) {
   if (!encoder_update_keymap(index, clockwise)) {
@@ -459,29 +394,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     default:
       return TAPPING_TERM;
   }
-}
-
-uint16_t get_combo_term(uint16_t index, combo_t *combo) {
-  // or with combo index, i.e. its name from enum.
-  switch (index) {
-    case as_combo:
-    case ui_combo:
-    case io_combo:
-    case uo_combo:
-
-#ifdef PATCOLL_BIG_BAR_COMBOS
-    case dsspc_combo:
-    case ksspc_combo:
-    case fsspc_combo:
-    case jsspc_combo:
-    case lsspc_combo:
-    case ssspc_combo:
-    case zsspc_combo:
-#endif
-      return COMBO_TERM - 12;
-  }
-
-  return COMBO_TERM;
 }
 
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {

@@ -16,14 +16,12 @@
 
 #pragma once
 
-#include "config_common.h"
-
 /* USB Device descriptor parameter */
-#define VENDOR_ID    0x7170
-#define PRODUCT_ID   0x7171
-#define DEVICE_VER   0x0001
-#define MANUFACTURER qpockets
-#define PRODUCT      orbital
+// #define VENDOR_ID    0x7170
+// #define PRODUCT_ID   0x7171
+// #define DEVICE_VER   0x0001
+// #define MANUFACTURER qpockets
+// #define PRODUCT      orbital
 
 /* key matrix size */
 #define MATRIX_ROWS 4
@@ -51,7 +49,7 @@
 
 #define ENCODER_RESOLUTION 6
 
-#define RGB_DI_PIN  D6
+#define WS2812_DI_PIN  D6
 #define RGBLED_NUM 2
 #define RGBLIGHT_LIMIT_VAL 80
 #define RGBLIGHT_LAYERS

@@ -1,8 +1,8 @@
 #!/bin/bash -e
 dir=$PWD
 
-if [[ ! -d "$dir/qmk_firmware" ]]; then
-  echo "$dir/qmk_firmware" does not exist
+if [[ ! -d "${QMK_HOME}" ]]; then
+  echo "${QMK_HOME}" does not exist
   exit 1
 fi
 

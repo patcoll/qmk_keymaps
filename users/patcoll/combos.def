@@ -68,7 +68,7 @@ COMB(dfm_combo,     EX_PIPE,        KC_D, KC_F, KC_M)
 COMB(gh_combo,      KC_EQL,         KC_G, KC_H)
 
 COMB(jk_combo,      OSK_ESC,        KC_J, KC_K)
-COMB(du_combo,      KC_ESC,         KC_DOWN, KC_UP)
+//COMB(du_combo,      KC_ESC,         KC_DOWN, KC_UP)
 COMB(mumd_combo,    KC_ESC,         KC_MS_U, KC_MS_D)
 
 COMB(kl_combo,      CTL_QUOT,       KC_K, KC_L)

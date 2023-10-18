@@ -1,9 +1,5 @@
 #include "monorail2.h"
 
-void matrix_init_kb(void) {
-	matrix_init_user();
-}
-
 led_config_t g_led_config = { {
 
 { NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED },
