@@ -1,4 +1,5 @@
 MCU = atmega32u4
+BOOTLOADER = atmel-dfu
 F_CPU = 16000000
 ARCH = AVR8
 F_USB = 16000000

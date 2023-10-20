@@ -1,13 +1,12 @@
 #ifndef CONFIG_H
 #define CONFIG_H
-#include "config_common.h"
 
 #define VENDOR_ID     0xFEAE
 #define PRODUCT_ID    0x8847
 #define DEVICE_VER    0x0001
-#define MANUFACTURER  TheVan Keyboards
-#define PRODUCT       CaraVan 2
-#define DESCRIPTION   CaraVan Split 40%
+// #define MANUFACTURER  TheVan Keyboards
+// #define PRODUCT       CaraVan 2
+// #define DESCRIPTION   CaraVan Split 40%
 
 #define MATRIX_ROWS 3
 #define MATRIX_COLS 16
@@ -29,7 +28,7 @@
 // #define PERMISSIVE_HOLD
 #define MULTIPLEX_PINS { D4, D6, D7, B4 }
 #define MULTIPLEX 4
-#define RGB_DI_PIN F0
+#define WS2812_DI_PIN F0
 #define RGBLIGHT_LIMIT_VAL 255
 #define RGBLED_NUM 20
 #define RGBLIGHT_ANIMATIONS
