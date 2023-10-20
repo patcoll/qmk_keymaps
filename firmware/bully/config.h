@@ -3,8 +3,8 @@
 #pragma once
 
 /* USB Device descriptor parameter */
-#define DEVICE_VER      0x0001
-#define PRODUCT         bully
+// #define DEVICE_VER      0x0001
+// #define PRODUCT         bully
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
 #define LOCKING_SUPPORT_ENABLE
