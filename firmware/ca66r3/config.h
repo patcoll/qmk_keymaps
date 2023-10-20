@@ -16,14 +16,12 @@
 
 #pragma once
 
-#include "config_common.h"
-
 /* USB Device descriptor parameter */
 #define VENDOR_ID       0x706B // Play Keyboard
 #define PRODUCT_ID      0x4341 // CA
 #define DEVICE_VER      0x0003
-#define MANUFACTURER    Play Keyboard
-#define PRODUCT         CA66R3
+// #define MANUFACTURER    Play Keyboard
+// #define PRODUCT         CA66R3
 
 /* key matrix size */
 #define MATRIX_ROWS 5
@@ -55,8 +53,8 @@
 /* VIA related config */
 #define VIA_EEPROM_LAYOUT_OPTIONS_SIZE 2
 
-#define RGB_DI_PIN B1
-#ifdef RGB_DI_PIN
+#define WS2812_DI_PIN B1
+#ifdef WS2812_DI_PIN
     #define RGBLED_NUM 6
     #define RGBLIGHT_HUE_STEP 8
     #define RGBLIGHT_SAT_STEP 8
@@ -64,7 +62,7 @@
     #define RGBLIGHT_LIMIT_VAL 180 /* The maximum brightness level */
     #define RGBLIGHT_SLEEP  /* If defined, the RGB lighting will be switched off when the host goes to sleep */
 /*== all animations enable ==*/
-    #define RGBLIGHT_ANIMATIONS
+    // #define RGBLIGHT_ANIMATIONS
 // /*== or choose animations ==*/
 //     #define RGBLIGHT_EFFECT_BREATHING
 //     #define RGBLIGHT_EFFECT_RAINBOW_MOOD
