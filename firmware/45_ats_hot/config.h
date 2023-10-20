@@ -18,14 +18,12 @@
 
 #pragma once
 
-#include "config_common.h"
-
 /* USB Device descriptor parameter */
 #define VENDOR_ID       0x7070
 #define PRODUCT_ID      0x4579
 #define DEVICE_VER      0x0002
-#define MANUFACTURER    Abec13
-#define PRODUCT         45ATS
+// #define MANUFACTURER    Abec13
+// #define PRODUCT         45ATS
 
 /* key matrix size */
 #define MATRIX_ROWS 4
@@ -40,7 +38,7 @@
 #define DIODE_DIRECTION COL2ROW
 
 // ws2812 options
-#define RGB_DI_PIN B7 // pin the DI on the ws2812 is hooked-up to
+#define WS2812_DI_PIN B7 // pin the DI on the ws2812 is hooked-up to
 #define RGBLIGHT_ANIMATIONS // run RGB animations
 #define RGBLED_NUM 3 // number of LEDs
 #define RGBLIGHT_HUE_STEP 12 // units to step when in/decreasing hue
