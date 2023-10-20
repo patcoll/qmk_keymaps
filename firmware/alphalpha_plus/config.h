@@ -1,13 +1,11 @@
 #pragma once
 
-#include "config_common.h"
-
 /* USB Device descriptor parameter */
 #define VENDOR_ID       0x534f
 #define PRODUCT_ID      0x612b
 #define DEVICE_VER      0x0002
-#define MANUFACTURER    OTTIMO
-#define PRODUCT         alphalpha_plus
+// #define MANUFACTURER    OTTIMO
+// #define PRODUCT         alphalpha_plus
 
 /* key matrix size */
 #define MATRIX_ROWS 4
@@ -36,8 +34,8 @@
 /* Locking resynchronize hack */
 #define LOCKING_RESYNC_ENABLE
 
-#define RGB_DI_PIN F4
-#ifdef RGB_DI_PIN
+#define WS2812_DI_PIN F4
+#ifdef WS2812_DI_PIN
 #define RGBLIGHT_EFFECT_STATIC_GRADIENT
 #define RGBLED_NUM 8
 #define RGBLIGHT_HUE_STEP 20
