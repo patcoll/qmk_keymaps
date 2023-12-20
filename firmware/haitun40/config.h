@@ -1,0 +1,78 @@
+#pragma once
+
+// #include "config_common.h"
+
+// #define VENDOR_ID 0x45D4
+// #define MANUFACTURER Dh 747
+// #define PRODUCT D40
+// #define DEVICE_VER 0x0001
+// #define PRODUCT_ID 0x1012
+
+#define D_MODEL
+#define USB_PIN_LED B7
+#define POWER_LED A8
+#define WK_PIN A15
+#define LED_ON_HIGH 0
+
+#define DEBOUNCE 5
+#define DIODE_DIRECTION ROW2COL
+#define MATRIX_ROWS 4
+#define MATRIX_COLS 13
+
+#define MATRIX_ROW_PINS     { A4,A5,A6,A7}
+#define MATRIX_COL_PINS     { C5,B1,B2,C10,B12,B13,B14,C7,B15,C6,B10,C8,C9}
+
+
+
+
+#undef STM32_HSECLK
+#define STM32_HSECLK 16000000
+
+#define TAPPING_TOGGLE 2
+#define DYNAMIC_KEYMAP_LAYER_COUNT 5
+#define DYNAMIC_KEYMAP_MACRO_COUNT 15
+
+
+
+#define SLEEP_SEC 8
+
+//#define DEBUG_MATRIX_SCAN_RATE
+
+// #define UARTENABLE
+
+#define NO_USB_STARTUP_CHECK
+#undef HAND_WIRE_DETECT
+#define HAND_WIRE_DETECT C14
+#define DISABLE_USB_SLEEP
+
+#define DYNAMIC_KEYMAP_EEPROM_MAX_ADDR 2047
+
+/* EEPROM Driver Configuration */
+#define WEAR_LEVELING_LOGICAL_SIZE 2048
+#define WEAR_LEVELING_BACKING_SIZE (WEAR_LEVELING_LOGICAL_SIZE * 2)
+#define VIAL_KEYBOARD_UID {0x54, 0xF8, 0x27, 0x15, 0x2B, 0x66, 0x3A, 0xC0}
+#undef STM32_HSECLK
+#define STM32_HSECLK 16000000
+
+
+
+
+
+
+
+
+#define QF_ADC_PIN B0
+#define MAX_ADC_QF 3997
+
+#define SLEEP_SEC 8
+#define ADC_SAMPLING_RATE ADC_SMPR_SMP_71P5
+#define ADC_COUNT 1
+#define ADC_ENABLE 1
+#define ADC_CFGR1_RES_12BIT 12
+#define ADC_RESOLUTION ADC_CFGR1_RES_12BIT
+
+
+#define RADIO_LED_INDEX 18
+#define BLE1_LED_INDEX 15
+#define BLE2_LED_INDEX 16
+#define BLE3_LED_INDEX 17

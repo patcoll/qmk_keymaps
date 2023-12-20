@@ -1,9 +1,9 @@
 #pragma once
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0x534f
-#define PRODUCT_ID      0x612b
-#define DEVICE_VER      0x0002
+// #define VENDOR_ID       0x534f
+// #define PRODUCT_ID      0x612b
+// #define DEVICE_VER      0x0002
 // #define MANUFACTURER    OTTIMO
 // #define PRODUCT         alphalpha_plus
 
@@ -14,7 +14,7 @@
 /* key matrix pins */
 #define MATRIX_ROW_PINS { D7, B5, B4, E6 }
 #define MATRIX_COL_PINS { D1, D0, D4, C6, B6, B2, B3, B1, F7, F6 }
-#define UNUSED_PINS
+// #define UNUSED_PINS
 
 /* COL2ROW or ROW2COL */
 #define DIODE_DIRECTION COL2ROW

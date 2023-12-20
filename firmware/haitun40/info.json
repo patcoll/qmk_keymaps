@@ -1,0 +1,12 @@
+{
+    "manufacturer": "jacky design",
+    "keyboard_name": "haitun40",
+    "maintainer": "jacky design",
+    "processor": "STM32F401",
+    "bootloader": "stm32-dfu",
+    "usb": {
+        "device_version": "0.0.1",
+        "pid": "0x1012",
+        "vid": "0x45D4"
+    }
+}

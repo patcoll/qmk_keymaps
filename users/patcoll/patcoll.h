@@ -1,25 +1,13 @@
 #pragma once
 #include QMK_KEYBOARD_H
 
-void keyboard_post_init_keymap(void);
-void matrix_scan_keymap(void);
-bool led_update_keymap(led_t led_state);
-bool encoder_update_keymap(uint8_t index, bool clockwise);
-bool process_record_keymap(uint16_t keycode, keyrecord_t *record);
-void pointing_device_init_keymap(void);
-
-void oled_render_layer_state(void);
-
-void set_game_mode(bool is_game_mode);
-void set_mac_mode(bool is_mac_mode);
-
 enum userspace_layers {
   _QWERTY = 0,
-  _MAC,
-  _NUMBERS,
+  // _MAC,
+  // _NUMBERS,
   _GAMING,
   _NAV,
-  _NMC,
+  // _NMC,
   _OSK,
   _MEDIA,
   _MOUSE,
@@ -38,8 +26,8 @@ enum userspace_layers {
 enum userspace_custom_keycodes {
   ALT_TAB = SAFE_RANGE,
   SALTTAB,
-  NXT_TAB,
-  PRV_TAB,
+  // NXT_TAB,
+  // PRV_TAB,
 
   MAC_TG,
   OS_MENU,
@@ -77,13 +65,13 @@ enum userspace_custom_keycodes {
 };
 
 #define CTL_ESC    MT(MOD_LCTL, KC_ESC)
-#define CTL_ENT    MT(MOD_LCTL, KC_ENT)
+// #define CTL_ENT    MT(MOD_LCTL, KC_ENT)
 #define CTL_Q      MT(MOD_LCTL, KC_Q)
 #define CTL_A      MT(MOD_LCTL, KC_A)
-#define CTL_1      MT(MOD_LCTL, KC_1)
+// #define CTL_1      MT(MOD_LCTL, KC_1)
 #define CTL_L      MT(MOD_LCTL, KC_L)
 #define CTL_QUOT   MT(MOD_LCTL, KC_QUOT)
-#define CS_DQUO   MT(MOD_LCTL | MOD_LSFT, KC_DQUO)
+// #define CS_DQUO   MT(MOD_LCTL | MOD_LSFT, KC_DQUO)
 
 #define GUI_X      MT(MOD_LGUI, KC_X)
 
@@ -91,43 +79,43 @@ enum userspace_custom_keycodes {
 // #define OS_MENU    A(KC_SPC)
 
 #define NAV_W LT(_NAV, KC_W)
-#define NMC_W LT(_NMC, KC_W)
+// #define NMC_W LT(_NMC, KC_W)
 // #define NAV_Z LT(_NAV, KC_Z)
 
-#define MO_NAV MO(_NAV)
-#define MO_CSNV    LM(_NAV, MOD_LCTL | MOD_LSFT)
-#define MO_CSNM    LM(_NMC, MOD_LCTL | MOD_LSFT)
-#define MO_OSK MO(_OSK)
+// #define MO_NAV MO(_NAV)
+// #define MO_CSNM    LM(_NMC, MOD_LCTL | MOD_LSFT)
+// #define MO_OSK MO(_OSK)
 
 #define CTL_V LCTL_T(KC_V)
 #define ALT_C LALT_T(KC_C)
 
-#define LT1_W LT(1, KC_W)
-#define LT1_Z LT(1, KC_Z)
+// #define LT1_W LT(1, KC_W)
+// #define LT1_Z LT(1, KC_Z)
 
-#define MOUSE_3   LT(_MOUSE, KC_3)
-#define MOUSE_4   LT(_MOUSE, KC_4)
+// #define MOUSE_3   LT(_MOUSE, KC_3)
+// #define MOUSE_4   LT(_MOUSE, KC_4)
 
-#define LT2_3   LT(2, KC_3)
-#define LT2_4   LT(2, KC_4)
-#define LT3_4   LT(3, KC_4)
+// #define LT2_3   LT(2, KC_3)
+// #define LT2_4   LT(2, KC_4)
+// #define LT3_4   LT(3, KC_4)
 
-#define SFT_3   MT(MOD_LSFT, KC_3)
-#define CS_3   MT(MOD_LCTL | MOD_LSFT, KC_3)
-#define CS_4   MT(MOD_LCTL | MOD_LSFT, KC_4)
+// #define SFT_3   MT(MOD_LSFT, KC_3)
+// #define CS_3   MT(MOD_LCTL | MOD_LSFT, KC_3)
+// #define CS_4   MT(MOD_LCTL | MOD_LSFT, KC_4)
 #define CS_BSPC   MT(MOD_LCTL | MOD_LSFT, KC_BSPC)
-#define CS_P   MT(MOD_LCTL | MOD_LSFT, KC_P)
-#define CS_0   MT(MOD_LCTL | MOD_LSFT, KC_0)
+// #define CS_P   MT(MOD_LCTL | MOD_LSFT, KC_P)
+// #define CS_0   MT(MOD_LCTL | MOD_LSFT, KC_0)
 #define CS_NO   MT(MOD_LCTL | MOD_LSFT, KC_NO)
 
 #define CA_OSK   LM(_OSK, MOD_LCTL | MOD_LALT)
 
 #define CAS_NO   MT(MOD_LCTL | MOD_LALT | MOD_LSFT, KC_NO)
-#define CAS_NAV   LM(_NAV, MOD_LCTL | MOD_LALT | MOD_LSFT)
-#define CAS_NMC   LM(_NMC, MOD_LCTL | MOD_LALT | MOD_LSFT)
+// #define CAS_NAV   LM(_NAV, MOD_LCTL | MOD_LALT | MOD_LSFT)
+// #define CAS_NMC   LM(_NMC, MOD_LCTL | MOD_LALT | MOD_LSFT)
 
-#define AS_NO   MT(MOD_LALT | MOD_LSFT, KC_NO)
+// #define AS_NO   MT(MOD_LALT | MOD_LSFT, KC_NO)
 
+#define MO_CSNV    LM(_NAV, MOD_LCTL | MOD_LSFT)
 #define MO_LWR     MO(_LOWER)
 #define MO_RSE     MO(_RAISE)
 #define MO_OSK     MO(_OSK)
@@ -135,42 +123,42 @@ enum userspace_custom_keycodes {
 #define MO_MED     MO(_MEDIA)
 #define MO_MSE     MO(_MOUSE)
 
-#define TG_LWR     TG(_LOWER)
-#define TG_RSE     TG(_RAISE)
+// #define TG_LWR     TG(_LOWER)
+// #define TG_RSE     TG(_RAISE)
 
 #define OSK_ESC    LT(_OSK, KC_ESC)
 #define SOSK_ESC   LM(_OSK, MOD_LSFT)
 
-#define LWR_SPC    LT(_LOWER, KC_SPC)
-#define LWR_V      LT(_LOWER, KC_V)
+// #define LWR_SPC    LT(_LOWER, KC_SPC)
+// #define LWR_V      LT(_LOWER, KC_V)
 
 #define RSE_ENT    LT(_RAISE, KC_ENT)
-#define RSE_BSPC   LT(_RAISE, KC_BSPC)
-#define RSE_B      LT(_RAISE, KC_B)
+// #define RSE_BSPC   LT(_RAISE, KC_BSPC)
+// #define RSE_B      LT(_RAISE, KC_B)
 
 #define SFT_Z      MT(MOD_LSFT, KC_Z)
-#define SFT_A      MT(MOD_LSFT, KC_A)
-#define SFT_E      MT(MOD_LSFT, KC_E)
-#define SFT_V      MT(MOD_LSFT, KC_V)
-#define SFT_ESC    MT(MOD_LSFT, KC_ESC)
+// #define SFT_A      MT(MOD_LSFT, KC_A)
+// #define SFT_E      MT(MOD_LSFT, KC_E)
+// #define SFT_V      MT(MOD_LSFT, KC_V)
+// #define SFT_ESC    MT(MOD_LSFT, KC_ESC)
 #define SFT_TAB    MT(MOD_LSFT, KC_TAB)
-#define SFT_SCLN   MT(MOD_LSFT, KC_SCLN)
+// #define SFT_SCLN   MT(MOD_LSFT, KC_SCLN)
 #define SFT_QUOT   MT(MOD_LSFT, KC_QUOT)
-#define SFT_M      MT(MOD_LSFT, KC_M)
+// #define SFT_M      MT(MOD_LSFT, KC_M)
 #define SFT_DOT    MT(MOD_LSFT, KC_DOT)
 #define SFT_SLSH   MT(MOD_LSFT, KC_SLSH)
 #define SFT_SPC    MT(MOD_LSFT, KC_SPC)
-#define SFT_ENT    MT(MOD_LSFT, KC_ENT)
+// #define SFT_ENT    MT(MOD_LSFT, KC_ENT)
 
 #define CTL_SCLN   MT(MOD_LCTL, KC_SCLN)
-#define CTL_SLSH   MT(MOD_LCTL, KC_SLSH)
+// #define CTL_SLSH   MT(MOD_LCTL, KC_SLSH)
 
 #define GUI_ZX    LM(_NAV, MOD_LGUI)
 #define ALT_XC    LM(_NAV, MOD_LALT)
 #define GA_ZXC    LM(_NAV, MOD_LGUI | MOD_LALT)
-#define NCTL_L    LM(_NAV, MOD_LCTL)
+// #define NCTL_L    LM(_NAV, MOD_LCTL)
 
-#define RSE_CTL   LM(_RAISE, MOD_LCTL)
+// #define RSE_CTL   LM(_RAISE, MOD_LCTL)
 
 #define _________________QWERTY_L1_________________       CTL_Q,   NAV_W,   KC_E,    KC_R,    KC_T
 #define _________________QWERTY_L2_________________       CTL_A,    KC_S,    KC_D,    KC_F,    KC_G
@@ -178,7 +166,7 @@ enum userspace_custom_keycodes {
 #define _________________QWERTY_L3_________________       _________QWERTY_L3_FOUR________,    KC_B
 
 #define _________________QWERTY_R1_________________       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P
-#define         _________QWERTY_R2_FOUR________           KC_H,    KC_J,    KC_K,    KC_L
+#define         _________QWERTY_R2_FOUR________           KC_H,    KC_J,    KC_K,    CTL_L
 #define _________________QWERTY_R2_________________       _________QWERTY_R2_FOUR________,    CTL_SCLN
 #define _________QWERTY_R3_FOUR________                   KC_N,    KC_M,   KC_COMM, SFT_DOT
 #define _________________QWERTY_R3_________________       _________QWERTY_R3_FOUR________,    SFT_SLSH
@@ -224,18 +212,18 @@ enum userspace_custom_keycodes {
 #define                 __NAV_R4_ARROW_KEYS___                                       _______, _______, _______
 
 // Nav stuff on Mac
-#define __________________NMC_L1___________________       KC_LCTL, _______, KC_LSFT, MO_MSE,  _______
-#define __________________NMC_L2___________________       _______, _______, MO_MED,  MO_OSK,  MO_LWR
-#define ___________NMC_L3_FOUR____________                KC_LCTL, KC_LGUI, KC_LALT, TO(_QWERTY)
-#define __________________NMC_L3___________________       ___________NMC_L3_FOUR____________, _______
-
-#define __________________NMC_R1___________________       KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_NO
-#define      _____________NMC_R2_FOUR__________           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
-#define __________________NMC_R2___________________       _____________NMC_R2_FOUR__________, _______
-#define _____________NMC_R3_FOUR__________                KC_HOME, KC_PGDN, KC_PGUP, KC_END
-#define __________________NMC_R3___________________       _____________NMC_R3_FOUR__________, _______
-#define __________________NMC_R3_ARROWS____________       _____________NMC_R3_FOUR__________, _______
-#define                 __NMC_R4_ARROW_KEYS___                                       _______, _______, _______
+// #define __________________NMC_L1___________________       KC_LCTL, _______, KC_LSFT, MO_MSE,  _______
+// #define __________________NMC_L2___________________       _______, _______, MO_MED,  MO_OSK,  MO_LWR
+// #define ___________NMC_L3_FOUR____________                KC_LCTL, KC_LGUI, KC_LALT, TO(_QWERTY)
+// #define __________________NMC_L3___________________       ___________NMC_L3_FOUR____________, _______
+//
+// #define __________________NMC_R1___________________       KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_NO
+// #define      _____________NMC_R2_FOUR__________           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+// #define __________________NMC_R2___________________       _____________NMC_R2_FOUR__________, _______
+// #define _____________NMC_R3_FOUR__________                KC_HOME, KC_PGDN, KC_PGUP, KC_END
+// #define __________________NMC_R3___________________       _____________NMC_R3_FOUR__________, _______
+// #define __________________NMC_R3_ARROWS____________       _____________NMC_R3_FOUR__________, _______
+// #define                 __NMC_R4_ARROW_KEYS___                                       _______, _______, _______
 
 // OS keys
 #define __________________OSK_L1___________________       _________________FUNC_LEFT_________________
@@ -282,13 +270,13 @@ enum userspace_custom_keycodes {
 #define                __RAISE_R3_ARROW_KEYS__                                       _______, _______, _______
 
 // Numbers
-#define __________________NUM_L1___________________       _______, KC_7,    KC_8,    KC_9,    _______
-#define __________________NUM_L2___________________       _______, KC_4,    KC_5,    KC_6,    _______
-#define __________________NUM_L3___________________       _______, KC_1,    KC_2,    KC_3,    _______
-
-#define __________________NUM_R1___________________       _______, _______, _______, _______, _______
-#define __________________NUM_R2___________________       _______, _______, _______, _______, _______
-#define __________________NUM_R3___________________       _______, _______, _______, _______, _______
+// #define __________________NUM_L1___________________       _______, KC_7,    KC_8,    KC_9,    _______
+// #define __________________NUM_L2___________________       _______, KC_4,    KC_5,    KC_6,    _______
+// #define __________________NUM_L3___________________       _______, KC_1,    KC_2,    KC_3,    _______
+//
+// #define __________________NUM_R1___________________       _______, _______, _______, _______, _______
+// #define __________________NUM_R2___________________       _______, _______, _______, _______, _______
+// #define __________________NUM_R3___________________       _______, _______, _______, _______, _______
 
 // Media
 #define _________________MEDIA_L1__________________       CLS_WIN, CLS_WIN, _______, _______, _______

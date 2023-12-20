@@ -28,3 +28,27 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
   return COMBO_TERM;
 }
 #endif
+
+#if defined(COMBO_ENABLE) && defined(COMBO_SHOULD_TRIGGER)
+bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
+  // turn off all combos except the one to turn off gaming layer.
+  if (layer_state_is(_GAMING)) {
+    switch (combo_index) {
+      // game mode
+      case qpfj_combo:
+      case cqpfj_combo:
+      // click
+      case dc_combo:
+      case dv_combo:
+      case fv_combo:
+      case fb_combo:
+      case db_combo:
+        return true;
+      default:
+        return false;
+    }
+  }
+
+  return true;
+}
+#endif

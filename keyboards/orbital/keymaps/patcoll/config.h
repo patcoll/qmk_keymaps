@@ -1,2 +1,4 @@
+#ifdef ENCODER_ENABLE
 #undef ENCODER_RESOLUTION
 #define ENCODER_RESOLUTION 2
+#endif

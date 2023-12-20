@@ -1,9 +1,8 @@
-SRC += $(USER_PATH)/patcoll.c
-
-INTROSPECTION_KEYMAP_C += $(USER_PATH)/combos.c
-
-# Allow loading of `combos.def`
-VPATH += keyboards/gboards/
+SRC += $(USER_PATH)/patcoll.c \
+				$(USER_PATH)/callbacks.c \
+				$(USER_PATH)/keyrecords/key_overrides.c \
+				$(USER_PATH)/keyrecords/process_records.c \
+				$(USER_PATH)/keyrecords/tapping.c
 
 # AUDIO_ENABLE          = no
 # AUTO_SHIFT_ENABLE     = no
@@ -18,7 +17,7 @@ COMBO_ENABLE          = yes
 # DIGITIZER_ENABLE      = no
 # DIP_SWITCH_ENABLE     = no
 # ENCODER_ENABLE        = no
-DEFERRED_EXEC_ENABLE  = yes
+DEFERRED_EXEC_ENABLE  = no
 # DYNAMIC_MACRO_ENABLE  = no
 # DYNAMIC_TAPPING_TERM_ENABLE = no
 EXTRAKEY_ENABLE       = yes
@@ -27,14 +26,14 @@ EXTRAKEY_ENABLE       = yes
 # HD44780_ENABLE        = no
 # JOYSTICK_ENABLE       = no
 # KEY_LOCK_ENABLE       = no
-KEY_OVERRIDE_ENABLE   = yes
+KEY_OVERRIDE_ENABLE   = no
 # LEADER_ENABLE         = no
 # LED_MATRIX_ENABLE     = no
 # MIDI_ENABLE           = no
 MOUSEKEY_ENABLE       = yes
-NKRO_ENABLE           = yes
+NKRO_ENABLE           = no
 # OLED_ENABLE           = no
-OS_DETECTION_ENABLE   = yes
+OS_DETECTION_ENABLE   = no
 # POINTING_DEVICE_ENABLE = no
 # PROGRAMMABLE_BUTTON_ENABLE = no
 # PS2_MOUSE_ENABLE      = no
@@ -60,6 +59,17 @@ OS_DETECTION_ENABLE   = yes
 
 # Allow warnings, useful for rp2040 boards.
 ALLOW_WARNINGS = yes
+
+ifeq ($(strip $(COMBO_ENABLE)), yes)
+	INTROSPECTION_KEYMAP_C += $(USER_PATH)/combos.c
+
+	# Allow loading of `combos.def`
+	VPATH += keyboards/gboards/
+endif
+
+ifeq ($(strip $(POINTING_DEVICE_ENABLE)), yes)
+	SRC += $(USER_PATH)/pointing/pointing.c
+endif
 
 ifneq ($(PLATFORM),CHIBIOS)
 	LTO_ENABLE        = yes

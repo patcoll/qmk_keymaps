@@ -1,5 +1,23 @@
 {
     "keyboard_name": "alphalpha_plus",
     "maintainer": "OTTIMO",
-    "manufacturer": "OTTIMO"
+    "manufacturer": "OTTIMO",
+    "usb": {
+        "vid": "0x534F",
+        "pid": "0x612B",
+        "device_version": "0.0.2"
+    },
+    "bootloader": "atmel-dfu",
+    "processor": "atmega32u4",
+    "features": {
+        "audio": false,
+        "bootmagic": true,
+        "command": false,
+        "console": false,
+        "extrakey": true,
+        "mousekey": true,
+        "nkro": true,
+        "encoder": false,
+        "rgblight": true
+    }
 }

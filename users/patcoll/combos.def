@@ -1,6 +1,6 @@
 COMB(qpzReset,      QK_BOOT,         CTL_Q, KC_P, SFT_Z)
 COMB(qpm_combo,     MAC_TG,          CTL_Q, KC_P, KC_M)
-COMB(qpl_combo,     SCR_LCK,         CTL_Q, KC_P, KC_L)
+COMB(qpl_combo,     SCR_LCK,         CTL_Q, KC_P, CTL_L)
 COMB(qpfj_combo,    GAME_TG,          KC_Q, KC_P, KC_F, KC_J)
 COMB(cqpfj_combo,   GAME_TG,          CTL_Q, KC_P, KC_F, KC_J)
 COMB(qpj_combo,     KEY_TIMER,         CTL_Q, KC_P, KC_J)
@@ -71,8 +71,8 @@ COMB(jk_combo,      OSK_ESC,        KC_J, KC_K)
 //COMB(du_combo,      KC_ESC,         KC_DOWN, KC_UP)
 COMB(mumd_combo,    KC_ESC,         KC_MS_U, KC_MS_D)
 
-COMB(kl_combo,      CTL_QUOT,       KC_K, KC_L)
-COMB(jl_combo,      KC_DQUO,        KC_J, KC_L)
+COMB(kl_combo,      CTL_QUOT,       KC_K, CTL_L)
+COMB(jl_combo,      KC_DQUO,        KC_J, CTL_L)
 
 #ifdef PATCOLL_ALPHA_COMBOS
 COMB(bk_combo,      KC_ENT,         KC_B, KC_K)
@@ -123,8 +123,8 @@ COMB(dsspc_combo,   KC_LALT,         KC_D, SFT_SPC)
 COMB(ksspc_combo,   KC_LALT,         KC_K, SFT_SPC)
 COMB(krent_combo,   KC_LALT,         KC_K, RSE_ENT)
 
-COMB(lsspc_combo,   MO_RSE,         KC_L, SFT_SPC)
-COMB(lrent_combo,   MO_RSE,         KC_L, RSE_ENT)
+COMB(lsspc_combo,   MO_RSE,         CTL_L, SFT_SPC)
+COMB(lrent_combo,   MO_RSE,         CTL_L, RSE_ENT)
 #endif
 
 #ifdef PATCOLL_BIG_BAR_COMBOS
