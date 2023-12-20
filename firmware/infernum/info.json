@@ -10,19 +10,31 @@
         "device_version": "0.0.1"
     },
     "features": {
+        "audio": false,
+        "backlight": false,
         "bootmagic": true,
         "command": false,
         "console": false,
         "encoder": true,
         "extrakey": true,
         "mousekey": true,
-        "nkro": true
+        "nkro": true,
+        "rgblight": false,
+        "rgb_matrix": true
     },
     "encoder": {
         "rotary": [
             { "pin_a": "GP28", "pin_b": "GP27", "resolution": 4 },
             { "pin_a": "GP12", "pin_b": "GP11", "resolution": 4 }
         ]
+    },
+    "rgb_matrix": {
+        "led_count": 22,
+        "driver": "ws2812"
+    },
+    "ws2812": {
+        "driver": "vendor",
+        "pin": "GP29"
     },
     "diode_direction": "COL2ROW",
     "matrix_pins": {

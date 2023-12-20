@@ -3,8 +3,6 @@
 
 #pragma once
 
-#include "config_common.h"
-
 /*
  * Feature disable options
  *  These options are also useful to firmware size reduction.
@@ -30,23 +28,23 @@
 #define ENCODER_DIRECTION_FLIP
 
 /* Set 0 if debouncing isn't needed */
-#define Debounce 5
+// #define DEBOUNCE 5
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
-#define LOCKING_SUPPORT_ENABLE
+// #define LOCKING_SUPPORT_ENABLE
 
 /* Locking resynchronize hack */
-#define LOCKING_RESYNC_ENABLE
+// #define LOCKING_RESYNC_ENABLE
 
 /* Bootmagic Lite key configuration */
-#define BOOTMAGIC_LITE_ROW 0
-#define BOOTMAGIC_LITE_COLUMN 0
+// #define BOOTMAGIC_LITE_ROW 0
+// #define BOOTMAGIC_LITE_COLUMN 0
 
 /* RGB Stuff */
-#define RGB_DI_PIN GP29
-#define DRIVER_LED_TOTAL 22
-#define RGBLED_NUM 22
-#define RGB_MATRIX_MAXIMUM_BRIGHTNESS 125
+// #define RGB_DI_PIN GP29
+// #define DRIVER_LED_TOTAL 22
+// #define RGBLED_NUM 22
+// #define RGB_MATRIX_MAXIMUM_BRIGHTNESS 125
 #define RGB_MATRIX_STARTUP_VAL RGB_MATRIX_MAXIMUM_BRIGHTNESS * 3/4
 
 #define ENABLE_RGB_MATRIX_ALPHAS_MODS
