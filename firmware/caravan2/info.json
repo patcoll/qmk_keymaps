@@ -1,5 +1,41 @@
 {
     "keyboard_name": "CaraVan 2",
     "maintainer": "TheVan Keyboards",
-    "manufacturer": "TheVan Keyboards"
+    "manufacturer": "TheVan Keyboards",
+    "processor": "atmega32u4",
+    "bootloader": "atmel-dfu",
+    "usb": {
+        "max_power": 100,
+        "no_startup_check": true,
+        "device_version": "0.0.1",
+        "pid": "0x8847",
+        "vid": "0xFEAE"
+    },
+    "diode_direction": "ROW2COL",
+    "features": {
+        "audio": false,
+        "bluetooth": false,
+        "bootmagic": true,
+        "command": false,
+        "console": false,
+        "extrakey": true,
+        "midi": false,
+        "mousekey": true,
+        "nkro": true,
+        "rgblight": true
+    },
+    "backlight": {
+        "levels": 1
+    },
+    "rgblight": {
+        "animations": {
+            "breathing": true
+        },
+        "max_brightness": 255,
+        "sleep": true,
+        "led_count": 20
+    },
+    "ws2812": {
+        "pin": "F0"
+    }
 }
