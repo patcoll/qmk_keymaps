@@ -35,6 +35,11 @@ extern bool scroll_pressed;
     { XXX, XXX, K32, K33, K34, XXX, K36, K37, K38, XXX, XXX }  \
 }
 
+#define SCROLL_DIVIDER 12
+#define CPI_1 400
+#define CPI_2 800
+#define CPI_3 1600
+
 enum custom_keycodes {
     KC_SCROLL = SAFE_RANGE,
     KC_CPI_1,
