@@ -20,7 +20,7 @@
 
 // Combos
 #ifdef COMBO_ENABLE
-#define COMBO_TERM 33
+#define COMBO_TERM 38
 #define EXTRA_SHORT_COMBOS
 #define COMBO_TERM_PER_COMBO
 #define COMBO_SHOULD_TRIGGER
