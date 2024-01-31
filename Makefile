@@ -160,6 +160,11 @@ serendipity: | qmk
 	mkdir -p ${QMK_HOME}/keyboards/serendipity
 	rsync -avz firmware/serendipity/ ${QMK_HOME}/keyboards/serendipity/
 
+.PHONY: haitun2040
+haitun2040: | qmk
+	mkdir -p ${QMK_HOME}/keyboards/haitun2040
+	rsync -avz firmware/haitun2040/ ${QMK_HOME}/keyboards/haitun2040/
+
 .PHONY: haitun40
 haitun40: | qmk
 	mkdir -p ${QMK_HOME}/keyboards/haitun40
@@ -171,7 +176,7 @@ haitun40: | qmk
 	rsync -avz firmware/infernum/ ${QMK_HOME}/keyboards/infernum/
 
 .PHONY: firmware
-firmware: | twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus 45_ats_hot plop embrace apricot sst60 orbital m0ii040pcb cutiepie paintbrush_avr bully monorail monorail2 cisne 3999 bully2040 grouper c11 serendipity haitun40 infernum
+firmware: | twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus 45_ats_hot plop embrace apricot sst60 orbital m0ii040pcb cutiepie paintbrush_avr bully monorail monorail2 cisne 3999 bully2040 grouper c11 serendipity haitun2040 haitun40 infernum
 	echo firmware
 
 .PHONY: keymaps
