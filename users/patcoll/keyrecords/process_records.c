@@ -161,7 +161,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
 
     if (keycode == WIN_MAX) {
-      mac_mode == true ? tap_code16(G(A(KC_F))) : tap_code16(G(KC_PGUP));
+      mac_mode == true ? tap_code16(S(C(G(A(KC_F))))) : tap_code16(G(KC_PGUP));
       return false;
     }
 
