@@ -55,6 +55,7 @@ enum userspace_custom_keycodes {
   WIN_MAX,
 
   EX_PIPE,
+  EX_BARR,
   EX_ARR,
   EX_DARR,
   EX_PAR,
