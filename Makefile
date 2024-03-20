@@ -165,18 +165,28 @@ haitun2040: | qmk
 	mkdir -p ${QMK_HOME}/keyboards/haitun2040
 	rsync -avz firmware/haitun2040/ ${QMK_HOME}/keyboards/haitun2040/
 
-.PHONY: haitun40
-haitun40: | qmk
-	mkdir -p ${QMK_HOME}/keyboards/haitun40
-	rsync -avz firmware/haitun40/ ${QMK_HOME}/keyboards/haitun40/
-
 .PHONY: infernum
 haitun40: | qmk
 	mkdir -p ${QMK_HOME}/keyboards/infernum
 	rsync -avz firmware/infernum/ ${QMK_HOME}/keyboards/infernum/
 
+.PHONY: cool536lc
+cool536lc: | qmk
+	mkdir -p ${QMK_HOME}/keyboards/cool536lc
+	rsync -avz firmware/cool536lc/ ${QMK_HOME}/keyboards/cool536lc/
+
+.PHONY: qezberry
+qezberry: | qmk
+	mkdir -p ${QMK_HOME}/keyboards/qezberry
+	rsync -avz firmware/qezberry/ ${QMK_HOME}/keyboards/qezberry/
+
+.PHONY: oc3anograph3r
+oc3anograph3r: | qmk
+	mkdir -p ${QMK_HOME}/keyboards/oc3anograph3r
+	rsync -avz firmware/oc3anograph3r/ ${QMK_HOME}/keyboards/oc3anograph3r/
+
 .PHONY: firmware
-firmware: | twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus 45_ats_hot plop embrace apricot sst60 orbital m0ii040pcb cutiepie paintbrush_avr bully monorail monorail2 cisne 3999 bully2040 grouper c11 serendipity haitun2040 haitun40 infernum
+firmware: | twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus 45_ats_hot plop embrace apricot sst60 orbital m0ii040pcb cutiepie paintbrush_avr bully monorail monorail2 cisne 3999 bully2040 grouper c11 serendipity haitun2040 infernum cool536lc qezberry oc3anograph3r
 	echo firmware
 
 .PHONY: keymaps
