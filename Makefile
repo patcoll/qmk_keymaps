@@ -166,7 +166,7 @@ haitun2040: | qmk
 	rsync -avz firmware/haitun2040/ ${QMK_HOME}/keyboards/haitun2040/
 
 .PHONY: infernum
-haitun40: | qmk
+infernum: | qmk
 	mkdir -p ${QMK_HOME}/keyboards/infernum
 	rsync -avz firmware/infernum/ ${QMK_HOME}/keyboards/infernum/
 
