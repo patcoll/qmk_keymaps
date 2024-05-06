@@ -5,6 +5,9 @@ COMB(qpfj_combo,    GAME_TG,          KC_Q, KC_P, KC_F, KC_J)
 COMB(cqpfj_combo,   GAME_TG,          CTL_Q, KC_P, KC_F, KC_J)
 COMB(qpj_combo,     KEY_TIMER,         CTL_Q, KC_P, KC_J)
 
+COMB(qpsj_combo,    KC_SCRL,          KC_Q, KC_P, KC_S, KC_J)
+COMB(cqpsj_combo,   KC_SCRL,          CTL_Q, KC_P, KC_S, KC_J)
+
 //COMB(qwe_combo,     MO_CSNV,         CTL_Q, NAV_W, KC_E)
 
 COMB(wd_combo,     MO_MED,         NAV_W, KC_D)
@@ -14,6 +17,8 @@ COMB(asdb_combo,   MOUSESCROLL,    CTL_A, KC_S, KC_D, KC_B)
 COMB(sdfb_combo,   MOUSESCROLL,    KC_S, KC_D, KC_F, KC_B)
 
 COMB(ga_zxc_combo,     GA_ZXC,         SFT_Z, GUI_X, ALT_C)
+
+COMB(iop_combo,     KC_DEL,         KC_I, KC_O, KC_P)
 
 COMB(op_combo,      KC_BSPC,        KC_O, KC_P)
 COMB(pbsp_combo,    KC_BSPC,        KC_P, KC_BSPC)
@@ -73,7 +78,10 @@ COMB(jk_combo,      OSK_ESC,        KC_J, KC_K)
 COMB(mumd_combo,    KC_ESC,         KC_MS_U, KC_MS_D)
 
 COMB(kl_combo,      CTL_QUOT,       KC_K, CTL_L)
+COMB(nav_kl_combo,  CTL_QUOT,       KC_EQL, KC_LBRC)
+
 COMB(jl_combo,      KC_DQUO,        KC_J, CTL_L)
+COMB(nav_jl_combo,  KC_DQUO,        KC_MINS, KC_LBRC)
 
 #ifdef PATCOLL_ALPHA_COMBOS
 COMB(bk_combo,      KC_ENT,         KC_B, KC_K)
