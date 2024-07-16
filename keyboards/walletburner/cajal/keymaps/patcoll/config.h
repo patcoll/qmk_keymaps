@@ -1,6 +1,8 @@
 // #define TAPPING_TERM 170
 // #define TAPPING_TERM_PER_KEY
 
+#define ENCODER_DIRECTION_FLIP
+
 // #define PERMISSIVE_HOLD
 
 // #define MOD_TAP_INTERRUPT
