@@ -1,0 +1,76 @@
+{
+    "manufacturer": "TheVan Keyboards",
+    "keyboard_name": "Embrace",
+    "maintainer": "TheVan Keyboards",
+    "url": "",
+    "processor": "atmega32u4",
+    "bootloader": "atmel-dfu",
+    "usb": {
+        "device_version": "0.0.1",
+        "max_power": 100,
+        "pid": "0x8847",
+        "vid": "0x0001"
+    },
+    "debounce": 5,
+    "diode_direction": "ROW2COL",
+    "features": {
+        "audio": false,
+        "backlight": true,
+        "bluetooth": false,
+        "bootmagic": true,
+        "command": false,
+        "console": false,
+        "encoder": true,
+        "extrakey": true,
+        "lto": false,
+        "midi": false,
+        "mousekey": true,
+        "nkro": true,
+        "rgblight": true,
+        "sleep_led": false
+    },
+    "encoder": {
+        "rotary": [
+            { "pin_a": "B2", "pin_b": "B1", "resolution": 4 }
+        ]
+    },
+    "backlight": {
+        "levels": 1,
+        "pin": "F6"
+    },
+    "rgblight": {
+        "driver": "ws2812",
+        "sleep": true,
+        "animations": {
+            "breathing": true
+        },
+        "max_brightness": 80,
+        "led_count": 52
+    },
+    "matrix_pins": {
+        "cols": [
+            "F1",
+            "F4",
+            "F5",
+            "B6",
+            "B5",
+            "B4",
+            "D7",
+            "D0",
+            "D5",
+            "D3",
+            "D2",
+            "D1"
+        ],
+        "rows": [
+            "B0",
+            "D4",
+            "D6",
+            "B7",
+            "B3"
+        ]
+    },
+    "ws2812": {
+        "pin": "F0"
+    }
+}
