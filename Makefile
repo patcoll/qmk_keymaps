@@ -195,8 +195,13 @@ qaz_rp2040: | qmk
 	mkdir -p ${QMK_HOME}/keyboards/qaz_rp2040
 	rsync -avz firmware/qaz_rp2040/ ${QMK_HOME}/keyboards/qaz_rp2040/
 
+.PHONY: tk40x
+tk40x: | qmk
+	mkdir -p ${QMK_HOME}/keyboards/lazydesigners/tk40x
+	rsync -avz firmware/lazydesigners/tk40x/ ${QMK_HOME}/keyboards/lazydesigners/tk40x/
+
 .PHONY: firmware
-firmware: | twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus 45_ats_hot plop embrace apricot sst60 orbital m0ii040pcb cutiepie paintbrush_avr bully monorail monorail2 cisne 3999 bully2040 grouper c11 serendipity haitun2040 infernum cool536lc qezberry oc3anograph3r cuticle qaz_rp2040
+firmware: | twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus 45_ats_hot plop embrace apricot sst60 orbital m0ii040pcb cutiepie paintbrush_avr bully monorail monorail2 cisne 3999 bully2040 grouper c11 serendipity haitun2040 infernum cool536lc qezberry oc3anograph3r cuticle qaz_rp2040 tk40x
 	echo firmware
 
 .PHONY: keymaps
