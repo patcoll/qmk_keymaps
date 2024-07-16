@@ -18,23 +18,23 @@ static bool key_trigger = false;
 
 /* extern keymap_config_t keymap_config; */
 
-#if defined(OS_DETECTION_ENABLE) && defined(DEFERRED_EXEC_ENABLE)
-os_variant_t os_type;
-
-uint32_t startup_detect_os(uint32_t trigger_time, void *cb_arg) {
-  if (is_keyboard_master()) {
-    os_type = detected_host_os();
-
-    if (os_type) {
-      bool is_mac = (os_type == OS_MACOS) || (os_type == OS_IOS);
-
-      set_mac_mode(is_mac);
-    }
-  }
-
-  return os_type ? 0 : 500;
-}
-#endif
+/* #if defined(OS_DETECTION_ENABLE) && defined(DEFERRED_EXEC_ENABLE) */
+/* os_variant_t os_type; */
+/*  */
+/* uint32_t startup_detect_os(uint32_t trigger_time, void *cb_arg) { */
+/*   if (is_keyboard_master()) { */
+/*     os_type = detected_host_os(); */
+/*  */
+/*     if (os_type) { */
+/*       bool is_mac = (os_type == OS_MACOS) || (os_type == OS_IOS); */
+/*  */
+/*       set_mac_mode(is_mac); */
+/*     } */
+/*   } */
+/*  */
+/*   return os_type ? 0 : 500; */
+/* } */
+/* #endif */
 
 void keyboard_post_init_user(void) {
 #ifdef CONSOLE_ENABLE
@@ -43,9 +43,9 @@ void keyboard_post_init_user(void) {
   /* debug_keyboard = true; */
 #endif
 
-#if defined(OS_DETECTION_ENABLE) && defined(DEFERRED_EXEC_ENABLE)
-  defer_exec(100, startup_detect_os, NULL);
-#endif
+/* #if defined(OS_DETECTION_ENABLE) && defined(DEFERRED_EXEC_ENABLE) */
+/*   defer_exec(100, startup_detect_os, NULL); */
+/* #endif */
 
   keyboard_post_init_keymap();
 }
