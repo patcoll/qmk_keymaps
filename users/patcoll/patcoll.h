@@ -9,11 +9,12 @@ enum userspace_layers {
   _NAV,
   // _NMC,
   _OSK,
+  _RAISE,
   _MEDIA,
   _MOUSE,
+
   _GLOWER,
   _LOWER,
-  _RAISE,
   _ADJUST,
   _BLANK1,
   _BLANK2,
