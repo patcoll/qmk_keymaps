@@ -4,7 +4,7 @@
 # Bootloader selection
 # BOOTLOADER = rp2040
 
-BOARD = GENERIC_RP_RP2040
+# BOARD = GENERIC_RP_RP2040
 
 #RP2040 Options
 ALLOW_WARNINGS = yes

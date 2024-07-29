@@ -1,1 +1,1 @@
-// #define OLED_FONT_H "detourfont.c"
+#define OLED_FONT_H "detourfont.c"
