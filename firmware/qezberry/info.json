@@ -21,7 +21,6 @@
         "command": false,
         "console": false,
         "extrakey": true,
-        "lto": false,
         "mousekey": true,
         "nkro": true,
         "rgblight": false,
