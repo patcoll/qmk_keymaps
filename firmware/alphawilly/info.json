@@ -1,0 +1,11 @@
+{
+    "manufacturer": "Kiser Designs",
+    "keyboard_name": "Alpha Willy",
+    "maintainer": "Kiser Designs",
+    "usb": {
+        "device_version": "0.0.1",
+        "pid": "0x4157",
+        "vid": "0x4B44"
+    },
+    "diode_direction": "COL2ROW"
+}

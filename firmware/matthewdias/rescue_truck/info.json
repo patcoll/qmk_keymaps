@@ -1,0 +1,13 @@
+{
+    "manufacturer": "Matthew Dias",
+    "keyboard_name": "Rescue Truck",
+    "maintainer": "Matthew Dias",
+    "usb": {
+        "device_version": "0.0.1",
+        "pid": "0x6D64",
+        "vid": "0x7274"
+    },
+    "diode_direction": "COL2ROW",
+    "bootloader": "atmel-dfu",
+    "processor": "atmega32u4"
+}

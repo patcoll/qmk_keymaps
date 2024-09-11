@@ -210,8 +210,23 @@ denali: | qmk
 	mkdir -p ${QMK_HOME}/keyboards/denali
 	rsync -avz firmware/denali/ ${QMK_HOME}/keyboards/denali/
 
+.PHONY: le_chiffre_32
+le_chiffre_32: | qmk
+	mkdir -p ${QMK_HOME}/keyboards/sporkus/le_chiffre_32
+	rsync -avz firmware/sporkus/le_chiffre_32/ ${QMK_HOME}/keyboards/sporkus/le_chiffre_32/
+
+.PHONY: rescue_truck
+rescue_truck: | qmk
+	mkdir -p ${QMK_HOME}/keyboards/matthewdias/rescue_truck
+	rsync -avz firmware/matthewdias/rescue_truck/ ${QMK_HOME}/keyboards/matthewdias/rescue_truck/
+
+.PHONY: alphawilly
+alphawilly: | qmk
+	mkdir -p ${QMK_HOME}/keyboards/alphawilly
+	rsync -avz firmware/alphawilly/ ${QMK_HOME}/keyboards/alphawilly/
+
 .PHONY: firmware
-firmware: | twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus 45_ats_hot plop embrace apricot sst60 orbital m0ii040pcb cutiepie paintbrush_avr bully monorail monorail2 cisne 3999 bully2040 grouper c11 serendipity haitun2040 infernum cool536lc qezberry oc3anograph3r cuticle qaz_rp2040 tk40x syndrome denali
+firmware: | twoyo-default minisub-default kawaii-default relic-default caravan2 menhir agony piedmont oxymoron ca66r3 curio alphalpha-plus 45_ats_hot plop embrace apricot sst60 orbital m0ii040pcb cutiepie paintbrush_avr bully monorail monorail2 cisne 3999 bully2040 grouper c11 serendipity haitun2040 infernum cool536lc qezberry oc3anograph3r cuticle qaz_rp2040 tk40x syndrome denali le_chiffre_32 rescue_truck alphawilly
 	echo firmware
 
 .PHONY: keymaps
