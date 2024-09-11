@@ -117,6 +117,7 @@ enum userspace_custom_keycodes {
 
 // #define AS_NO   MT(MOD_LALT | MOD_LSFT, KC_NO)
 
+// #define MO_CNV    LM(_NAV, MOD_RCTL)
 #define MO_CSNV    LM(_NAV, MOD_RCTL | MOD_LSFT)
 #define MO_LWR     MO(_LOWER)
 #define MO_RSE     MO(_RAISE)
