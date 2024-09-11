@@ -18,16 +18,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0x6F6A
-#define PRODUCT_ID      0x5336
-#define DEVICE_VER      0x0001
-#define MANUFACTURER    ojthetiny
-#define PRODUCT         sst60
+// #define VENDOR_ID       0x6F6A
+// #define PRODUCT_ID      0x5336
+// #define DEVICE_VER      0x0001
+// #define MANUFACTURER    ojthetiny
+// #define PRODUCT         sst60
 
 
 /* key matrix size */
-#define MATRIX_ROWS 5
-#define MATRIX_COLS 15
+// #define MATRIX_ROWS 5
+// #define MATRIX_COLS 15
 
 #define DEBUG_MATRIX_SCAN_RATE
 #define DEBUG_ACTION
@@ -46,10 +46,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* number of backlight levels */
 
 
-#define RGB_DI_PIN GP29
-#define DRIVER_LED_TOTAL 16
-#define RGBLED_NUM 16
-#define RGBLIGHT_LIMIT_VAL 173
+// #define RGB_DI_PIN GP29
+// #define DRIVER_LED_TOTAL 16
+// #define RGBLED_NUM 16
+// #define RGBLIGHT_LIMIT_VAL 173
 
 #define ENABLE_RGB_MATRIX_ALPHAS_MODS
 #define ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN
@@ -88,7 +88,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define ENABLE_RGB_MATRIX_MULTISPLASH
 #define ENABLE_RGB_MATRIX_SOLID_SPLASH
 #define ENABLE_RGB_MATRIX_SOLID_MULTISPLASH
-#define RGB_DISABLE_WHEN_USB_SUSPENDED
+// #define RGB_DISABLE_WHEN_USB_SUSPENDED
 #define RGB_MATRIX_KEYPRESSES
 
 #define VIA_CUSTOM_LIGHTING_ENABLE

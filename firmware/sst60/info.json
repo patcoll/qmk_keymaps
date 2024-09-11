@@ -1,0 +1,40 @@
+{
+  "keyboard_name": "sst60",
+  "manufacturer": "ojthetiny",
+  "processor": "RP2040",
+  "bootloader": "rp2040",
+  "usb": {
+    "vid": "0x6F6A",
+    "pid": "0x5336",
+    "device_version": "0.0.1"
+  },
+  "maintainer": "ojthetiny",
+  "features": {
+    "bootmagic": true,
+    "command": true,
+    "console": true,
+    "extrakey": true,
+    "mousekey": true,
+    "nkro": true,
+    "audio": false,
+    "backlight": false,
+    "rgblight": false,
+    "rgb_matrix": true,
+    "encoder": false
+  },
+  "rgb_matrix": {
+    "led_count": 16,
+    "max_brightness": 173,
+    "sleep": true,
+    "driver": "ws2812"
+  },
+  "ws2812": {
+    "driver": "vendor",
+    "pin": "GP29"
+  },
+  "diode_direction": "COL2ROW",
+  "matrix_pins": {
+      "cols": [ "GP21", "GP5", "GP4", "GP3", "GP2", "GP1", "GP0", "GP15", "GP14", "GP13", "GP12", "GP11", "GP10", "GP8", "GP9" ],
+      "rows": [ "GP28", "GP27", "GP20", "GP6", "GP7" ]
+  }
+}
