@@ -142,7 +142,8 @@
   #define NO_PRINT
 #endif // !NO_PRINT
 
-#define NO_ACTION_ONESHOT
+// turn off oneshot mods
+// #define NO_ACTION_ONESHOT
 
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET
 #undef RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT
