@@ -6,4 +6,6 @@
 # cd ${QMK_HOME} && git checkout ccda5d2d2f0b2e71e16d72636622743a68757b50 # 2023-10-14, with OS_DETECTION_ENABLE, apparently causes issues with LT combos defined in combos.def
 
 # qmk clone -b 0.22.13 qmk/qmk_firmware ${QMK_HOME}
-qmk clone -b 0.25.17 qmk/qmk_firmware ${QMK_HOME}
+qmk clone -b 0.25.22 qmk/qmk_firmware ${QMK_HOME} # 2024-08-30, started acting up with mods not triggering consistently or correctly on NAV layer, downgraded to test out
+
+# qmk clone -b vial vial-kb/vial-qmk ${QMK_HOME}
