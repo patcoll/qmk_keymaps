@@ -17,6 +17,7 @@ COMB(asdb_combo,   MOUSESCROLL,    CTL_A, KC_S, KC_D, KC_B)
 COMB(sdfb_combo,   MOUSESCROLL,    KC_S, KC_D, KC_F, KC_B)
 
 COMB(af_combo,   KC_LALT,    CTL_A, KC_F)
+COMB(av_combo,   KC_LALT,    CTL_A, KC_V)
 
 COMB(ga_zxc_combo,     GA_ZXC,         SFT_Z, GUI_X, ALT_C)
 
