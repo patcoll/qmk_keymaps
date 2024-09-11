@@ -73,7 +73,7 @@
   #define RGB_DISABLE_WHEN_USB_SUSPENDED true // turn off effects when suspended
   #define RGB_MATRIX_LED_FLUSH_LIMIT 16 // limits in milliseconds how frequently an animation will update the LEDs. 16 (16ms) is equivalent to limiting to 60fps (increases keyboard responsiveness)
   // #define RGB_MATRIX_MAXIMUM_BRIGHTNESS 125 // limits maximum brightness of LEDs to 125 out of 255. Higher may cause the controller to crash.
-  #define RGB_MATRIX_STARTUP_VAL RGB_MATRIX_MAXIMUM_BRIGHTNESS * 3/4
+  // #define RGB_MATRIX_STARTUP_VAL RGB_MATRIX_MAXIMUM_BRIGHTNESS * 3/4
   #undef RGB_MATRIX_HUE_STEP
   #define RGB_MATRIX_HUE_STEP 1
   #undef RGB_MATRIX_SAT_STEP
