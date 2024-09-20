@@ -17,7 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 
 //#include "config_common.h"
-#define RP2040_FLASH_GENERIC_03H
+/*#define RP2040_FLASH_GENERIC_03H*/
 
 /* key matrix size */
 #define MATRIX_ROWS 7
