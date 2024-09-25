@@ -45,7 +45,7 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     // Make this much harder to trigger, since it's a common letter combo.
     case af_combo:
     case av_combo:
-      return COMBO_TERM - 17;
+      return COMBO_TERM - 14;
 
   }
 
